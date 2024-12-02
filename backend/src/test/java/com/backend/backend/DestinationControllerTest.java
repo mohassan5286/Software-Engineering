@@ -117,8 +117,7 @@ public class DestinationControllerTest {
                             MockMvcRequestBuilders
                                     .get("/destination/get/all")
                                     .contentType(MediaType.APPLICATION_JSON))
-                    .andExpect(status().isOk())
-                    .andExpect();
+                    .andExpect(status().isOk());
         } catch (Exception e) {
             System.out.printf(e.getMessage());
         }
