@@ -123,4 +123,20 @@ public class DestinationControllerTest {
         }
 
     }
+    @Test
+    public void getRecordHappy1() {
+//      when find all is called -> return mocked destiantions
+//        Mockito.when(destinationRepository.findAll()).thenReturn(destinations);
+//      simulation of get request
+        try {
+            mockMvc.perform(
+                            MockMvcRequestBuilders
+                                    .get("/destination/get/674c62dba5aefbfed5092f62")
+                                    .contentType(MediaType.APPLICATION_JSON))
+                    .andExpect(status().isOk());
+        } catch (Exception e) {
+            System.out.printf(e.getMessage());
+        }
+
+    }
 }
