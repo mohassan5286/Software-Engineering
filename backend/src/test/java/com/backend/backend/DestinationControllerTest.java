@@ -20,12 +20,16 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MockMvcBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.is;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 //  run with mockito only
@@ -117,7 +121,8 @@ public class DestinationControllerTest {
                             MockMvcRequestBuilders
                                     .get("/destination/get/all")
                                     .contentType(MediaType.APPLICATION_JSON))
-                    .andExpect(status().isOk());
+                    .andExpect(status().isOk())
+                    .andExpect(MockMvcResultMatchers.jsonPath("$", hasSize(5)));
         } catch (Exception e) {
             System.out.printf(e.getMessage());
         }
@@ -133,7 +138,9 @@ public class DestinationControllerTest {
                             MockMvcRequestBuilders
                                     .get("/destination/get/674c62dba5aefbfed5092f62")
                                     .contentType(MediaType.APPLICATION_JSON))
-                    .andExpect(status().isOk());
+                    .andExpect(status().isOk())
+                    .andExpect(MockMvcResultMatchers.jsonPath("$", hasSize(1)))
+                    .andExpect(jsonPath("$.location", is("Malibu, California")));
         } catch (Exception e) {
             System.out.printf(e.getMessage());
         }
