@@ -15,7 +15,7 @@ public class DestinationService {
 
     // Query 1: Get all fields of a document by ID
     public Destination getDestinationById(String id) {
-        return destinationRepository.findById(id).get(); // Matches repository method name
+        return destinationRepository.findDestinationById(String id); // Matches repository method name
     }
 
     // Query 2: Get all documents with selected fields
