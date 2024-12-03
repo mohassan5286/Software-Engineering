@@ -1,6 +1,5 @@
-function getDestinationPageInformation(destination_name, setInformation, setDestinationName) {
-    const url = `http://localhost:8080?name=${encodeURIComponent(destination_name)}`;
-
+function getDestinationPageInformation(destination_name, setInformation, setDestinationName, id) {
+    const url = `http://localhost:8081/destination/get/${id}`;
     fetch(url)
         .then(res => {
             if (!res.ok) {
