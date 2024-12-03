@@ -1,11 +1,13 @@
 package com.backend.backend.Entity;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
 @Data
+@NoArgsConstructor
 public class Destination {
     @Id
     private String pid;

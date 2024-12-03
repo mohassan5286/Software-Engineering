@@ -7,6 +7,7 @@ import com.backend.backend.Service.DestinationService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import lombok.AllArgsConstructor;
+import org.hamcrest.core.IsNull;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -46,6 +47,9 @@ public class DestinationControllerTest {
 //    What we are going to mock
     @Mock
     private DestinationRepository destinationRepository;
+
+    @Mock
+    private DestinationService destinationService;
 
 //  Destination Book is accepting DestinationRepository as a mock
     @InjectMocks
@@ -111,39 +115,50 @@ public class DestinationControllerTest {
         this.mockMvc = MockMvcBuilders.standaloneSetup(destinationController).build();
     }
 
+@Test
+public void getAllRecordsAPIHappy1() throws Exception {
+    // Arrange
+    Mockito.when(destinationService.getDestinationAll()).thenReturn(destinations);
+
+    // Act
+    mockMvc.perform(MockMvcRequestBuilders.get("/destination/get/all")
+                    .contentType(MediaType.APPLICATION_JSON))
+    // Assert
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$", hasSize(5)));
+}
+
     @Test
-    public void getAllRecordsHappy1() {
-//      when find all is called -> return mocked destiantions
-//        Mockito.when(destinationRepository.findAll()).thenReturn(destinations);
-//      simulation of get request
-        try {
-            mockMvc.perform(
-                            MockMvcRequestBuilders
-                                    .get("/destination/get/all")
-                                    .contentType(MediaType.APPLICATION_JSON))
-                    .andExpect(status().isOk())
-                    .andExpect(MockMvcResultMatchers.jsonPath("$", hasSize(5)));
-        } catch (Exception e) {
-            System.out.printf(e.getMessage());
-        }
+    public void getRecordAPIHappy1() throws Exception {
+        // Arrange
+        Mockito.when(destinationService.getDestinationById("0"))
+                .thenReturn(destinations.get(0)); // Return the first destination
+
+        // Act
+        mockMvc.perform(
+                        MockMvcRequestBuilders.get("/destination/get/0")
+                                .contentType(MediaType.APPLICATION_JSON))
+        // Assert
+                .andExpect(status().isOk()) // Expect HTTP 200
+                .andExpect(jsonPath("$.location", is("Malibu, California"))); // Check specific field
+
 
     }
+
     @Test
-    public void getRecordHappy1() {
-//      when find all is called -> return mocked destiantions
-//        Mockito.when(destinationRepository.findAll()).thenReturn(destinations);
-//      simulation of get request
-        try {
-            mockMvc.perform(
-                            MockMvcRequestBuilders
-                                    .get("/destination/get/674c62dba5aefbfed5092f62")
-                                    .contentType(MediaType.APPLICATION_JSON))
-                    .andExpect(status().isOk())
-                    .andExpect(MockMvcResultMatchers.jsonPath("$", hasSize(1)))
-                    .andExpect(jsonPath("$.location", is("Malibu, California")));
-        } catch (Exception e) {
-            System.out.printf(e.getMessage());
-        }
+    public void getRecordAPISad1() throws Exception {
+        // Arrange
+        Mockito.when(destinationService.getDestinationById("-1"))
+                .thenReturn(new Destination()); // Simulate no record found
+
+        // Act
+        mockMvc.perform(
+                        MockMvcRequestBuilders.get("/destination/get/-1")
+                                .contentType(MediaType.APPLICATION_JSON))
+        // Assert
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.title").value(IsNull.nullValue()));
 
     }
+
 }
