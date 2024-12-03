@@ -21,15 +21,15 @@ public class Destination {
     private String tourism_type;
     private String event;
 
-    public Destination(String title, String location, String description, String photo_Url, Double price, Double rating, Integer no_of_reviews, String tourism_type, String event) {
+    public Destination(String title, String location, String event, String description, String photoUrl, double price, double rating, int noOfReviews, String tourismType) {
         this.title = title;
         this.location = location;
+        this.event = event;
         this.description = description;
-        this.photo_Url = photo_Url;
+        this.photo_Url = photoUrl;
         this.price = price;
         this.rating = rating;
-        this.no_of_reviews = no_of_reviews;
-        this.tourism_type = tourism_type;
-        this.event = event;
+        this.no_of_reviews = noOfReviews;
+        this.tourism_type = tourismType;
     }
 }
