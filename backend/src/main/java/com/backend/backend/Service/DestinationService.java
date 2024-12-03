@@ -28,4 +28,14 @@ public class DestinationService {
     public List<Destination> getDestinationAll() {
         return destinationRepository.findAll();
     }
+
+    // Query 2: Get all documents with selected fields
+    public List<Destination> getAllDestinationsWithSelectedFields() {
+        return destinationRepository.findAllWithSpecificFields(); // Matches repository method name
+    }
+
+    // Query 3: Get all documents of a specific category with selected fields
+    public List<Destination> getDestinationsByCategoryWithSelectedFields(String tourismType) {
+        return destinationRepository.findByTourismTypeWithSpecificFields(tourismType); // Matches repository method name
+    }
 }
