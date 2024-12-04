@@ -1,24 +1,35 @@
 package com.backend.backend.Entity;
 
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
-@Data
+//@Data
 @NoArgsConstructor
 public class Destination {
-    @Id
+    @Id @Getter @Setter
     private String pid;
+    @Getter @Setter
     private String title;
+    @Getter @Setter
     private String location;
+    @Getter @Setter
     private String description;
+    @Getter @Setter
     private String photo_Url;
+    @Getter @Setter
     private Double price;
+    @Getter @Setter
     private Double rating;
+    @Getter @Setter
     private Integer no_of_reviews;
+    @Getter @Setter
     private String tourism_type;
+    @Getter @Setter
     private String event;
 
     public Destination(String title, String location, String event, String description, String photoUrl, double price, double rating, int noOfReviews, String tourismType) {
@@ -31,5 +42,9 @@ public class Destination {
         this.rating = rating;
         this.no_of_reviews = noOfReviews;
         this.tourism_type = tourismType;
+    }
+
+    public String getTitle() {
+        return this.title;
     }
 }
