@@ -8,7 +8,17 @@ function App() {
   // Path the setDestinationName function to the card component
   const [destination_name, setDestinationName] = useState("");
   // Path the setinformation function to the card component
-  const [information, setInformation] = useState(None);
+  const [information, setInformation] = useState({
+    "photo_Url": "",
+    "title": "",
+    "location": "",
+    "tourism_type": "",
+    "description": "",
+    "event": "",
+    "price": "",
+    "rating": "",
+    "no_of_reviews": ""
+  });
 
   return (
     <Router>
