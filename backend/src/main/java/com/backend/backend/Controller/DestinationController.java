@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+
 @RestController
 @RequestMapping("/destination")
+@CrossOrigin(value = "http://localhost:3000/")
 @AllArgsConstructor
 public class DestinationController {
     private DestinationService destinationService;
