@@ -6,7 +6,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
-@Data
+//@Data
 @NoArgsConstructor
 public class Destination {
     @Id
@@ -31,5 +31,9 @@ public class Destination {
         this.rating = rating;
         this.no_of_reviews = noOfReviews;
         this.tourism_type = tourismType;
+    }
+
+    public String getTitle() {
+        return this.title;
     }
 }
