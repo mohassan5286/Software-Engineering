@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import useDestinationPageInformation from '../GetDestinationPageInformation.js'; // Adjust the import path
 
 const ProductCard = ({ 
+  
   id, 
   image, 
   price, 
@@ -11,6 +12,7 @@ const ProductCard = ({
   description, 
   setDestinationName, 
   setInformation 
+
 }) => {
   const [isHovered, setIsHovered] = useState(false);
 
