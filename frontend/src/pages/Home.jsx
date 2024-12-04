@@ -12,7 +12,7 @@ export default function Home({ setDestinationName, setInformation }) {
   
   // Fetch destinations from backend when the component mounts
   useEffect(() => {
-    fetch("https://your-backend-url.com/api/destinations")
+    fetch("http://localhost:8081/destination/get/all")
       .then((response) => response.json())
       .then((data) => setDestinations(data))
       .catch((error) => console.error("Error fetching destinations:", error));
@@ -20,7 +20,7 @@ export default function Home({ setDestinationName, setInformation }) {
 
   // Filter destinations by tourism type
   const filterDestinations = (type) =>
-    destinations.filter((destination) => destination.tourismType === type);
+    destinations.filter((destination) => destination.tourism_type === type);
 
   const religiousDestinations = filterDestinations("Religious");
   const medicalDestinations = filterDestinations("Medical");
@@ -83,7 +83,7 @@ function NextArrow(props) {
       style={{ ...style, display: "block", right: "10px", color: "blue", zIndex: 1 }}
       onClick={onClick}
     >
-      <i className="fas fa-chevron-right"></i>
+      <i className="fas fa-chevron-right">go</i>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import useDestinationPageInformation from 'D:/downloads/Software Engineering 2/Software-Engineering/frontend/src/GetDestinationPageInformation.js'; // Adjust the import path
+import useDestinationPageInformation from '../GetDestinationPageInformation.js'; // Adjust the import path
 
 const ProductCard = ({ 
   id, 
