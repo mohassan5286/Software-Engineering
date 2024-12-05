@@ -10,7 +10,7 @@ public interface DestinationRepository extends MongoRepository<Destination, Stri
     @Query("{ '_id': ?0 }")
     Destination findDestinationById(String id);
 
-    @Query(value = "{}", fields = "{'title': 1, 'photoUrl': 1, 'price': 1, 'location': 1, 'rating': 1, 'description': 1}")
+    @Query("{}")
     List<Destination> findAllWithSpecificFields();
 
     @Query(value = "{ 'tourism_type': ?0 }", fields = "{'title': 1, 'photoUrl': 1, 'price': 1, 'location': 1, 'rating': 1, 'description': 1}")
