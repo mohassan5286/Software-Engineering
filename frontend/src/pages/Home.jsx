@@ -14,11 +14,7 @@ export default function Home({ setDestinationName, setInformation }) {
   useEffect(() => {
     fetch("http://localhost:8081/destination/get/all")
       .then((response) => response.json())
-      .then((data) => {
-        setDestinations(data);
-        console.log(data)
-      }
-    )
+      .then((data) => setDestinations(data))
       .catch((error) => console.error("Error fetching destinations:", error));
   }, []);
 
@@ -63,9 +59,9 @@ export default function Home({ setDestinationName, setInformation }) {
         <div className="mb-8" key={index}>
           <h1 className="text-2xl font-bold mb-4">{category.title}</h1>
           <Slider {...settings}>
-            {category.data.map((product, id) => (
+            {category.data.map((product) => (
               <ProductCard
-                key={id}
+                key={product.id}
                 {...product}
                 setDestinationName={setDestinationName}
                 setInformation={setInformation}
@@ -87,7 +83,7 @@ function NextArrow(props) {
       style={{ ...style, display: "block", right: "10px", color: "blue", zIndex: 1 }}
       onClick={onClick}
     >
-      <i className="fas fa-chevron-right"></i>
+      <i className="fas fa-chevron-right">go</i>
     </div>
   );
 }
