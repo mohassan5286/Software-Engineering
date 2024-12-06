@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import useDestinationPageInformation from '../GetDestinationPageInformation.js'; // Adjust the import path
 
 const ProductCard = ({ 
@@ -15,10 +15,10 @@ const ProductCard = ({
 
 }) => {
   const [isHovered, setIsHovered] = useState(false);
+
+  // Use the custom hook to get the function for fetching destination information
   const { getDestinationPageInformation } = useDestinationPageInformation();
-  useEffect(() => {
-    // console.log(id, image, price, name, rating,   location, description)
-  },[]);
+
   const cardStyle = {
     border: '1px solid #ccc',
     borderRadius: '8px',
@@ -51,26 +51,26 @@ const ProductCard = ({
     borderRadius: '4px',
     transition: 'background-color 0.3s ease',
   };
+
   const handleSeeMore = () => {
-    getDestinationPageInformation(title, setInformation, setDestinationName, id);
+    getDestinationPageInformation(name, setInformation, setDestinationName, id);
   };
+
   return (
-    <div onClick={() => {
-      console.log("you clicked it :)");
-    }} style={cardStyle}>
-      <h2>{title}</h2>
-      <img src={photo_Url} alt={title} style={imgStyle} />
+    <div style={cardStyle}>
+      <h2>{name}</h2>
+      <img src={image} alt={name} style={imgStyle} />
       <p style={priceStyle}>Price: ${price}</p>
-      <p>destination: {location}</p>
-      <p>{rating}</p>
-      <p> {description}</p>
+      <p>Destination: {location}</p>
+      <p>Rating: {rating}</p>
+      <p>Description: {description}</p>
       <button
         style={buttonStyle}
         onMouseEnter={() => setIsHovered(true)} // Set hover state on mouse enter
         onMouseLeave={() => setIsHovered(false)} // Reset hover state on mouse leave
-        onClick={handleSeeMore}     
-        >
-        See more..
+        onClick={handleSeeMore} // Call the function on click
+      >
+        See More
       </button>
     </div>
   );

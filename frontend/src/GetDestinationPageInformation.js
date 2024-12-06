@@ -3,9 +3,8 @@ import { useNavigate } from 'react-router-dom';
 function useDestinationPageInformation() {
   const navigate = useNavigate();
 
-  const getDestinationPageInformation = (destination_name, setInformation, setDestinationName, pid) => {
-    console.log("p", pid);
-    const url = `http://localhost:8081/destination/get/${"674f56cca02d3de66bcaebd4"}`;
+  const getDestinationPageInformation = (destination_name, setInformation, setDestinationName, id) => {
+    const url = `http://localhost:8081/destination/get/${"674f56cca02d3de66bcaebcf"}`;
     
     fetch(url)
       .then(res => {
