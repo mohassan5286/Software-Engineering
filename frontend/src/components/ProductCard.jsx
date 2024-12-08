@@ -3,15 +3,15 @@ import useDestinationPageInformation from '../GetDestinationPageInformation.js';
 
 const ProductCard = ({ 
   
-  id, 
-  image, 
-  price, 
-  name, 
-  rating, 
-  location, 
-  description, 
-  setDestinationName, 
-  setInformation 
+  description,
+  event,
+  pid,
+  location,
+  no_of_reviews,
+  photo_Url, // Changed from image to photoUrl
+  price,
+  rating,
+  title,
 
 }) => {
   const [isHovered, setIsHovered] = useState(false);
