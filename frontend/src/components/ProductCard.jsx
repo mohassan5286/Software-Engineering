@@ -1,19 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import useDestinationPageInformation from '../GetDestinationPageInformation.js'; // Adjust the import path
 
-const ProductCard = ({ 
-  
-  description,
+// const ProductCard = ({ id, image, price, name, rating, location, description, setDestinationName, 
+const ProductCard = ({   description,
   event,
-  pid,
+  id,
   location,
   no_of_reviews,
   photo_Url, // Changed from image to photoUrl
   price,
   rating,
-  title,
-
-}) => {
+  title, setDestinationName, 
+  setInformation  }) => {
   const [isHovered, setIsHovered] = useState(false);
   const { getDestinationPageInformation } = useDestinationPageInformation();
   useEffect(() => {
