@@ -10,9 +10,7 @@
   "price": 120,
   "rating": 4.8,
   "no_of_reviews": 500,
-  "tourism_type": [
-    "Historical"
-  ]
+  "tourism_type": "Historical"
 },
 {
   "_id": {
@@ -26,10 +24,7 @@
   "price": 180,
   "rating": 4.9,
   "no_of_reviews": 400,
-  "tourism_type": [
-    "Historical",
-    "Adventure"
-  ]
+  "tourism_type": "Historical/Adventure"
 },
 {
   "_id": {
@@ -43,9 +38,7 @@
   "price": 250,
   "rating": 4.7,
   "no_of_reviews": 600,
-  "tourism_type": [
-    "Cultural"
-  ]
+  "tourism_type": "Cultural"
 },
 {
   "_id": {
@@ -59,10 +52,7 @@
   "price": 300,
   "rating": 4.9,
   "no_of_reviews": 400,
-  "tourism_type": [
-    "Historical",
-    "Adventure"
-  ]
+  "tourism_type": "Nature"
 },
 {
   "_id": {
@@ -76,9 +66,7 @@
   "price": 200,
   "rating": 4.8,
   "no_of_reviews": 350,
-  "tourism_type": [
-    "Cultural"
-  ]
+  "tourism_type": "Cultural"
 },
 {
   "_id": {
@@ -92,9 +80,7 @@
   "price": 500,
   "rating": 4.9,
   "no_of_reviews": 200,
-  "tourism_type": [
-    "Adventure"
-  ]
+  "tourism_type": "Medical"
 },
 {
   "_id": {
@@ -108,9 +94,7 @@
   "price": 150,
   "rating": 4.8,
   "no_of_reviews": 550,
-  "tourism_type": [
-    "Cultural"
-  ]
+  "tourism_type": "Sports"
 },
 {
   "_id": {
@@ -124,9 +108,7 @@
   "price": 220,
   "rating": 4.7,
   "no_of_reviews": 300,
-  "tourism_type": [
-    "Cultural"
-  ]
+  "tourism_type": "Cultural"
 },
 {
   "_id": {
@@ -140,10 +122,7 @@
   "price": 50,
   "rating": 4.7,
   "no_of_reviews": 600,
-  "tourism_type": [
-    "Cultural",
-    "Adventure"
-  ]
+  "tourism_type": "Religious"
 },
 {
   "_id": {
@@ -157,7 +136,5 @@
   "price": 300,
   "rating": 4.9,
   "no_of_reviews": 320,
-  "tourism_type": [
-    "Romantic"
-  ]
+  "tourism_type": "Coastal"
 }]
