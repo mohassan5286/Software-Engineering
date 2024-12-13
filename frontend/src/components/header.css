@@ -2,14 +2,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
 :root {
-    /* Color Palette Inspired by Travel and Exploration */
-    --primary-color: #1A5F7A;      /* Deep Teal - Represents depth and stability */
-    --secondary-color: #159895;    /* Vibrant Teal - Symbolizes adventure */
-    --accent-color: #57C5B6;       /* Soft Turquoise - Represents tranquility */
-    --background-color: #F8F9FA;   /* Light Gray - Clean, professional background */
-    --text-color: #2C3E50;         /* Dark Slate Gray - Readable, sophisticated text */
-    --hover-color: #11998e;        /* Deeper teal for interactions */
+    --primary-color: #1A5F7A;
+    --secondary-color: #159895;
+    --accent-color: #57C5B6;
+    --background-color: #F8F9FA;
+    --text-color: #2C3E50;
+    --hover-color: #0e8278;
     --white: #FFFFFF;
+    --font-size-base: 16px;
+    --font-size-large: 18px;
+    --font-size-small: 14px;
 }
 
 header {
@@ -22,13 +24,12 @@ header {
 }
 
 .site-header {
-    background: linear-gradient(
-        90deg, 
-        var(--primary-color) 0%, 
-        var(--secondary-color) 100%
-    );
+    display: flex;
+    align-items: center;
+    background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     color: var(--white);
     padding: 1rem 2rem;
+    position: relative;
 }
 
 .site-identity {
@@ -52,6 +53,7 @@ header {
 
 .site-identity h1 a {
     color: var(--white);
+    font-size: var(--font-size-large);
     font-weight: 600;
     transition: color 0.3s ease;
 }
@@ -60,9 +62,19 @@ header {
     color: var(--accent-color);
 }
 
+.site-navigation {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: 3%;
+    order: 2; /* Place site navigation after site identity */
+}
+
 .search-container {
     display: flex;
     align-items: center;
+    order: 3; /* Move the search bar to the far right */
+    margin-left: auto
 }
 
 input {
@@ -70,9 +82,10 @@ input {
     height: 40px;
     padding: 0 15px;
     border: 2px solid var(--accent-color);
-    border-radius: 25px;
+    border-radius: 25px 0 0 25px;
     background-color: var(--white);
     color: var(--text-color);
+    font-size: var(--font-size-base);
     transition: all 0.3s ease;
 }
 
@@ -108,9 +121,10 @@ button:hover {
     text-decoration: none;
     display: flex;
     align-items: center;
-    padding: 10px;
+    padding: 10px 15px;
     border-radius: 5px;
     transition: all 0.3s ease;
+    font-size: var(--font-size-base);
 }
 
 .header-links li a:hover {
@@ -123,8 +137,20 @@ button:hover {
     color: var(--accent-color);
 }
 
+/* Hamburger Icon for Mobile */
+.menu-icon {
+    display: none;
+    font-size: 30px;
+    color: var(--white);
+    cursor: pointer;
+}
+
+.menu-icon:hover {
+    color: var(--accent-color);
+}
+
 /* Responsive Adjustments */
-@media (max-width: 1200px) {
+@media (max-width: 768px) {
     .site-header {
         flex-direction: column;
         text-align: center;
@@ -133,10 +159,28 @@ button:hover {
     .header-links {
         flex-wrap: wrap;
         justify-content: center;
+        width: 100%;
+        display: none;
+        margin-top: 20px;
+    }
+
+    .header-links li a {
+        font-size: var(--font-size-small);
+        padding: 8px;
+        text-align: center;
+    }
+
+    .header-links.show {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .menu-icon {
+        display: block;
     }
 }
 
-/* Additional Decorative Elements */
+/* Decorative Elements */
 .site-header::before {
     content: '';
     position: absolute;
@@ -144,10 +188,5 @@ button:hover {
     left: 0;
     width: 100%;
     height: 4px;
-    background: linear-gradient(
-        to right, 
-        var(--primary-color), 
-        var(--secondary-color), 
-        var(--accent-color)
-    );
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color), var(--accent-color));
 }

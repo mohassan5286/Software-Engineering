@@ -2,46 +2,40 @@ import React, { useState, useEffect } from "react";
 import ProductCard from "../components/ProductCard";
 import Slider from "react-slick";
 import "./Home.css";
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import '@fortawesome/fontawesome-free/css/all.min.css';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
-export default function Home({ setDestinationName, setInformation }) {
-  // State to hold destinations data
+export default function Home({ setId, setInformation }) {
   const [destinations, setDestinations] = useState([]);
-  
-  // Fetch destinations from backend when the component mounts
-  useEffect(() => {
+
+  useEffect(() => {  
     fetch("http://localhost:8081/destination/get/all")
       .then((response) => response.json())
-      .then((data) => {
-        setDestinations(data);
-        console.log(data)
-      }
-    )
+      .then(setDestinations)
       .catch((error) => console.error("Error fetching destinations:", error));
   }, []);
 
-  // Filter destinations by tourism type
   const filterDestinations = (type) =>
     destinations.filter((destination) => destination.tourism_type === type);
 
-  const religiousDestinations = filterDestinations("Religious");
-  const medicalDestinations = filterDestinations("Medical");
-  const culturalDestinations = filterDestinations("Cultural");
-  const natureDestinations = filterDestinations("Nature");
-  const coastalDestinations = filterDestinations("Coastal");
-  const sportsDestinations = filterDestinations("Sports");
+  const tourismCategories = [
+    { title: "Religious Tourism 🕌", data: filterDestinations("Religious") },
+    { title: "Medical Tourism 🩺", data: filterDestinations("Medical") },
+    { title: "Cultural Tourism 🗽", data: filterDestinations("Cultural") },
+    { title: "Nature Tourism 🌋", data: filterDestinations("Nature") },
+    { title: "Coastal Tourism 🌊", data: filterDestinations("Coastal") },
+    { title: "Sports Tourism ⚽", data: filterDestinations("Sports") },
+  ];
 
-  // Slider settings
-  const settings = {
+  const sliderSettings = {
     dots: true,
     infinite: false,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
+    nextArrow: <Arrow direction="right" />,
+    prevArrow: <Arrow direction="left" />,
     responsive: [
       { breakpoint: 1024, settings: { slidesToShow: 3, slidesToScroll: 1 } },
       { breakpoint: 600, settings: { slidesToShow: 2, slidesToScroll: 1 } },
@@ -51,23 +45,20 @@ export default function Home({ setDestinationName, setInformation }) {
 
   return (
     <div className="p-4">
-      {/* Render tourism categories with Slider */}
-      {[
-        { title: "Religious Tourism 🕌", data: religiousDestinations },
-        { title: "Medical Tourism 🩺", data: medicalDestinations },
-        { title: "Cultural Tourism 🗽", data: culturalDestinations },
-        { title: "Nature Tourism 🌋", data: natureDestinations },
-        { title: "Coastal Tourism 🌊", data: coastalDestinations },
-        { title: "Sports Tourism ⚽", data: sportsDestinations },
-      ].map((category, index) => (
+      {tourismCategories.map((category, index) => (
         <div className="mb-8" key={index}>
-          <h1 className="text-2xl font-bold mb-4">{category.title}</h1>
-          <Slider {...settings}>
-            {category.data.map((product, id) => (
+          <h2 className="text-2xl font-bold mb-4">{category.title}</h2>
+          <Slider {...sliderSettings}>
+            {category.data.map((product) => (
               <ProductCard
-                key={id}
-                {...product}
-                setDestinationName={setDestinationName}
+                key={product.pid}
+                pid={product.pid}
+                location={product.location}
+                photo_Url={product.photo_Url}
+                price={product.price}
+                rating={product.rating}
+                title={product.title}
+                setId={setId}
                 setInformation={setInformation}
               />
             ))}
@@ -78,29 +69,25 @@ export default function Home({ setDestinationName, setInformation }) {
   );
 }
 
-// Custom Arrow Components
-function NextArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{ ...style, display: "block", right: "10px", color: "blue", zIndex: 1 }}
-      onClick={onClick}
-    >
-      <i className="fas fa-chevron-right"></i>
-    </div>
-  );
-}
+function Arrow({ direction, ...props }) {
+  const positionStyle =
+    direction === "right" ? { right: "10px" } : { left: "10px" };
 
-function PrevArrow(props) {
-  const { className, style, onClick } = props;
   return (
     <div
-      className={className}
-      style={{ ...style, display: "block", left: "10px", color: "blue", zIndex: 1 }}
-      onClick={onClick}
+      {...props}
+      style={{
+        ...props.style,
+        ...positionStyle,
+        display: "block",
+        color: "blue",
+        zIndex: 1,
+      }}
     >
-      <i className="fas fa-chevron-left"></i>
+      <i
+        className={`fas fa-chevron-${direction}`}
+        style={{ fontSize: "20px" }}
+      ></i>
     </div>
   );
 }

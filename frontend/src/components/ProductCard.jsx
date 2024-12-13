@@ -1,74 +1,75 @@
-import React, { useState, useEffect } from 'react';
-import useDestinationPageInformation from '../GetDestinationPageInformation.js'; // Adjust the import path
+import React, { useState } from 'react';
+import useDestinationPageInformation from '../GetDestinationPageInformation.js';
 
-// const ProductCard = ({ id, image, price, name, rating, location, description, setDestinationName, 
-const ProductCard = ({   description,
-  event,
-  id,
+const ProductCard = ({
+  pid,
   location,
-  no_of_reviews,
-  photo_Url, // Changed from image to photoUrl
+  photo_Url,
   price,
   rating,
-  title, setDestinationName, 
-  setInformation  }) => {
+  title,
+  setId,
+  setInformation,
+}) => {
   const [isHovered, setIsHovered] = useState(false);
   const { getDestinationPageInformation } = useDestinationPageInformation();
-  useEffect(() => {
-    // console.log(id, image, price, name, rating,   location, description)
-  },[]);
-  const cardStyle = {
-    border: '1px solid #ccc',
-    borderRadius: '8px',
-    padding: '16px',
-    margin: "30px",
-    maxWidth: '300px',
-    color: "black",
-    textAlign: 'center',
-    background: "white",
-    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-  };
 
-  const imgStyle = {
-    width: '100%',
-    height: '220px',
-    borderRadius: '8px',
-  };
-
-  const priceStyle = {
-    fontWeight: 'bold',
-    color: '#4CAF50',
-  };
-
-  const buttonStyle = {
-    cursor: 'pointer',
-    padding: '8px 16px',
-    backgroundColor: isHovered ? '#4CAF50' : '#007BFF',  // Changes color on hover
-    color: 'white',
-    border: 'none',
-    borderRadius: '4px',
-    transition: 'background-color 0.3s ease',
-  };
   const handleSeeMore = () => {
-    getDestinationPageInformation(title, setInformation, setDestinationName, id);
+    getDestinationPageInformation(setInformation, setId, pid);
   };
+
   return (
-    <div onClick={() => {
-      console.log("you clicked it :)");
-    }} style={cardStyle}>
+    <div
+      style={{
+        border: '1px solid #ccc',
+        borderRadius: '8px',
+        padding: '16px',
+        margin: '30px',
+        maxWidth: '3000px',
+        color: 'black',
+        textAlign: 'center',
+        background: 'white',
+        boxShadow: '0 4px 8px rgba(0, 0, 0, 1)',
+      }}
+    >
       <h2>{title}</h2>
-      <img src={photo_Url} alt={title} style={imgStyle} />
-      <p style={priceStyle}>Price: ${price}</p>
-      <p>destination: {location}</p>
-      <p>{rating}</p>
-      <p> {description}</p>
+      <img
+        src={photo_Url}
+        alt={title}
+        style={{
+          width: '100%',
+          height: '220px',
+          borderRadius: '8px',
+        }}
+      />
+      <div style={{ textAlign: 'left', marginTop: '10px' }}>
+        <p style={{ fontWeight: 'bold' }}>
+          Price: <span style={{ fontWeight: 'normal' }}>${price}</span>
+        </p>
+        <p style={{ fontWeight: 'bold' }}>
+          Destination: <span style={{ fontWeight: 'normal' }}>{location}</span>
+        </p>
+        <p style={{ fontWeight: 'bold' }}>
+          Rating: <span style={{ fontWeight: 'normal' }}>{rating}</span>
+        </p>
+      </div>
       <button
-        style={buttonStyle}
-        onMouseEnter={() => setIsHovered(true)} // Set hover state on mouse enter
-        onMouseLeave={() => setIsHovered(false)} // Reset hover state on mouse leave
-        onClick={handleSeeMore}     
-        >
-        See more..
+        style={{
+          cursor: 'pointer',
+          padding: '8px 16px',
+          marginTop: '5%',
+          width: "40%",
+          backgroundColor: isHovered ? '#4CAF50' : '#007BFF',
+          color: 'white',
+          border: 'none',
+          borderRadius: '4px',
+          transition: 'background-color 0.3s ease',
+        }}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        onClick={handleSeeMore}
+      >
+        View More Details
       </button>
     </div>
   );
