@@ -1,9 +1,9 @@
-/* .destination-page-information {
+.destination-page-information {
   position: fixed;
   bottom: 20px;
   right: 20px;
   width: 40vw;
-  height: 90vh;
+  height: 85vh;
   border: 1px solid rgb(166, 166, 166);
   border-radius: 10px;
   box-shadow: 10px 10px 15px black;
@@ -12,8 +12,6 @@
   overflow: hidden;
   font-family: cursive; 
 }
-
-
 
 .destination-page-image {
   width: 100%;
@@ -32,36 +30,11 @@
 }
 
 .destination-page-title {
-  margin: 10px 0 50px;
+  margin: 10px 0 30px;
   font-size: 1.5em;
   font-weight: bold;
 }
 
-.navbar {
-  display: flex;
-  align-items: center;
-  height: 60px;
-  padding: 0 20px;
-  background-color: #333;
-  color: white;
-  font-family: 'Roboto', sans-serif;
-  font-size: 1.5rem;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-}
-
-.navbar-brand {
-  font-weight: 700;
-  color: white;
-  text-shadow: 2px 2px black;
-  text-transform: uppercase;
-  text-decoration: none;
-}
- */
 
  /* Global.css */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');

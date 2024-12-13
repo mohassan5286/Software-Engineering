@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css'
 import Header from './components/Header.jsx'
@@ -7,7 +6,7 @@ import Login from './pages/Login.jsx'
 import Nopage from './pages/Nopage.jsx';
 import Cart from './pages/Cart.jsx';
 import Signup from "./pages/Signup.jsx"
-import Productpage from './pages/Productpage';
+
 function App() {
   
 
@@ -28,7 +27,6 @@ function App() {
         <Route path="/orders" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/*" element={<Nopage />} />
-        
       
     </Routes>
   </BrowserRouter>
