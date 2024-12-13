@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import useDestinationPageInformation from '../GetDestinationPageInformation.js';
 
 const ProductCard = ({
@@ -12,6 +13,8 @@ const ProductCard = ({
   setInformation,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
+
+  // Use the custom hook to get the function for fetching destination information
   const { getDestinationPageInformation } = useDestinationPageInformation();
 
   const handleSeeMore = () => {

@@ -27,7 +27,6 @@ public class Destination {
     private Double rating;
     @Getter @Setter
     private Integer no_of_reviews;
-
     @Getter @Setter
     private String tourism_type;
     @Getter @Setter
