@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 function useDestinationPageInformation() {
   const navigate = useNavigate();
 
-  const getDestinationPageInformation = (destination_name, setInformation, setDestinationName, id) => {
-    const url = `http://localhost:8081/destination/get/${"674f56cca02d3de66bcaebcf"}`;
+  const getDestinationPageInformation = (setInformation, setId, pid) => {
+    const url = `http://localhost:8081/destination/get/${pid}`;
     
     fetch(url)
       .then(res => {
@@ -15,10 +15,9 @@ function useDestinationPageInformation() {
       })
       .then(data => {
         setInformation(data);
-        setDestinationName(destination_name);
+        setId(pid);
 
-        // Navigate to the destination page using navigate
-        navigate(`/destination-page/${destination_name}`);
+        navigate(`/destination-page/${pid}`);
       })
       .catch(error => {
         console.error("Error fetching destination page information:", error);
