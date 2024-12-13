@@ -1,6 +1,8 @@
 package com.backend.backend.Controller;
 
 import com.backend.backend.Entity.Destination;
+import com.backend.backend.Repository.DestinationRepository;
+import com.backend.backend.Service.DestinationService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
