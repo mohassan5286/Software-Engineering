@@ -25,24 +25,24 @@ public class BackendApplication {
 		SpringApplication.run(BackendApplication.class, args);
 	}
 
-	@Bean
-	CommandLineRunner runner(BookingRepository bookingRepository, NormalUserRepository normalUserRepository) {
-		return args -> {
-			// Create and save a Booking object
-			Booking booking = new Booking();
-			booking.setPid("P123");
-			booking.setUid("U456");
-			booking.setBookingDate(new Date());  // Adjust the Date as necessary
-			booking.setStatus("Confirmed");
-			booking.setNo_of_persons(2);
-
-			bookingRepository.save(booking);
-
-			// Create a NormalUser with a booking history
-			NormalUser normalUser = new NormalUser("John Doe", "johndoe@example.com", "U456", Arrays.asList(booking));
-
-			normalUserRepository.save(normalUser);
-		};
-	}
+//	@Bean
+//	CommandLineRunner runner(BookingRepository bookingRepository, NormalUserRepository normalUserRepository) {
+//		return args -> {
+//			// Create and save a Booking object
+//			Booking booking = new Booking();
+//			booking.setPid("P123");
+//			booking.setUid("U456");
+//			booking.setBookingDate(new Date());  // Adjust the Date as necessary
+//			booking.setStatus("Confirmed");
+//			booking.setNo_of_persons(2);
+//
+//			bookingRepository.save(booking);
+//
+//			// Create a NormalUser with a booking history
+//			NormalUser normalUser = new NormalUser("John Doe", "johndoe@example.com", "U456", Arrays.asList(booking));
+//
+//			normalUserRepository.save(normalUser);
+//		};
+//	}
 
 }

@@ -27,8 +27,7 @@ public class BookingService {
             NormalUser user = userRepository.findById(booking.getUid()).orElseThrow(() -> new NoSuchElementException("User not found!"));
             destinationRepository.findById(booking.getPid()).orElseThrow(() -> new NoSuchElementException("Destination not found!"));
             bookingRepository.insert(booking);
-//            bookingRepository.
-            user.addBooking(booking);
+            user.getBookingHistory().add(booking);
             userRepository.save(user);
             return "Booking added successfully!";
         } catch (NoSuchElementException e) {
@@ -36,7 +35,7 @@ public class BookingService {
 //        } catch (Dup e) {
 //            return "Error: " + e.getMessage();
         } catch (Exception e) {
-            return "An unexpected error occurred: " + e.getMessage();
+            return "An unexpected error occurred!";
         }
     }
 

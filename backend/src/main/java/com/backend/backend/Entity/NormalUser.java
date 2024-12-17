@@ -1,12 +1,12 @@
 package com.backend.backend.Entity;
 
+import lombok.NoArgsConstructor;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Document
-
 public class NormalUser extends User {
     List<Booking> bookingHistory;
 
