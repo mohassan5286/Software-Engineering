@@ -92,6 +92,7 @@ export default function Home({ setPid, setInformation }) {
   );
 }
 
+
 function Arrow({ direction, ...props }) {
   const positionStyle =
     direction === "right" ? { right: "10px" } : { left: "10px" };
