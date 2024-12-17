@@ -45,7 +45,4 @@ public class Destination {
         this.tourism_type = tourismType;
     }
 
-    public String getTitle() {
-        return this.title;
-    }
 }
