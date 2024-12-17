@@ -9,7 +9,7 @@ const ProductCard = ({
   price,
   rating,
   title,
-  setId,
+  setPid,
   setInformation,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -18,56 +18,65 @@ const ProductCard = ({
   const { getDestinationPageInformation } = useDestinationPageInformation();
 
   const handleSeeMore = () => {
-    getDestinationPageInformation(setInformation, setId, pid);
+    getDestinationPageInformation(setInformation, setPid, pid);
+  };
+
+  const cardStyles = {
+    border: '1px solid #ccc',
+    borderRadius: '8px',
+    padding: '16px',
+    margin: '30px',
+    maxWidth: '3000px',
+    color: 'black',
+    textAlign: 'center',
+    background: 'white',
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 1)',
+  };
+
+  const imgStyles = {
+    width: '100%',
+    height: '220px',
+    borderRadius: '8px',
+  };
+
+  const textContainerStyles = {
+    textAlign: 'left',
+    marginTop: '10px',
+  };
+
+  const priceStyles = {
+    fontWeight: 'bold',
+  };
+
+  const buttonStyles = {
+    cursor: 'pointer',
+    padding: '8px 16px',
+    marginTop: '5%',
+    width: '40%',
+    backgroundColor: isHovered ? '#4CAF50' : '#007BFF',
+    color: 'white',
+    border: 'none',
+    borderRadius: '4px',
+    transition: 'background-color 0.3s ease',
   };
 
   return (
-    <div
-      style={{
-        border: '1px solid #ccc',
-        borderRadius: '8px',
-        padding: '16px',
-        margin: '30px',
-        maxWidth: '3000px',
-        color: 'black',
-        textAlign: 'center',
-        background: 'white',
-        boxShadow: '0 4px 8px rgba(0, 0, 0, 1)',
-      }}
-    >
+    <div style={cardStyles}>
       <h2>{title}</h2>
-      <img
-        src={photo_Url}
-        alt={title}
-        style={{
-          width: '100%',
-          height: '220px',
-          borderRadius: '8px',
-        }}
-      />
-      <div style={{ textAlign: 'left', marginTop: '10px' }}>
-        <p style={{ fontWeight: 'bold' }}>
+      <img src={photo_Url} alt={title} style={imgStyles} />
+      <div style={textContainerStyles}>
+        <p style={priceStyles}>
           Price: <span style={{ fontWeight: 'normal' }}>${price}</span>
         </p>
-        <p style={{ fontWeight: 'bold' }}>
+        <p style={priceStyles}>
           Destination: <span style={{ fontWeight: 'normal' }}>{location}</span>
         </p>
-        <p style={{ fontWeight: 'bold' }}>
+        <p style={priceStyles}>
           Rating: <span style={{ fontWeight: 'normal' }}>{rating}</span>
         </p>
       </div>
       <button
-        style={{
-          cursor: 'pointer',
-          padding: '8px 16px',
-          marginTop: '5%',
-          width: "40%",
-          backgroundColor: isHovered ? '#4CAF50' : '#007BFF',
-          color: 'white',
-          border: 'none',
-          borderRadius: '4px',
-          transition: 'background-color 0.3s ease',
-        }}
+        style={buttonStyles}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         onClick={handleSeeMore}
@@ -75,6 +84,7 @@ const ProductCard = ({
         View More Details
       </button>
     </div>
+    
   );
 };
 

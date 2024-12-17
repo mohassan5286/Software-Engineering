@@ -6,14 +6,28 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
-export default function Home({ setId, setInformation }) {
+export default function Home({ setPid, setInformation }) {
   const [destinations, setDestinations] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {  
-    fetch("http://localhost:8081/destination/get/all")
-      .then((response) => response.json())
-      .then(setDestinations)
-      .catch((error) => console.error("Error fetching destinations:", error));
+  useEffect(() => {
+    const fetchDestinations = async () => {
+      try {
+        const response = await fetch("http://localhost:8081/destination/get/all");
+        const data = await response.json();
+        setDestinations(data);
+      } catch (error) {
+        console.error("Error fetching destinations:", error);
+      }
+    };
+
+    const timeout = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+
+    fetchDestinations();
+
+    return () => clearTimeout(timeout);
   }, []);
 
   const filterDestinations = (type) =>
@@ -43,11 +57,20 @@ export default function Home({ setId, setInformation }) {
     ],
   };
 
+  if (isLoading) {
+    return (
+      <div className="loading-overlay">
+        <div className="loading-spinner"></div>
+        <p>Loading...</p>
+      </div>
+    );
+  }
+
   return (
     <div className="p-4">
       {tourismCategories.map((category, index) => (
         <div className="mb-8" key={index}>
-          <h2 className="text-2xl font-bold mb-4">{category.title}</h2>
+          <h2 className="text-2xl font-bold mb-4" style={{ marginLeft: '10px' }}>{category.title}</h2>
           <Slider {...sliderSettings}>
             {category.data.map((product) => (
               <ProductCard
@@ -58,7 +81,7 @@ export default function Home({ setId, setInformation }) {
                 price={product.price}
                 rating={product.rating}
                 title={product.title}
-                setId={setId}
+                setPid={setPid}
                 setInformation={setInformation}
               />
             ))}
@@ -83,12 +106,11 @@ function Arrow({ direction, ...props }) {
         display: "block",
         color: "blue",
         zIndex: 1,
+        cursor: "pointer",
+        fontSize: "20px",
       }}
     >
-      <i
-        className={`fas fa-chevron-${direction}`}
-        style={{ fontSize: "20px" }}
-      ></i>
+      <i className={`fas fa-chevron-${direction}`} style={{ fontSize: "20px" }}></i>
     </div>
   );
 }
