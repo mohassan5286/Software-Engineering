@@ -1,4 +1,3 @@
-/* header.css */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
 :root {
@@ -25,6 +24,7 @@ header {
 
 .site-header {
     display: flex;
+    margin-bottom: 20px;;
     align-items: center;
     background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     color: var(--white);
@@ -67,14 +67,14 @@ header {
     align-items: center;
     gap: 15px;
     margin-left: 3%;
-    order: 2; /* Place site navigation after site identity */
+    order: 2;
 }
 
 .search-container {
     display: flex;
     align-items: center;
-    order: 3; /* Move the search bar to the far right */
-    margin-left: auto
+    order: 3;
+    margin-left: auto;
 }
 
 input {
@@ -137,7 +137,6 @@ button:hover {
     color: var(--accent-color);
 }
 
-/* Hamburger Icon for Mobile */
 .menu-icon {
     display: none;
     font-size: 30px;
@@ -149,7 +148,6 @@ button:hover {
     color: var(--accent-color);
 }
 
-/* Responsive Adjustments */
 @media (max-width: 768px) {
     .site-header {
         flex-direction: column;
@@ -180,7 +178,6 @@ button:hover {
     }
 }
 
-/* Decorative Elements */
 .site-header::before {
     content: '';
     position: absolute;

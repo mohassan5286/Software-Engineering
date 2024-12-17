@@ -1,18 +1,46 @@
 import './App.css';
-import DestinationPageInformation from './DestinationPageInformation.js';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+
 import Header from './components/Header.jsx';
 import Home from './pages/Home.jsx';
 import Login from './pages/Login.jsx';
 import Nopage from './pages/Nopage.jsx';
 import Cart from './pages/Cart.jsx';
-import Signup from "./pages/Signup.jsx";
+import Signup from './pages/Signup.jsx';
+import DestinationPageInformation from './DestinationPageInformation.js';
 
 function App() {
-  
-  const [id, setId] = useState("");
-  const [information, setInformation] = useState({
+  const [pid, setPid] = useState(localStorage.getItem('pid') || '');
+  const [information, setInformation] = useState(
+    JSON.parse(localStorage.getItem('information')) || getDefaultInformation()
+  );
+
+  useEffect(() => {
+    localStorage.setItem('pid', pid);
+    localStorage.setItem('information', JSON.stringify(information));
+  }, [pid, information]);
+
+  return (
+    <Router>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home setPid={setPid} setInformation={setInformation} />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/sold" element={<Login />} />
+        <Route path="/orders" element={<Login />} />
+        <Route path="/sell" element={<Login />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path={`/destination-page/:${pid}`} element={<DestinationPageInformation information={information} />} />
+        <Route path="/*" element={<Nopage />} />
+      </Routes>
+    </Router>
+  );
+}
+
+function getDefaultInformation() {
+  return {
     "photo_Url": "",
     "title": "",
     "location": "",
@@ -22,35 +50,7 @@ function App() {
     "price": "",
     "rating": "",
     "no_of_reviews": ""
-  });
-
-  return (
-    <Router>
-      <Header />
-      <Routes>
-        <Route 
-          path="/" 
-          element={
-            <Home 
-              setId={setId} 
-              setInformation={setInformation} 
-            />
-          } 
-        />
-        <Route path="/login" element={<Login />} />
-        <Route path="/sold" element={<Login />} />
-        <Route path="/orders" element={<Login />} />
-        <Route path="/sell" element={<Login />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route 
-          path={`/destination-page/:${id}`}
-          element={<DestinationPageInformation information={information} />} 
-        />
-        <Route path="/*" element={<Nopage />} />
-      </Routes>
-    </Router>
-  );
+  };
 }
 
 export default App;
