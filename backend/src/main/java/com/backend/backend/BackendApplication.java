@@ -45,4 +45,21 @@ public class BackendApplication {
 //		};
 //	}
 
+//	@Bean
+//	CommandLineRunner runner(DestinationRepository destinationRepository) {
+//		return args -> {
+//			Destination destination = new Destination(
+//				"Sunny Beach Escape",
+//				"Malibu, California",
+//				"A beautiful beach destination with golden sands and vibrant sunsets.",
+//				"https://example.com/images/sunny_beach_escape.jpg",
+//				150.0,
+//				 4.5,
+//				120
+//			);
+//
+//			destinationRepository.save(destination);
+//		};
+//	}
+
 }
