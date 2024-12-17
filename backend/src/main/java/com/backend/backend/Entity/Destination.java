@@ -44,8 +44,4 @@ public class Destination {
         this.no_of_reviews = noOfReviews;
         this.tourism_type = tourismType;
     }
-
-    public String getTitle() {
-        return this.title;
-    }
 }
