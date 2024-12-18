@@ -33,7 +33,7 @@ public class Destination {
     @Getter @Setter
     private String event;
 
-    public Destination(String title, String location, String event, String description, String photoUrl, double price, double rating, int noOfReviews, String tourismType) {
+    public Destination(String title, String location, String event, String description, String photoUrl, double price, double rating, int noOfReviews, String tourism_type) {
         this.title = title;
         this.location = location;
         this.event = event;
@@ -43,5 +43,9 @@ public class Destination {
         this.rating = rating;
         this.no_of_reviews = noOfReviews;
         this.tourism_type = tourismType;
+    }
+
+    public String getTitle() {
+        return this.title;
     }
 }
