@@ -44,6 +44,10 @@ public class Destination {
         this.price = price;
         this.rating = rating;
         this.no_of_reviews = noOfReviews;
-        this.tourism_type = tourism_type;
+        this.tourism_type = tourismType;
+    }
+
+    public String getTitle() {
+        return this.title;
     }
 }
