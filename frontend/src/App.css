@@ -98,16 +98,16 @@
     font-size: 1.5em;
     font-weight: bold;
     display: flex;
-    align-items: center; /* Vertically aligns the text and button */
-    justify-content: space-between; /* Ensures the button is on the right */
-    gap: 10px; /* Adds spacing between the title and the button */
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px; 
   }
   
   .destination-page-book-button {
     position: relative;
-    width: auto; /* Adjust width for better responsiveness */
+    width: auto;
     height: 50px; 
-    padding: 0 15px; /* Adds padding for better spacing */
+    padding: 0 15px;
     border-radius: 10px; 
     color: white;
     font-weight: bold;
