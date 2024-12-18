@@ -34,7 +34,6 @@ public class Destination {
     private String event;
     public Destination(){
 
-    }
     public Destination(String title, String location, String event, String description, String photoUrl, double price, double rating, int noOfReviews, String tourism_type) {
         this.title = title;
         this.location = location;
