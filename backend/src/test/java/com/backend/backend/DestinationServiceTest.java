@@ -6,35 +6,38 @@ import com.backend.backend.Repository.DestinationRepository;
 import com.backend.backend.Service.DestinationService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
+import lombok.AllArgsConstructor;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.boot.test.context.SpringBootTest;
+//import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 import static org.hamcrest.Matchers.hasSize;
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(MockitoJUnitRunner.class)
+@SpringBootTest
 public class DestinationServiceTest {
-
-    //    converting json to strings and vise versa
-    ObjectMapper objectMapper = new ObjectMapper();
-    ObjectWriter objectWriter = objectMapper.writer();
 
     //    What we are going to mock
     @Mock
@@ -164,9 +167,9 @@ public class DestinationServiceTest {
             "Romantic"
     );
 
-    List<Destination> destinations = new ArrayList<>(Arrays.asList(greatWall, pyramids, eiffelTower, machuPicchu, machuPicchu));
+    List<Destination> destinations = new ArrayList<>(Arrays.asList(greatWall, pyramids, eiffelTower, machuPicchu, sydneyOperaHouse));
 
-    @Before
+    @BeforeEach
     public void setUp() {
         MockitoAnnotations.initMocks(this);
     }
@@ -198,7 +201,7 @@ public class DestinationServiceTest {
     @Test
     public void getRecordSad1() {
         // Arrange
-        Mockito.when(destinationRepository.findById("-1")).thenReturn(Optional.of(new Destination()));
+        Mockito.when(destinationRepository.findById(Mockito.any(String.class))).thenThrow(NoSuchElementException.class);
 
         // Act
         Destination result = destinationService.getDestinationById("-1");
@@ -206,5 +209,98 @@ public class DestinationServiceTest {
         // Assert
         assertEquals(null, result.getTitle());
     }
+    @Test
+    public void searchByTitle_shouldReturnMatchingDestinations() {
+        // Using actual mock data for "Eiffel Tower"
+        Mockito.when(destinationRepository.findByTitleContainingIgnoreCase("Eiffel")).thenReturn(List.of(eiffelTower));
+        List<Destination> result = destinationService.searchByTitle("Eiffel");
+        assertEquals(1, result.size());
+        assertEquals("Eiffel Tower", result.get(0).getTitle());
+    }
 
+    @Test
+    public void filterDestinations_byLocationTourismTypeAndPrice() {
+        // Filtering based on actual mock data (e.g., "Historical")
+        Mockito.when(destinationRepository.findByLocationAndTourism_typeAndPriceLessThanEqual("Giza, Egypt", "Historical", 250.0))
+                .thenReturn(List.of(pyramids));
+        List<Destination> result = destinationService.filterDestinations("Giza, Egypt", "Historical", 250.0);
+        assertEquals(1, result.size());
+        assertEquals("Pyramids of Giza", result.get(0).getTitle());
+    }
+
+    @Test
+    public void filterDestinations_byLocationAndPrice() {
+        // Filtering based on actual mock data
+        Mockito.when(destinationRepository.findByLocationAndPriceLessThanEqual("Cusco Region, Peru", 300.0))
+                .thenReturn(List.of(machuPicchu));
+        List<Destination> result = destinationService.filterDestinations("Cusco Region, Peru", null, 300.0);
+        assertEquals(1, result.size());
+        assertEquals("Machu Picchu", result.get(0).getTitle());
+    }
+
+    @Test
+    public void filterDestinations_byTourismTypeAndPrice() {
+        // Filtering by "Historical" tourism type and max price
+        Mockito.when(destinationRepository.findByTourism_typeAndPriceLessThanEqual("Historical", 500.0))
+                .thenReturn(List.of(pyramids, machuPicchu));
+        List<Destination> result = destinationService.filterDestinations(null, "Historical", 500.0);
+        assertEquals(2, result.size());
+    }
+
+    @Test
+    public void filterDestinations_byLocationAndTourismType() {
+        // Filtering based on "Paris, France" and "Cultural"
+        Mockito.when(destinationRepository.findByLocationAndTourism_type("Paris, France", "Cultural"))
+                .thenReturn(List.of(eiffelTower));
+        List<Destination> result = destinationService.filterDestinations("Paris, France", "Cultural", null);
+        assertEquals(1, result.size());
+        assertEquals("Eiffel Tower", result.get(0).getTitle());
+    }
+
+    @Test
+    public void filterDestinations_byLocation() {
+        // Filtering by "San Francisco, USA"
+        Mockito.when(destinationRepository.findByLocation("San Francisco, USA"))
+                .thenReturn(List.of(goldenGateBridge));
+        List<Destination> result = destinationService.filterDestinations("San Francisco, USA", null, null);
+        assertEquals(1, result.size());
+        assertEquals("Golden Gate Bridge", result.get(0).getTitle());
+    }
+
+    @Test
+    public void filterDestinations_byTourismType() {
+        // Filtering by "Adventure" tourism type
+        Mockito.when(destinationRepository.findByTourism_type("Adventure"))
+                .thenReturn(List.of(greatWall, everestBaseCamp));
+        List<Destination> result = destinationService.filterDestinations(null, "Adventure", null);
+        assertEquals(2, result.size());
+        assertTrue(result.stream().anyMatch(d -> d.getTitle().equals("Great Wall of China")));
+        assertTrue(result.stream().anyMatch(d -> d.getTitle().equals("Mount Everest Base Camp")));
+    }
+
+    @Test
+    public void filterDestinations_byMaxPrice() {
+        // Filtering by max price 250
+        Mockito.when(destinationRepository.findByPriceLessThanEqual(250.0))
+                .thenReturn(List.of(pyramids, greatWall, eiffelTower));
+        List<Destination> result = destinationService.filterDestinations(null, null, 250.0);
+        assertEquals(3, result.size());
+    }
+
+    @Test
+    public void filterDestinations_noFilters_shouldReturnAll() {
+        // Testing with no filters
+        Mockito.when(destinationRepository.findAll()).thenReturn(destinations);
+        List<Destination> result = destinationService.filterDestinations(null, null, null);
+        assertEquals(5, result.size());
+    }
+
+    @Test
+    public void filterDestinations_noMatchingResults() {
+        // Case where no matching destinations found
+        Mockito.when(destinationRepository.findByLocationAndTourism_typeAndPriceLessThanEqual("Non-existent Location", "Fictional", 100.0))
+                .thenReturn(Collections.emptyList());
+        List<Destination> result = destinationService.filterDestinations("Non-existent Location", "Fictional", 100.0);
+        assertEquals(0, result.size());
+    }
 }
