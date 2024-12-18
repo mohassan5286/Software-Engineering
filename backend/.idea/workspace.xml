@@ -4,33 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0ac71d19-ac75-4521-9011-da0ab32e37ee" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/backend/backend/Controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/backend/backend/Entity/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/backend/backend/Repository/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/backend/backend/Service/EmailService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/backend/backend/Service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/backend/backend/Utility/JwtUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/backend/Entity/Destination.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/backend/Entity/Destination.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/backend/backend/BackendApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/backend/backend/BackendApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/backend/backend/Controller/BookingController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/backend/backend/Controller/DestinationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/backend/backend/Controller/DestinationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/backend/backend/Entity/Booking.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/backend/backend/Entity/Destination.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/backend/backend/Entity/Destination.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/backend/backend/Entity/NormalUser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/backend/backend/Entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/backend/backend/Entity/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/backend/backend/Repository/BookingRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/backend/backend/Repository/DestinationRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/backend/backend/Repository/DestinationRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/backend/backend/Repository/NormalUserRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/backend/backend/Service/BookingService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/backend/backend/Service/DestinationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/backend/backend/Service/DestinationService.class" afterDir="false" />
-    </list>
+    <list default="true" id="0ac71d19-ac75-4521-9011-da0ab32e37ee" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -104,7 +78,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "lastback",
+    "git-widget-placeholder": "milestone__2",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/LENOVO/Desktop/New folder (4)/Software-Engineering/backend",
     "node.js.detected.package.eslint": "true",
