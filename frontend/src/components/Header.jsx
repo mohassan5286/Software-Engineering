@@ -7,7 +7,7 @@ function Header() {
   const [searchTerm, setSearchTerm] = useState('');
 
   const NavigateToHome = () => {
-    navigate('/'); 
+    navigate('/home'); 
   };
 
   const NavigateToLogin = () => {
@@ -16,7 +16,6 @@ function Header() {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    // Implement search functionality here
     console.log('Searching for:', searchTerm);
   };
 
