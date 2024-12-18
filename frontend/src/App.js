@@ -1,41 +1,40 @@
 import './App.css';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 import Header from './components/Header.jsx';
 import Home from './pages/Home.jsx';
 import Login from './pages/Login.jsx';
 import Nopage from './pages/Nopage.jsx';
-import Cart from './pages/Cart.jsx';
-import Signup from './pages/Signup.jsx';
 import DestinationPageInformation from './DestinationPageInformation.js';
 
 function App() {
+  const [user_id, setUserId] = useState(localStorage.getItem('user_id') || '');
   const [pid, setPid] = useState(localStorage.getItem('pid') || '');
   const [information, setInformation] = useState(
     JSON.parse(localStorage.getItem('information')) || getDefaultInformation()
   );
 
+  const location = useLocation(); // Use useLocation to track the current path
+  const shouldRenderHeader = location.pathname !== '/' && location.pathname !== '/login'; // Update based on location.pathname
+
   useEffect(() => {
+    localStorage.setItem('user_id', user_id);
     localStorage.setItem('pid', pid);
     localStorage.setItem('information', JSON.stringify(information));
-  }, [pid, information]);
+  }, [user_id, pid, information]);
 
   return (
-    <Router>
-      <Header />
+    <>
+      {shouldRenderHeader && <Header />}
       <Routes>
-        <Route path="/" element={<Home setPid={setPid} setInformation={setInformation} />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/sold" element={<Login />} />
-        <Route path="/orders" element={<Login />} />
-        <Route path="/sell" element={<Login />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/home" element={<Home setPid={setPid} setInformation={setInformation} />} />
+        <Route path="/login" element={<Login setUserId={setUserId} />} />
+        <Route path="/" element={<Login setUserId={setUserId} />} />
         <Route path={`/destination-page/:${pid}`} element={<DestinationPageInformation information={information} />} />
         <Route path="/*" element={<Nopage />} />
       </Routes>
-    </Router>
+    </>
   );
 }
 
@@ -53,4 +52,10 @@ function getDefaultInformation() {
   };
 }
 
-export default App;
+export default function RootApp() {
+  return (
+    <Router>
+      <App />
+    </Router>
+  );
+}
