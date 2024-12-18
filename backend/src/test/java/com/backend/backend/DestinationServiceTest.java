@@ -6,23 +6,28 @@ import com.backend.backend.Repository.DestinationRepository;
 import com.backend.backend.Service.DestinationService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
+import lombok.AllArgsConstructor;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 import static org.hamcrest.Matchers.hasSize;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -30,11 +35,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(MockitoJUnitRunner.class)
+@SpringBootTest
 public class DestinationServiceTest {
-
-    //    converting json to strings and vise versa
-    ObjectMapper objectMapper = new ObjectMapper();
-    ObjectWriter objectWriter = objectMapper.writer();
 
     //    What we are going to mock
     @Mock
@@ -166,7 +168,7 @@ public class DestinationServiceTest {
 
     List<Destination> destinations = new ArrayList<>(Arrays.asList(greatWall, pyramids, eiffelTower, machuPicchu, machuPicchu));
 
-    @Before
+    @BeforeEach
     public void setUp() {
         MockitoAnnotations.initMocks(this);
     }
@@ -198,7 +200,7 @@ public class DestinationServiceTest {
     @Test
     public void getRecordSad1() {
         // Arrange
-        Mockito.when(destinationRepository.findById("-1")).thenReturn(Optional.of(new Destination()));
+        Mockito.when(destinationRepository.findById(Mockito.any(String.class))).thenThrow(NoSuchElementException.class);
 
         // Act
         Destination result = destinationService.getDestinationById("-1");

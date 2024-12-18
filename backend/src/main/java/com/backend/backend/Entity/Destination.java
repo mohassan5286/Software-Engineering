@@ -1,4 +1,3 @@
-
 package com.backend.backend.Entity;
 
 import lombok.Data;
@@ -44,9 +43,5 @@ public class Destination {
         this.rating = rating;
         this.no_of_reviews = noOfReviews;
         this.tourism_type = tourismType;
-    }
-
-    public String getTitle() {
-        return this.title;
     }
 }

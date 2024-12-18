@@ -1,0 +1,25 @@
+{
+    "booking": [
+        {
+            "pid": "674f56cca02d3de66bcaebcd",
+            "uid": "U456",
+            "bookingDate": "2024-12-16T12:00:00.000Z", 
+            "status": "Pending",
+            "no_of_persons": 2
+        }
+    ],
+    "destination": [
+        {
+            "pid": "674f56cca02d3de66bcaebcc",
+            "title": "Pyramids of Giza",
+            "location": "Giza, Egypt",
+            "event": "Sphinx Light and Sound Show - A captivating evening experience where the history of ancient Egypt is narrated with lights and music, bringing the pyramids and Sphinx to life. The show takes place every evening year-round, starting after sunset.",
+            "description": "The Pyramids of Giza are ancient architectural marvels and one of the Seven Wonders of the Ancient World. Visitors can explore the tombs of pharaohs, enjoy camel rides in the desert, and learn about the fascinating history of Egypt.",
+            "photo_Url": "https://images5.alphacoders.com/458/458484.jpg",
+            "price": 120,
+            "rating": 4.8,
+            "no_of_reviews": 500,
+            "tourism_type": "Historical"
+        }
+    ]
+}
