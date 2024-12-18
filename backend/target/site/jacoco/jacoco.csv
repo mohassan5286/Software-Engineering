@@ -1,9 +1,0 @@
-GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-backend,com.backend.backend,BackendApplication,5,51,0,0,2,12,1,3,1,3
-backend,com.backend.backend.Service,DestinationService,25,0,0,0,6,0,4,0,4,0
-backend,com.backend.backend.Service,BookingService,53,0,0,0,10,0,3,0,3,0
-backend,com.backend.backend.Entity,Destination,0,33,0,0,0,11,0,1,0,1
-backend,com.backend.backend.Entity,NormalUser,5,15,0,0,2,6,2,1,2,1
-backend,com.backend.backend.Entity,User,0,12,0,0,0,4,0,1,0,1
-backend,com.backend.backend.Controller,DestinationController,0,23,0,0,0,5,0,5,0,5
-backend,com.backend.backend.Controller,BookingController,0,5,0,0,0,1,0,1,0,1
