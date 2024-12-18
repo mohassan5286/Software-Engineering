@@ -52,48 +52,48 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.BackendApplication.executor": "Run",
-    "JUnit.BookingControllerTest.executor": "Run",
-    "JUnit.BookingControllerTest.testPostBookingHappy1.executor": "Run",
-    "JUnit.BookingControllerTest.testPostBookingSad1_DuplicateBooking.executor": "Run",
-    "JUnit.BookingControllerTest.testPostBookingSad1_NotFoundUser.executor": "Run",
-    "JUnit.BookingEntityTest.executor": "Coverage",
-    "JUnit.BookingServiceTest.addBooking_Happy.executor": "Run",
-    "JUnit.BookingServiceTest.executor": "Run",
-    "JUnit.DestinationControllerTest.executor": "Run",
-    "JUnit.DestinationServiceTest.executor": "Run",
-    "JUnit.DestinationServiceTest.getAllRecordsHappy1.executor": "Run",
-    "JUnit.DestinationServiceTest.getRecordSad1.executor": "Run",
-    "JUnit.backend in backend.executor": "Coverage",
-    "JUnit.com.backend.backend in backend.executor": "Coverage",
-    "JUnit.java in backend.executor": "Coverage",
-    "Maven.backend [clean].executor": "Run",
-    "Maven.backend [org.jacoco:jacoco-maven-plugin:0.8.12:check].executor": "Run",
-    "Maven.backend [org.jacoco:jacoco-maven-plugin:0.8.12:report].executor": "Run",
-    "Maven.backend [package].executor": "Run",
-    "Maven.backend [test].executor": "Run",
-    "Maven.backend [validate].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "#14 on feat-SCRUM-5-As-a-backend-develop…ently",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/LENOVO/Desktop/New folder (4)/Software-Engineering/backend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.BackendApplication.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookingControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookingControllerTest.testPostBookingHappy1.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookingControllerTest.testPostBookingSad1_DuplicateBooking.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookingControllerTest.testPostBookingSad1_NotFoundUser.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookingEntityTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.BookingServiceTest.addBooking_Happy.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookingServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DestinationControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DestinationServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DestinationServiceTest.getAllRecordsHappy1.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DestinationServiceTest.getRecordSad1.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.backend in backend.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.com.backend.backend in backend.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.java in backend.executor&quot;: &quot;Coverage&quot;,
+    &quot;Maven.backend [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.backend [org.jacoco:jacoco-maven-plugin:0.8.12:check].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.backend [org.jacoco:jacoco-maven-plugin:0.8.12:report].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.backend [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.backend [test].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.backend [validate].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;#14 on feat-SCRUM-5-As-a-backend-develop…ently&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/LENOVO/Desktop/New folder (4)/Software-Engineering/backend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.backend.backend.Service" />
@@ -188,14 +188,6 @@
         <item itemvalue="JUnit.BookingServiceTest.addBooking_Happy" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
-        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
