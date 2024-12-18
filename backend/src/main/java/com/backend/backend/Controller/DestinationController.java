@@ -41,8 +41,21 @@ public class DestinationController {
     }
 
     // Query 3: Get by category with selected fields
-    @GetMapping("/category/{tourismType}")
-    public List<Destination> getDestinationsByTourismType(@PathVariable String tourismType) {
-        return destinationService.getDestinationsByCategoryWithSelectedFields(tourismType);
+    @GetMapping("/category/{tourism_type}")
+    public List<Destination> getDestinationsByTourism_type(@PathVariable String tourism_type) {
+        return destinationService.getDestinationsByCategoryWithSelectedFields(tourism_type);
+    }
+    @GetMapping("/search")
+    public List<Destination> searchByTitle(@RequestParam String title) {
+        return destinationService.searchByTitle(title);
+    }
+    
+    @GetMapping("/filter")
+    public List<Destination> filterDestinations(
+            @RequestParam(required = false) String location,
+            @RequestParam(required = false) String tourism_type,
+            @RequestParam(required = false) Double maxPrice) {
+
+        return destinationService.filterDestinations(location, tourism_type, maxPrice);
     }
 }
