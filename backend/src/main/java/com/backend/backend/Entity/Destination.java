@@ -32,6 +32,7 @@ public class Destination {
     private String tourism_type;
     @Getter @Setter
     private String event;
+    public Destination(){
 
     public Destination(String title, String location, String event, String description, String photoUrl, double price, double rating, int noOfReviews, String tourism_type) {
         this.title = title;
