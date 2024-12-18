@@ -1,3 +1,4 @@
+
 package com.backend.backend.Service;
 
 import com.backend.backend.Entity.Destination;
@@ -35,31 +36,7 @@ public class DestinationService {
     }
 
     // Query 3: Get all documents of a specific category with selected fields
-    public List<Destination> getDestinationsByCategoryWithSelectedFields(String tourism_type) {
-        return destinationRepository.findByTourism_typeWithSpecificFields(tourism_type); // Matches repository method name
-    }
-    public List<Destination> searchByTitle(String title) {
-        return destinationRepository.findByTitleContainingIgnoreCase(title);
-    }
-
-
-    public List<Destination> filterDestinations(String location, String tourism_type, Double maxPrice) {
-        if (location != null && tourism_type != null && maxPrice != null) {
-            return destinationRepository.findByLocationAndTourism_typeAndPriceLessThanEqual(location, tourism_type, maxPrice);
-        } else if (location != null && tourism_type != null) {
-            return destinationRepository.findByLocationAndTourism_type(location, tourism_type);
-        } else if (location != null && maxPrice != null) {
-            return destinationRepository.findByLocationAndPriceLessThanEqual(location, maxPrice);
-        } else if (tourism_type != null && maxPrice != null) {
-            return destinationRepository.findByTourism_typeAndPriceLessThanEqual(tourism_type, maxPrice);
-        } else if (location != null) {
-            return destinationRepository.findByLocation(location);
-        } else if (tourism_type != null) {
-            return destinationRepository.findByTourism_type(tourism_type);
-        } else if (maxPrice != null) {
-            return destinationRepository.findByPriceLessThanEqual(maxPrice);
-        } else {
-            return destinationRepository.findAll();
-        }
+    public List<Destination> getDestinationsByCategoryWithSelectedFields(String tourismType) {
+        return destinationRepository.findByTourismTypeWithSpecificFields(tourismType); // Matches repository method name
     }
 }
