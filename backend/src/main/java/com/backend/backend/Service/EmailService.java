@@ -22,13 +22,12 @@ public class EmailService {
     @Autowired
     private UserRepository userRepository;
 
-    // Send email verification link
     public void sendVerificationEmail(User user) {
-        String token = UUID.randomUUID().toString();  // Generate a unique token
+        String token = UUID.randomUUID().toString();
 
-        // Save token in the user entity (you'll need to add a field to store it in the database)
+
         user.setVerificationToken(token);
-//        userRepository.save(user);
+        userRepository.save(user);
 
         String verificationUrl = "http://localhost:8081/api/auth/verify-email?token=" + token;
 
@@ -37,6 +36,6 @@ public class EmailService {
         message.setSubject("Email Verification");
         message.setText("Click the link to verify your email: " + verificationUrl);
 
-        emailSender.send(message);  // Send the email
+        emailSender.send(message);
     }
 }

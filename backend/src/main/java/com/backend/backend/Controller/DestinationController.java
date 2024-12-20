@@ -14,10 +14,17 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/destination")
 @CrossOrigin(value = "http://localhost:3000/")
-@AllArgsConstructor
+//@AllArgsConstructor
 public class DestinationController {
     private DestinationService destinationService;
-
+//    @Autowired
+//    public DestinationController(destinationService){
+//        this.destinationService = destinationService;
+//    }
+@Autowired
+public DestinationController(DestinationService destinationService) {
+    this.destinationService = destinationService;
+}
     @GetMapping("/get/{pid}")
     public Destination fetchDestinationById(@PathVariable String pid) {
         return destinationService.getDestinationById(pid);

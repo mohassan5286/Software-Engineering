@@ -3,16 +3,20 @@ package com.backend.backend.Service;
 import com.backend.backend.Entity.Destination;
 import com.backend.backend.Repository.DestinationRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
-@AllArgsConstructor
+
 public class DestinationService {
     private DestinationRepository destinationRepository;
-
+    @Autowired
+    public DestinationService(DestinationRepository destinationRepository) {
+        this.destinationRepository = destinationRepository;
+    }
     public Destination getDestinationById(String pid) {
         try {
 

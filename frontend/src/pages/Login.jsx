@@ -19,35 +19,29 @@ const Login = ({ setUserId }) => {
     setSignupError(false);
   };
 
-  const validateUser = async (username, password) => {
-    const url = `http://localhost:8081/user_id`;
-    const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
-
+  const validateUser = async (email, password) => {
+    const url = `http://localhost:8081/api/auth/Login/${email}/${password}`;
+  
     try {
       setIsLoading(true);
-      await delay(2000);
-
       const response = await fetch(url, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username, password }),
+        method: "GET",
       });
-
+  
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
-
-      const data = await response.json();
+  
+      const userId = await response.text(); // Assuming the backend returns user ID as plain text
       setIsLoading(false);
-      return data.user_id || null;
+      return userId || null;
     } catch (error) {
       setIsLoading(false);
       console.error("Error validating user:", error.message);
       return null;
     }
   };
+  
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -61,17 +55,12 @@ const Login = ({ setUserId }) => {
       setLoginError(true);
     }
   };
-
   const handleSignup = async (e) => {
     e.preventDefault();
-    setIsLoading(true);
-
-    const url = `http://localhost:8081/signup`;
-    const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
-
+    const url = `http://localhost:8081/api/auth/signup`;
+  
     try {
-      await delay(2000);
-
+      setIsLoading(true);
       const response = await fetch(url, {
         method: "POST",
         headers: {
@@ -79,25 +68,23 @@ const Login = ({ setUserId }) => {
         },
         body: JSON.stringify({ username, email, password }),
       });
-
+  
       if (!response.ok) {
         throw new Error("Failed to sign up. Please try again.");
       }
-
-      const data = await response.json();
+  
+      const message = await response.text();
       setIsLoading(false);
-
-      if (data.success) {
-        toggleActive();
-      } else {
-        setSignupError(true);
-      }
+  
+      alert(message); // Inform the user about the email verification
+      toggleActive();
     } catch (error) {
       setIsLoading(false);
       console.error("Error signing up:", error.message);
       setSignupError(true);
     }
   };
+  
 
   return (
     <div className="component-wrapper">

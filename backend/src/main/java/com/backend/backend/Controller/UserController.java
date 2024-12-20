@@ -66,9 +66,8 @@ public class UserController {
         }
 
 
-        // If token is valid, activate the user's account
         user.setEnabled(true);
-        user.setVerificationToken(null);  // Clear the token once verified
+        user.setVerificationToken(null);
         userRepository.save(user);
 
         return ResponseEntity.ok("Email verified successfully! You can now log in.");

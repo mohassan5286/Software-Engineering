@@ -1,6 +1,7 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import SearchResults from './pages/SearchResults.jsx';
 
 import Header from './components/Header.jsx';
 import Home from './pages/Home.jsx';
@@ -28,6 +29,7 @@ function App() {
     <>
       {shouldRenderHeader && <Header />}
       <Routes>
+      <Route path="/search" element={<SearchResults />} />
         <Route path="/home" element={<Home setPid={setPid} setInformation={setInformation} />} />
         <Route path="/login" element={<Login setUserId={setUserId} />} />
         <Route path="/" element={<Login setUserId={setUserId} />} />

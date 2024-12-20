@@ -1,12 +1,17 @@
 com\backend\backend\Entity\NormalUser.class
 com\backend\backend\Entity\Booking.class
 com\backend\backend\BackendApplication.class
+com\backend\backend\Repository\UserRepository.class
+com\backend\backend\Utility\JwtUtil.class
 com\backend\backend\Repository\BookingRepository.class
 com\backend\backend\Controller\BookingController.class
 com\backend\backend\Service\BookingService.class
 com\backend\backend\Repository\NormalUserRepository.class
 com\backend\backend\Controller\DestinationController.class
 com\backend\backend\Entity\Destination.class
+com\backend\backend\Controller\UserController.class
 com\backend\backend\Entity\User.class
+com\backend\backend\Service\UserService.class
 com\backend\backend\Repository\DestinationRepository.class
 com\backend\backend\Service\DestinationService.class
+com\backend\backend\Service\EmailService.class
