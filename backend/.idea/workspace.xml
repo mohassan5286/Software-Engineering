@@ -5,14 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ac71d19-ac75-4521-9011-da0ab32e37ee" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/backend/backend/Controller/RatingController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/backend/backend/Entity/Rating.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/backend/backend/Repository/RatingRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/backend/backend/Service/RatingService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/Rating.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/Rating.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/backend/Entity/Destination.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/backend/Entity/Destination.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/backend/Repository/DestinationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/backend/Repository/DestinationRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/0.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/0.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/1.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/1.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/2.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/2.pack" afterDir="false" />
@@ -23,6 +18,7 @@
       <change beforePath="$PROJECT_DIR$/../frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/DestinationPageInformation.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/DestinationPageInformation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/components/ProductCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/ProductCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Home.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -238,7 +234,7 @@
       <workItem from="1735212357140" duration="1419000" />
       <workItem from="1735224446694" duration="595000" />
       <workItem from="1735444107986" duration="437000" />
-      <workItem from="1735555697203" duration="7641000" />
+      <workItem from="1735555697203" duration="11042000" />
     </task>
     <servers />
   </component>

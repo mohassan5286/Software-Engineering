@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import useDestinationPageInformation from '../GetDestinationPageInformation.js';
 
+
 const ProductCard = ({
   pid,
   location,
@@ -83,6 +84,8 @@ const ProductCard = ({
       >
         View More Details
       </button>
+
+      
     </div>
     
   );
