@@ -13,8 +13,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/destination")
-@CrossOrigin("")
-//@AllArgsConstructor
+@CrossOrigin(value = "http://localhost:3000/")
 public class DestinationController {
     private DestinationService destinationService;
 //    @Autowired
@@ -32,6 +31,7 @@ public DestinationController(DestinationService destinationService) {
 
     @GetMapping("/get/all")
     public List<Destination> fetchDestinationAll() {
+        System.out.println(destinationService.getDestinationAll());
         return destinationService.getDestinationAll();
     }
 

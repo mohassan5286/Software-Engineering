@@ -5,44 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d039ad7-317f-47d4-a557-7ff496ac0faf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/backend/backend/Controller/WishlistController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/backend/backend/Entity/Wishlist.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/backend/backend/Repository/WishlistRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/backend/backend/Service/WishlistService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/WishlistControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/WishlistServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/backend/BackendApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/backend/BackendApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/backend/Controller/DestinationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/backend/Controller/DestinationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/backend/Entity/Destination.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/backend/Entity/Destination.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/backend/backend/BackendApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/backend/backend/Controller/BookingController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/backend/backend/Controller/DestinationController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/backend/backend/Controller/UserController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/backend/backend/Entity/Booking.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/backend/backend/Entity/Destination.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/backend/backend/Entity/NormalUser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/backend/backend/Entity/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/backend/backend/Repository/BookingRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/backend/backend/Repository/DestinationRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/backend/backend/Repository/NormalUserRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/backend/backend/Repository/UserRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/backend/backend/Service/BookingService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/backend/backend/Service/DestinationService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/backend/backend/Service/EmailService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/backend/backend/Service/UserService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/demo-0.0.1-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/demo-0.0.1-SNAPSHOT.jar.original" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/backend/Controller/WishlistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/backend/Controller/WishlistController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/backend/backend/Controller/DestinationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/backend/backend/Controller/DestinationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/backend/backend/Controller/WishlistController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/backend/backend/Controller/WishlistController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +61,7 @@
     "git-widget-placeholder": "milestone__2",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/20100/Desktop/web-projects/software-engineering/Software-Engineering/backend",
+    "last_opened_file_path": "C:/GithubRepos/Software-Engineering/backend",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -105,12 +75,16 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.WishlistServiceTest">
-    <configuration name="WishlistControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.BackendApplication">
+    <configuration name="BackendApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.backend.backend.BackendApplication" />
       <module name="backend" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="WishlistControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.backend.backend.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -163,11 +137,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.BackendApplication" />
         <item itemvalue="JUnit.WishlistServiceTest" />
         <item itemvalue="JUnit.WishlistServiceTest.testRemoveWishlistEntry" />
         <item itemvalue="JUnit.WishlistServiceTest.testAddWishlist" />
         <item itemvalue="JUnit.WishlistServiceTest.testCheckIfExist" />
-        <item itemvalue="JUnit.WishlistControllerTest" />
       </list>
     </recent_temporary>
   </component>
