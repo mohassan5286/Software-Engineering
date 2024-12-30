@@ -5,103 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ac71d19-ac75-4521-9011-da0ab32e37ee" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/backend/backend/Controller/RatingController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/backend/backend/Entity/Rating.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/backend/backend/Repository/RatingRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/backend/backend/Service/RatingService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/backend/BackendApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/backend/BackendApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/backend/Controller/DestinationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/backend/Controller/DestinationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/backend/Controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/backend/Controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/backend/Entity/Destination.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/backend/Entity/Destination.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/backend/Service/DestinationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/backend/Service/DestinationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/backend/Service/EmailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/backend/Service/EmailService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/backend/Utility/JwtUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/backend/backend/BackendApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/backend/backend/DestinationControllerTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/backend/backend/DestinationEntityTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/backend/backend/DestinationServiceTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/backend-0.0.1-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/backend/backend/BackendApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/backend/backend/BackendApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/backend/backend/Controller/DestinationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/backend/backend/Controller/DestinationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/backend/backend/Controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/backend/backend/Controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/backend/backend/Entity/Destination.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/backend/backend/Entity/Destination.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/backend/backend/Entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/backend/backend/Entity/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/backend/backend/Repository/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/backend/backend/Repository/UserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/backend/backend/Service/DestinationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/backend/backend/Service/DestinationService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/backend/backend/Service/EmailService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/backend/backend/Service/EmailService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/backend/backend/Service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/backend/backend/Service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/backend/backend/Utility/JwtUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/backend/backend/Utility/JwtUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/jacoco.exec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.backend.backend.Controller/BookingController.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.backend.backend.Controller/BookingController.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.backend.backend.Controller/DestinationController.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.backend.backend.Controller/DestinationController.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.backend.backend.Controller/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.backend.backend.Controller/index.source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.backend.backend.Entity/Destination.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.backend.backend.Entity/Destination.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.backend.backend.Entity/NormalUser.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.backend.backend.Entity/NormalUser.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.backend.backend.Entity/User.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.backend.backend.Entity/User.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.backend.backend.Entity/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.backend.backend.Entity/index.source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.backend.backend.Service/BookingService.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.backend.backend.Service/BookingService.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.backend.backend.Service/DestinationService.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.backend.backend.Service/DestinationService.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.backend.backend.Service/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.backend.backend.Service/index.source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.backend.backend/BackendApplication.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.backend.backend/BackendApplication.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.backend.backend/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.backend.backend/index.source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/branchfc.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/branchnc.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/branchpc.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/bundle.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/class.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/down.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/greenbar.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/group.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/method.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/package.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/prettify.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/prettify.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/redbar.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/report.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/report.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/session.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/sort.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/sort.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/source.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/up.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-sessions.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/2024-12-17T11-26-03_300.dumpstream" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.backend.backend.BackendApplicationTests.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.backend.backend.BookingControllerTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.backend.backend.BookingEntityTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.backend.backend.DestinationControllerTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.backend.backend.DestinationEntityTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.backend.backend.BackendApplicationTests.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.backend.backend.BookingControllerTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.backend.backend.BookingEntityTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.backend.backend.DestinationControllerTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.backend.backend.DestinationEntityTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/backend/backend/BackendApplicationTests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/backend/backend/BookingControllerTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/backend/backend/BookingEntityTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/backend/backend/BookingServiceTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/backend/backend/DestinationControllerTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/backend/backend/DestinationEntityTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/backend/backend/DestinationServiceTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/backend/Repository/DestinationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/backend/Repository/DestinationRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/0.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/0.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/1.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/1.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/2.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/2.pack" afterDir="false" />
@@ -110,12 +21,8 @@
       <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/DestinationPageInformation.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/DestinationPageInformation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/components/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/Header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/components/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/components/ProductCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/ProductCard.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,52 +71,53 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.BackendApplication.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BookingControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BookingControllerTest.testPostBookingHappy1.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BookingControllerTest.testPostBookingSad1_DuplicateBooking.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BookingControllerTest.testPostBookingSad1_NotFoundUser.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BookingEntityTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.BookingServiceTest.addBooking_Happy.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BookingServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.DestinationControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.DestinationServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.DestinationServiceTest.getAllRecordsHappy1.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.DestinationServiceTest.getRecordSad1.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.backend in backend.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.com.backend.backend in backend.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.java in backend.executor&quot;: &quot;Coverage&quot;,
-    &quot;Maven.backend [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.backend [org.jacoco:jacoco-maven-plugin:0.8.12:check].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.backend [org.jacoco:jacoco-maven-plugin:0.8.12:report].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.backend [package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.backend [test].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.backend [validate].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.demo [clean,package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.demo [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.demo [package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.demo [verify].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;milestone__2&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/LENOVO/Desktop/New folder (4)/Software-Engineering/backend&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.BackendApplication.executor": "Run",
+    "JUnit.BookingControllerTest.executor": "Run",
+    "JUnit.BookingControllerTest.testPostBookingHappy1.executor": "Run",
+    "JUnit.BookingControllerTest.testPostBookingSad1_DuplicateBooking.executor": "Run",
+    "JUnit.BookingControllerTest.testPostBookingSad1_NotFoundUser.executor": "Run",
+    "JUnit.BookingEntityTest.executor": "Coverage",
+    "JUnit.BookingServiceTest.addBooking_Happy.executor": "Run",
+    "JUnit.BookingServiceTest.executor": "Run",
+    "JUnit.DestinationControllerTest.executor": "Run",
+    "JUnit.DestinationServiceTest.executor": "Run",
+    "JUnit.DestinationServiceTest.getAllRecordsHappy1.executor": "Run",
+    "JUnit.DestinationServiceTest.getRecordSad1.executor": "Run",
+    "JUnit.backend in backend.executor": "Coverage",
+    "JUnit.com.backend.backend in backend.executor": "Coverage",
+    "JUnit.java in backend.executor": "Coverage",
+    "Maven.backend [clean].executor": "Run",
+    "Maven.backend [org.jacoco:jacoco-maven-plugin:0.8.12:check].executor": "Run",
+    "Maven.backend [org.jacoco:jacoco-maven-plugin:0.8.12:report].executor": "Run",
+    "Maven.backend [package].executor": "Run",
+    "Maven.backend [test].executor": "Run",
+    "Maven.backend [validate].executor": "Run",
+    "Maven.demo [clean,package].executor": "Run",
+    "Maven.demo [clean].executor": "Run",
+    "Maven.demo [package].executor": "Run",
+    "Maven.demo [verify].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "milestone__2",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/LENOVO/Desktop/New folder (4)/Software-Engineering/backend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.backend.backend.Service" />
@@ -325,6 +233,12 @@
       <workItem from="1734500796213" duration="1380000" />
       <workItem from="1734508743394" duration="11798000" />
       <workItem from="1734665253820" duration="315000" />
+      <workItem from="1734720342405" duration="594000" />
+      <workItem from="1734743371668" duration="1206000" />
+      <workItem from="1735212357140" duration="1419000" />
+      <workItem from="1735224446694" duration="595000" />
+      <workItem from="1735444107986" duration="437000" />
+      <workItem from="1735555697203" duration="7641000" />
     </task>
     <servers />
   </component>
