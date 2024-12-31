@@ -1,5 +1,6 @@
 package com.backend.backend;
 
+import static org.mockito.Mockito.*;
 import com.backend.backend.Controller.DestinationController;
 import com.backend.backend.Entity.Destination;
 import com.backend.backend.Service.DestinationService;
@@ -20,6 +21,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -89,7 +91,24 @@ public class DestinationControllerTest {
         assertTrue(response.contains("\"title\":\"Beach Paradise\""));
         assertTrue(response.contains("\"location\":\"Alps\""));
     }
+    @Test
+    public void testGetDestinationById() throws Exception {
+        // Arrange
+        String id = "123";
+        Destination destination = new Destination();
+        destination.setPid(id);
+        destination.setTitle("Pyramids of Giza");
 
+        when(destinationService.getDestinationById(id)).thenReturn(destination);
+
+        // Act & Assert
+        mockMvc.perform(MockMvcRequestBuilders.get("/destination/" + id))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.pid").value("123"))
+                .andExpect(jsonPath("$.title").value("Pyramids of Giza"));
+
+        verify(destinationService, times(1)).getDestinationById(id);
+    }
     @Test
     public void testGetAllDestinationsWithSelectedFields() throws Exception {
         Destination destination = new Destination("Beach Paradise", "Hawaii", "Event1",
