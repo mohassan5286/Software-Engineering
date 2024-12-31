@@ -6,9 +6,11 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/booking")
-@CrossOrigin(value = "http://localhost:3000/")
+@CrossOrigin
 //@AllArgsConstructor
 public class BookingController {
 
@@ -18,5 +20,16 @@ public class BookingController {
     @PostMapping("/add")
     public String fetchDestinationById(@RequestBody Booking booking) {
         return bookingService.addBooking(booking);
+    }
+
+    @GetMapping("/all/{uid}")
+    public List<Booking> fetchAllBookings(@PathVariable String uid) {
+        return bookingService.getAllBookingsByUid(uid);
+    }
+
+    @DeleteMapping("/remove/{pid}/{uid}")
+    public String removeBooking(@PathVariable String pid, @PathVariable String uid) {
+        System.out.println("pid: " + pid + " uid: " + uid);
+        return bookingService.removeBooking(pid, uid);
     }
 }

@@ -3,10 +3,10 @@ package com.backend.backend;
 
 import com.backend.backend.Entity.Booking;
 import com.backend.backend.Entity.Destination;
-import com.backend.backend.Entity.NormalUser;
+import com.backend.backend.Entity.User;
 import com.backend.backend.Repository.BookingRepository;
 import com.backend.backend.Repository.DestinationRepository;
-import com.backend.backend.Repository.NormalUserRepository;
+import com.backend.backend.Repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -25,28 +25,27 @@ public class BackendApplication {
 		SpringApplication.run(BackendApplication.class, args);
 	}
 
-//	@Bean
-//	CommandLineRunner runner(NormalUserRepository normalUserRepository, BookingRepository bookingRepository) {
-//		return args -> {
-////
+	@Bean
+	CommandLineRunner runner(UserRepository UserRepository, BookingRepository bookingRepository) {
+		return args -> {
+
 //			Booking booking = new Booking(
-//					"674f56cca02d3de66bcaebd4",
-//					"U123",
+//					"674f56cca02d3de66bcaebcc",
+//					"6773e4cbc507775e318a753a",
 //					new Date(),
-//					"ok",
 //					2
 //			);
-////
+//
 //			bookingRepository.insert(booking);
 //
-//			NormalUser normalUser = new NormalUser(
+//			User User = new User(
 //					"name",
 //					"ok",
 //					"U123",
 //					new ArrayList<>()
 //			);
 //
-//			normalUserRepository.insert(normalUser);
-//		};
-//	}
+//			UserRepository.insert(User);
+		};
+	}
 }

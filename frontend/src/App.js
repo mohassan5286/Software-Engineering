@@ -1,56 +1,141 @@
 import './App.css';
-import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useLocation, Navigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import SearchResults from './pages/SearchResults.jsx';
-
 import Header from './components/Header.jsx';
 import Home from './pages/Home.jsx';
 import Login from './pages/Login.jsx';
 import Nopage from './pages/Nopage.jsx';
 import DestinationPageInformation from './DestinationPageInformation.js';
+import BookingPage from './BookingPage.js';
 
 function App() {
-  const [user_id, setUserId] = useState(localStorage.getItem('user_id') || '');
-  const [pid, setPid] = useState(localStorage.getItem('pid') || '');
-  const [information, setInformation] = useState(
-    JSON.parse(localStorage.getItem('information')) || getDefaultInformation()
+  const [user_id, setUserId] = useState(sessionStorage.getItem('user_id') || '');
+  const [isAdmin, setIsAdmin] = useState(
+    sessionStorage.getItem('isAdmin') === 'true'
+      ? true
+      : sessionStorage.getItem('isAdmin') === 'false'
+      ? false
+      : null
+  );
+  const [pid, setPid] = useState(sessionStorage.getItem('pid') || '');
+  const [information, setInformation] = useState(() =>
+    JSON.parse(sessionStorage.getItem('information')) || getDefaultInformation()
   );
 
-  const location = useLocation(); // Use useLocation to track the current path
-  const shouldRenderHeader = location.pathname !== '/' && location.pathname !== '/login'; // Update based on location.pathname
+  const location = useLocation();
+  const noHeaderRoutes = ['/', '/login'];
+  const shouldRenderHeader = !noHeaderRoutes.includes(location.pathname);
+
+  const handleLogin = (userId, role) => {
+    const isAdminRole = role === 'admin';
+    setUserId(userId);
+    setIsAdmin(isAdminRole);
+    sessionStorage.setItem('user_id', userId);
+    sessionStorage.setItem('isAdmin', isAdminRole);
+  };
+
+  const handleLogout = () => {
+    setUserId('');
+    setIsAdmin(null);
+    setPid('');
+    setInformation(getDefaultInformation());
+    sessionStorage.clear();
+  };
+
+  // Redirect logic for unauthorized access
+  useEffect(() => {
+    if (!user_id && location.pathname !== '/login') {
+      window.location.href = '/login';
+    }
+  }, [user_id, location.pathname]);
 
   useEffect(() => {
-    localStorage.setItem('user_id', user_id);
-    localStorage.setItem('pid', pid);
-    localStorage.setItem('information', JSON.stringify(information));
-  }, [user_id, pid, information]);
+    sessionStorage.setItem('pid', pid);
+  }, [pid]);
+
+  useEffect(() => {
+    sessionStorage.setItem('information', JSON.stringify(information));
+  }, [information]);
 
   return (
     <>
       {shouldRenderHeader && <Header />}
       <Routes>
-      <Route path="/search" element={<SearchResults />} />
-        <Route path="/home" element={<Home setPid={setPid} setInformation={setInformation} />} />
-        <Route path="/login" element={<Login setUserId={setUserId} />} />
-        <Route path="/" element={<Login setUserId={setUserId} />} />
-        <Route path={`/destination-page/:${pid}`} element={<DestinationPageInformation information={information} />} />
+        <Route
+          path="/search"
+          element={
+            user_id ? <SearchResults /> : <Navigate to="/login" replace />
+          }
+        />
+        <Route
+          path="/home"
+          element={
+            user_id ? (
+              <Home setPid={setPid} setInformation={setInformation} isAdmin={isAdmin} />
+            ) : (
+              <Navigate to="/login" replace />
+            )
+          }
+        />
+        <Route
+          path="/login"
+          element={<Login setUserId={handleLogin} setIsAdmin={setIsAdmin} />}
+        />
+        <Route
+          path="/"
+          element={<Login setUserId={handleLogin} setIsAdmin={setIsAdmin} />}
+        />
+        <Route path='/booking-page' element={<BookingPage />} />
+        <Route
+          path="/destination-page/:pid"
+          element={
+            user_id ? (
+              <DestinationPageInformation information={information} />
+            ) : (
+              <Navigate to="/login" replace />
+            )
+          }
+        />
         <Route path="/*" element={<Nopage />} />
       </Routes>
+      {user_id && (
+        <button 
+        onClick={handleLogout} 
+        style={{
+          position: 'fixed', 
+          bottom: '20px', 
+          right: '20px', 
+          backgroundColor: '#007BFF', 
+          color: 'white', 
+          border: 'none', 
+          borderRadius: '8px', 
+          padding: '10px 15px', 
+          cursor: 'pointer', 
+          boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',
+          fontSize: '16px'
+        }}
+        onMouseOver={(e) => e.target.style.backgroundColor = '#0056b3'}
+        onMouseOut={(e) => e.target.style.backgroundColor = '#007BFF'}
+      >
+        Logout
+      </button>
+      )}
     </>
   );
 }
 
 function getDefaultInformation() {
   return {
-    "photo_Url": "",
-    "title": "",
-    "location": "",
-    "tourism_type": "",
-    "description": "",
-    "event": "",
-    "price": "",
-    "rating": "",
-    "no_of_reviews": ""
+    photo_Url: '',
+    title: '',
+    location: '',
+    tourism_type: '',
+    description: '',
+    event: '',
+    price: '',
+    rating: '',
+    no_of_reviews: ''
   };
 }
 

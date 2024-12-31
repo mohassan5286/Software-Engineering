@@ -15,10 +15,9 @@ public class BookingEntityTest {
         assertNotNull(booking);
 
         // Test that all fields are initialized to their default values
-        assertNull(booking.getPid());
-        assertNull(booking.getUid());
+        assertNull(booking.getId().getPid());
+        assertNull(booking.getId().getUid());
         assertNull(booking.getBookingDate());
-        assertNull(booking.getStatus());
         assertEquals(0, booking.getNo_of_persons());
     }
 
@@ -31,15 +30,13 @@ public class BookingEntityTest {
                 "123",
                 "456",
                 bookingDate,
-                "Confirmed",
                 4
         );
 
         // Test that the values are set correctly
-        assertEquals("123", booking.getPid());
-        assertEquals("456", booking.getUid());
+        assertEquals("123", booking.getId().getPid());
+        assertEquals("456", booking.getId().getUid());
         assertEquals(bookingDate, booking.getBookingDate());
-        assertEquals("Confirmed", booking.getStatus());
         assertEquals(4, booking.getNo_of_persons());
     }
 
@@ -50,15 +47,13 @@ public class BookingEntityTest {
                 null,
                 null,
                 null,
-                null,
                 0
         );
 
         // Test that the fields are correctly initialized with nulls or 0 where appropriate
-        assertNull(booking.getPid());
-        assertNull(booking.getUid());
+        assertNull(booking.getId().getPid());
+        assertNull(booking.getId().getUid());
         assertNull(booking.getBookingDate());
-        assertNull(booking.getStatus());
         assertEquals(0, booking.getNo_of_persons());
     }
 
@@ -67,16 +62,14 @@ public class BookingEntityTest {
         Booking booking = new Booking();
         Date bookingDate = new Date();
 
-        booking.setPid("789");
-        booking.setUid("101112");
+        booking.getId().setPid("789");
+        booking.getId().setUid("101112");
         booking.setBookingDate(bookingDate);
-        booking.setStatus("Pending");
         booking.setNo_of_persons(3);
 
-        assertEquals("789", booking.getPid());
-        assertEquals("101112", booking.getUid());
+        assertEquals("789", booking.getId().getPid());
+        assertEquals("101112", booking.getId().getUid());
         assertEquals(bookingDate, booking.getBookingDate());
-        assertEquals("Pending", booking.getStatus());
         assertEquals(3, booking.getNo_of_persons());
     }
 }

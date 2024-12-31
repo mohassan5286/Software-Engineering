@@ -5,26 +5,26 @@ import com.backend.backend.Repository.DestinationRepository;
 import com.backend.backend.Service.DestinationService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
-
+@CrossOrigin
 @RestController
 @RequestMapping("/destination")
-@CrossOrigin(value = "http://localhost:3000/")
 //@AllArgsConstructor
 public class DestinationController {
     private DestinationService destinationService;
-//    @Autowired
+    //    @Autowired
 //    public DestinationController(destinationService){
 //        this.destinationService = destinationService;
 //    }
-@Autowired
-public DestinationController(DestinationService destinationService) {
-    this.destinationService = destinationService;
-}
+    @Autowired
+    public DestinationController(DestinationService destinationService) {
+        this.destinationService = destinationService;
+    }
     @GetMapping("/get/{pid}")
     public Destination fetchDestinationById(@PathVariable String pid) {
         return destinationService.getDestinationById(pid);
@@ -56,7 +56,7 @@ public DestinationController(DestinationService destinationService) {
     public List<Destination> searchByTitle(@RequestParam String title) {
         return destinationService.searchByTitle(title);
     }
-    
+
     @GetMapping("/filter")
     public List<Destination> filterDestinations(
             @RequestParam(required = false) String location,
@@ -64,5 +64,11 @@ public DestinationController(DestinationService destinationService) {
             @RequestParam(required = false) Double maxPrice) {
 
         return destinationService.filterDestinations(location, tourism_type, maxPrice);
+    }
+
+    @PostMapping("/add")
+    public ResponseEntity<Destination> addDestination(@RequestBody Destination destination) {
+        Destination savedDestination = destinationService.saveDestination(destination);
+        return ResponseEntity.ok(savedDestination);
     }
 }
