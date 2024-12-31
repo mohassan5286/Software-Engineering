@@ -108,6 +108,7 @@ a:hover {
   height: 50px; 
   padding: 0 15px;
   border-radius: 10px; 
+  background-color: #3498db;
   color: white;
   font-weight: bold;
   text-align: center;
@@ -117,6 +118,9 @@ a:hover {
   border: none; 
 }
 
+.destination-page-book-button:hover, .decrement-btn:hover,.increment-btn:hover {
+  background-color: #2980b9; /* Changes background color when hovered */
+}
 .person-counter {
   display: flex;
   align-items: center;
@@ -127,6 +131,7 @@ a:hover {
 .decrement-btn,
 .increment-btn {
   color: white;
+  background-color: #3498db;
   border: none;
   border-radius: 4px;
   width: 30px;
