@@ -11,7 +11,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 //@Data
 
 public class Destination {
-
     @Id
     private String pid;
 

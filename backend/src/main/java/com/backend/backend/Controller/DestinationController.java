@@ -14,7 +14,6 @@ import java.util.Optional;
 @CrossOrigin
 @RestController
 @RequestMapping("/destination")
-//@AllArgsConstructor
 public class DestinationController {
     private DestinationService destinationService;
     //    @Autowired
@@ -32,6 +31,7 @@ public class DestinationController {
 
     @GetMapping("/get/all")
     public List<Destination> fetchDestinationAll() {
+        System.out.println(destinationService.getDestinationAll());
         return destinationService.getDestinationAll();
     }
 
