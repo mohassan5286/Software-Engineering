@@ -1,4 +1,5 @@
 package com.backend.backend;
+import static org.mockito.Mockito.*;
 
 import com.backend.backend.Controller.DestinationController;
 import com.backend.backend.Entity.Destination;
@@ -171,7 +172,7 @@ public class DestinationServiceTest {
 
     @BeforeEach
     public void setUp() {
-        MockitoAnnotations.initMocks(this);
+        MockitoAnnotations.openMocks(this);
     }
 
     @Test
@@ -227,6 +228,59 @@ public class DestinationServiceTest {
         assertEquals(1, result.size());
         assertEquals("Pyramids of Giza", result.get(0).getTitle());
     }
+    @Test
+    public void testGetAllDestinationsWithSelectedFields() {
+        // Arrange
+        Destination destination1 = new Destination();
+        destination1.setTitle("Pyramids of Giza");
+        destination1.setLocation("Giza");
+
+        Destination destination2 = new Destination();
+        destination2.setTitle("Eiffel Tower");
+        destination2.setLocation("Paris");
+
+        List<Destination> mockData = Arrays.asList(destination1, destination2);
+
+        when(destinationRepository.findAllWithSpecificFields()).thenReturn(mockData);
+
+        // Act
+        List<Destination> result = destinationService.getAllDestinationsWithSelectedFields();
+
+        // Assert
+        assertEquals(2, result.size());
+        assertEquals("Pyramids of Giza", result.get(0).getTitle());
+        assertEquals("Paris", result.get(1).getLocation());
+
+        verify(destinationRepository, times(1)).findAllWithSpecificFields();
+    }
+    @Test
+    public void testGetDestinationsByCategoryWithSelectedFields() {
+        // Arrange
+        String tourismType = "Historical";
+
+        Destination destination1 = new Destination();
+        destination1.setTitle("Pyramids of Giza");
+        destination1.setTourism_type("Historical");
+
+        Destination destination2 = new Destination();
+        destination2.setTitle("Great Wall of China");
+        destination2.setTourism_type("Historical");
+
+        List<Destination> mockData = Arrays.asList(destination1, destination2);
+
+        when(destinationRepository.findByTourism_typeWithSpecificFields(tourismType)).thenReturn(mockData);
+
+        // Act
+        List<Destination> result = destinationService.getDestinationsByCategoryWithSelectedFields(tourismType);
+
+        // Assert
+        assertEquals(2, result.size());
+        assertEquals("Pyramids of Giza", result.get(0).getTitle());
+        assertEquals("Historical", result.get(0).getTourism_type());
+
+        verify(destinationRepository, times(1)).findByTourism_typeWithSpecificFields(tourismType);
+    }
+
 
     @Test
     public void filterDestinations_byLocationAndPrice() {
