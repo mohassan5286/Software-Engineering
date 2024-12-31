@@ -7,7 +7,6 @@ import org.springframework.data.mongodb.repository.Query;
 import java.util.Optional;
 
 public interface BookingRepository extends MongoRepository<Booking, String> {
-
-//    @Query
-//    Optional<Booking> findBookingByUid();
+    @Query("{'pid': ?0, 'uid': ?1}")
+    Optional<Booking> findByPidAndUid(String pid, String uid);
 }

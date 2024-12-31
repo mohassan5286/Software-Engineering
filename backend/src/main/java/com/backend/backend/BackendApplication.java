@@ -25,17 +25,17 @@ public class BackendApplication {
 		SpringApplication.run(BackendApplication.class, args);
 	}
 
-//	@Bean
-//	CommandLineRunner runner(UserRepository UserRepository, BookingRepository bookingRepository) {
-//		return args -> {
-////
-//			Booking booking = new Booking(
-//					"674f56cca02d3de66bcaebd4",
-//					"U123",
-//					new Date(),
-//					"ok",
-//					2
-//			);
+	@Bean
+	CommandLineRunner runner(UserRepository UserRepository, BookingRepository bookingRepository) {
+		return args -> {
+//
+			Booking booking = new Booking(
+					"674f56cca02d3de66bcaebd4",
+					"U123",
+					new Date(),
+					"ok",
+					2
+			);
 ////
 //			bookingRepository.insert(booking);
 //
@@ -47,6 +47,6 @@ public class BackendApplication {
 //			);
 //
 //			UserRepository.insert(User);
-//		};
-//	}
+		};
+	}
 }

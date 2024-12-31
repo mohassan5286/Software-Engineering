@@ -25,17 +25,15 @@ public class Booking {
 //    @Indexed(unique = true)
     String uid;
     Date bookingDate;
-    String status;
     int no_of_persons;
 
     public Booking() {
     }
 
-    public Booking(String pid, String uid, Date bookingDate, String status, int no_of_persons) {
+    public Booking(String pid, String uid, Date bookingDate, int no_of_persons) {
         this.pid = pid;
         this.uid = uid;
         this.bookingDate = bookingDate;
-        this.status = status;
         this.no_of_persons = no_of_persons;
     }
 
@@ -61,14 +59,6 @@ public class Booking {
 
     public void setBookingDate(Date bookingDate) {
         this.bookingDate = bookingDate;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
     }
 
     public int getNo_of_persons() {

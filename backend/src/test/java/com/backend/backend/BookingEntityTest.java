@@ -18,7 +18,6 @@ public class BookingEntityTest {
         assertNull(booking.getPid());
         assertNull(booking.getUid());
         assertNull(booking.getBookingDate());
-        assertNull(booking.getStatus());
         assertEquals(0, booking.getNo_of_persons());
     }
 
@@ -31,7 +30,6 @@ public class BookingEntityTest {
                 "123",
                 "456",
                 bookingDate,
-                "Confirmed",
                 4
         );
 
@@ -39,7 +37,6 @@ public class BookingEntityTest {
         assertEquals("123", booking.getPid());
         assertEquals("456", booking.getUid());
         assertEquals(bookingDate, booking.getBookingDate());
-        assertEquals("Confirmed", booking.getStatus());
         assertEquals(4, booking.getNo_of_persons());
     }
 
@@ -50,7 +47,6 @@ public class BookingEntityTest {
                 null,
                 null,
                 null,
-                null,
                 0
         );
 
@@ -58,7 +54,6 @@ public class BookingEntityTest {
         assertNull(booking.getPid());
         assertNull(booking.getUid());
         assertNull(booking.getBookingDate());
-        assertNull(booking.getStatus());
         assertEquals(0, booking.getNo_of_persons());
     }
 
@@ -70,13 +65,11 @@ public class BookingEntityTest {
         booking.setPid("789");
         booking.setUid("101112");
         booking.setBookingDate(bookingDate);
-        booking.setStatus("Pending");
         booking.setNo_of_persons(3);
 
         assertEquals("789", booking.getPid());
         assertEquals("101112", booking.getUid());
         assertEquals(bookingDate, booking.getBookingDate());
-        assertEquals("Pending", booking.getStatus());
         assertEquals(3, booking.getNo_of_persons());
     }
 }
