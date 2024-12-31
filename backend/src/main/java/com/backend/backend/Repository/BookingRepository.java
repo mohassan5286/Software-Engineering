@@ -5,19 +5,25 @@ import com.backend.backend.Entity.BookingId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface BookingRepository extends MongoRepository<Booking, BookingId> {
 
     // Custom query to find a booking by user ID
     @Query("{'id.uid': ?0}")
-    Optional<Booking> findByUid(String uid);
+    List<Booking> findByUid(String uid);
 
-    // Custom query to find a booking by user ID and product ID
-    @Query("{'id.uid': ?0, 'id.pid': ?1}")
-    Optional<Booking> findByUidAndPid(String uid, String pid);
+    // Custom query to find a booking by product ID and user ID
+    @Query("{'id.pid': ?0, 'id.uid': ?1}")
+    Optional<Booking> findByUidAndPid(String pid, String uid);
 
     // Custom query to find a booking by product ID
     @Query("{'id.pid': ?0}")
-    Optional<Booking> findByPid(String pid);
+    List<Booking> findByPid(String pid);
+
+    // Custom query to delete a booking by product ID and user ID
+    @Query("{'id.pid': ?0, 'id.uid': ?1}")
+    void deleteByUidAndPid(String pid, String uid);
+
 }

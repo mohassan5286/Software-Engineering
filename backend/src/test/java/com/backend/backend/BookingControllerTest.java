@@ -192,7 +192,9 @@ public class BookingControllerTest {
 
         String bookingsJson = objectMapper.writeValueAsString(bookings);
 
-        Mockito.when(bookingService.getAllBookings()).thenReturn(bookings);
+        Mockito.when(bookingService.getAllBookingsByUid(Mockito.anyString())).thenReturn(
+                bookings.stream().filter(booking -> booking.getId().getUid().equals("U456")).toList()
+        );
 
         // Act
         String response = mockMvc.perform(MockMvcRequestBuilders.get("/booking/all")
@@ -211,7 +213,7 @@ public class BookingControllerTest {
         String bookingId = "674f56cca02d3de66bcaebcc";
         String res = "Booking removed successfully!";  // Expected response message
 
-        Mockito.when(bookingService.removeBooking(Mockito.anyString())).thenReturn(res);
+        Mockito.when(bookingService.removeBooking(Mockito.anyString(), Mockito.anyString())).thenReturn(res);
 
         // Act
         String response = mockMvc.perform(MockMvcRequestBuilders.delete("/booking/remove/{id}", bookingId)
@@ -230,7 +232,7 @@ public class BookingControllerTest {
         String bookingId = "nonexistentBookingId";  // An ID that does not exist
         String res = "Booking not found";  // Expected error message
 
-        Mockito.when(bookingService.removeBooking(Mockito.anyString())).thenThrow(new NoSuchElementException("Booking not found"));
+        Mockito.when(bookingService.removeBooking(Mockito.anyString(), Mockito.anyString())).thenThrow(new NoSuchElementException("Booking not found"));
 
         // Act
         String response = mockMvc.perform(MockMvcRequestBuilders.delete("/booking/remove/{id}", bookingId)

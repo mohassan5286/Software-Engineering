@@ -30,6 +30,10 @@ public class BookingService {
             User user = userRepository.findById(booking.getId().getUid()).orElseThrow(() -> new NoSuchElementException("User not found!"));
 //            destinationRepository.findById(booking.getPid()).orElseThrow(() -> new NoSuchElementException("Destination not found!"));
             System.out.println(booking);
+            if (bookingRepository.findByUidAndPid(booking.getId().getPid(), booking.getId().getUid()).isPresent()) {
+                bookingRepository.deleteByUidAndPid(booking.getId().getPid(), booking.getId().getUid());
+                user.getBookingHistory().removeIf(b -> b.getId().getPid().equals(booking.getId().getPid()));
+            }
             bookingRepository.insert(booking);
             user.getBookingHistory().add(booking);
             userRepository.save(user);
@@ -43,24 +47,24 @@ public class BookingService {
         }
     }
 
-    public List<Booking> getAllBookings() {
+    public List<Booking> getAllBookingsByUid(String uid) {
 
-        return bookingRepository.findAll();
+        return bookingRepository.findByUid(uid);
 
     }
 
-    public String removeBooking(String id) {
+    public String removeBooking(String pid, String uid) {
 
-//        try {
-//            if( bookingRepository.existsById() ) {
-//                bookingRepository.deleteById(id);
+        try {
+            if( bookingRepository.findByUidAndPid(pid, uid).isPresent() ) {
+                bookingRepository.deleteByUidAndPid(pid, uid);
                 return "Booking removed successfully!";
-//            } else {
-//                throw new NoSuchElementException("Booking not found!");
-//            }
-//        } catch (Exception e) {
-//            return "Error: " + e.getMessage();
-//        }
+            } else {
+                throw new NoSuchElementException("Booking not found!");
+            }
+        } catch (Exception e) {
+            return "Error: " + e.getMessage();
+        }
 
     }
 }

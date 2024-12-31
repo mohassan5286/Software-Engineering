@@ -22,13 +22,13 @@ public class BookingController {
         return bookingService.addBooking(booking);
     }
 
-    @GetMapping("/all")
-    public List<Booking> fetchAllBookings() {
-        return bookingService.getAllBookings();
+    @GetMapping("/all/{uid}")
+    public List<Booking> fetchAllBookings(@PathVariable String uid) {
+        return bookingService.getAllBookingsByUid(uid);
     }
 
-    @DeleteMapping("/remove/{id}")
-    public String removeBooking(@PathVariable String id) {
-        return bookingService.removeBooking(id);
+    @DeleteMapping("/remove/{pid}/{uid}")
+    public String removeBooking(@PathVariable String pid, @PathVariable String uid) {
+        return bookingService.removeBooking(pid, uid);
     }
 }
