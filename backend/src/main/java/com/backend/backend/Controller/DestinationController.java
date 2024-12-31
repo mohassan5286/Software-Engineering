@@ -11,21 +11,20 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-
+@CrossOrigin
 @RestController
 @RequestMapping("/destination")
-@CrossOrigin
 //@AllArgsConstructor
 public class DestinationController {
     private DestinationService destinationService;
-//    @Autowired
+    //    @Autowired
 //    public DestinationController(destinationService){
 //        this.destinationService = destinationService;
 //    }
-@Autowired
-public DestinationController(DestinationService destinationService) {
-    this.destinationService = destinationService;
-}
+    @Autowired
+    public DestinationController(DestinationService destinationService) {
+        this.destinationService = destinationService;
+    }
     @GetMapping("/get/{pid}")
     public Destination fetchDestinationById(@PathVariable String pid) {
         return destinationService.getDestinationById(pid);
@@ -57,7 +56,7 @@ public DestinationController(DestinationService destinationService) {
     public List<Destination> searchByTitle(@RequestParam String title) {
         return destinationService.searchByTitle(title);
     }
-    
+
     @GetMapping("/filter")
     public List<Destination> filterDestinations(
             @RequestParam(required = false) String location,
