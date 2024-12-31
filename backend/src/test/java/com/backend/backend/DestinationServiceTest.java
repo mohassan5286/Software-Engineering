@@ -303,4 +303,18 @@ public class DestinationServiceTest {
         List<Destination> result = destinationService.filterDestinations("Non-existent Location", "Fictional", 100.0);
         assertEquals(0, result.size());
     }
+
+    @Test
+    public void testAddDestination() {
+        Destination destination = new Destination("Santorini Caldera", "Santorini, Greece", "Volcanic Wine Festival",
+                "Beautiful caldera destination with volcanic views", "photoUrl", 300.0, 4.9, 320, "Romantic");
+        destination.setPid("12");
+
+        Mockito.when(destinationRepository.save(Mockito.any(Destination.class))).thenReturn(destination);
+
+        Destination result = destinationService.saveDestination(destination);
+
+        assertEquals("12", result.getPid());
+        assertEquals("Santorini Caldera", result.getTitle());
+    }
 }
