@@ -9,7 +9,6 @@ const BookingPage = () => {
   useEffect(() => {
     const fetchBookingHistory = async () => {
       try {
-        console.log(123123);
         const response = await axios.get(
           `http://localhost:8081/booking/all/${localStorage.getItem("user_id")}`
         );
@@ -27,7 +26,6 @@ const BookingPage = () => {
         const data = await response.json();
 
         let temp = {};
-
         data.forEach((destination) => {
           temp[destination.id] = destination.title;
         });
@@ -42,13 +40,35 @@ const BookingPage = () => {
     fetchDestinations();
   }, []);
 
+  // Delete a booking
+  const deleteBooking = async (bookingId) => {
+    try {
+      await axios.delete(
+        `http://localhost:8081/booking/remove/${bookingId.pid}/${bookingId.uid}`
+      );
+
+      setBookingHistory((prevBookings) =>
+        prevBookings.filter((booking) => booking.id.pid !== bookingId.pid)
+      );
+      alert("Booking deleted successfully!");
+    } catch (error) {
+      console.error("Error deleting booking:", error);
+      alert("An error occurred while deleting the booking.");
+    }
+  };
+
   return (
     <div className="booking-page">
-      <h2>Your Booking History</h2>
       <ul className="booking-history">
         {bookingHistory.map((booking, index) => (
           <li key={index} className="booking-item">
             <h3>Booking {index + 1}</h3>
+            <button
+              className="delete-button"
+              onClick={() => deleteBooking(booking.id)}
+            >
+              Delete
+            </button>
             <div className="detail">
               <span>Destination Title:</span>
               <span className="value">{destinations[booking.id.pid]}</span>
