@@ -64,7 +64,7 @@ function App() {
       <Routes>
       <Route path="/search" element={<SearchResults />} />
         <Route path="/home" element={<Home setPid={setPid} setInformation={setInformation} />} />
-        <Route path="/login" element={<Login setUserId={setUserId} />} />
+        <Route path="/login" element={<Login setUserId={setUserId} setIsAdmin={setIsAdmin} />} />
         <Route path="/" element={<Login setUserId={setUserId} />} />
         <Route path='/booking-page' element={<BookingPage />} />
         <Route path={`/destination-page/:${pid}`} element={<DestinationPageInformation information={information} />} />
