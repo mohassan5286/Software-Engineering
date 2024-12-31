@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
@@ -40,4 +41,24 @@ public class BookingService {
         }
     }
 
+    public List<Booking> getAllBookings() {
+
+        return bookingRepository.findAll();
+
+    }
+
+    public String removeBooking(String id) {
+
+        try {
+            if( bookingRepository.existsById(id) ) {
+                bookingRepository.deleteById(id);
+                return "Booking removed successfully!";
+            } else {
+                throw new NoSuchElementException("Booking not found!");
+            }
+        } catch (Exception e) {
+            return "Error: " + e.getMessage();
+        }
+
+    }
 }
