@@ -80,11 +80,11 @@ function App() {
         />
         <Route
           path="/login"
-          element={<Login setUserId={handleLogin} />}
+          element={<Login setUserId={handleLogin} setIsAdmin={setIsAdmin} />}
         />
         <Route
           path="/"
-          element={<Login setUserId={handleLogin} />}
+          element={<Login setUserId={handleLogin} setIsAdmin={setIsAdmin} />}
         />
         <Route path='/booking-page' element={<BookingPage />} />
         <Route

@@ -6,13 +6,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document
 //@Data
 
 public class Destination {
     @Id
-    private String id;
+    private String pid;
 
     private String title;
 
@@ -118,11 +119,11 @@ public class Destination {
         this.title = title;
     }
 
-    public String getid() {
-        return id;
+    public String getPid() {
+        return pid;
     }
 
-    public void setid(String id) {
-        this.id = id;
+    public void setPid(String pid) {
+        this.pid = pid;
     }
 }

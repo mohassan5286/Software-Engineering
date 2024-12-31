@@ -14,7 +14,7 @@ public class DestinationEntityTest {
         assertNotNull(destination);
 
         // Test that all fields are initialized to their default values
-        assertNull(destination.getid());
+        assertNull(destination.getPid());
         assertNull(destination.getTitle());
         assertNull(destination.getLocation());
         assertNull(destination.getDescription());
