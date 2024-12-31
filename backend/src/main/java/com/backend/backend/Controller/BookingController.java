@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/booking")
-@CrossOrigin(value = "http://localhost:3000/")
+@CrossOrigin
 //@AllArgsConstructor
 public class BookingController {
 
@@ -29,6 +29,7 @@ public class BookingController {
 
     @DeleteMapping("/remove/{pid}/{uid}")
     public String removeBooking(@PathVariable String pid, @PathVariable String uid) {
+        System.out.println("pid: " + pid + " uid: " + uid);
         return bookingService.removeBooking(pid, uid);
     }
 }

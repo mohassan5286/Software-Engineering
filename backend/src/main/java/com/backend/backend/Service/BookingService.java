@@ -48,7 +48,6 @@ public class BookingService {
     }
 
     public List<Booking> getAllBookingsByUid(String uid) {
-
         return bookingRepository.findByUid(uid);
 
     }
@@ -57,6 +56,7 @@ public class BookingService {
 
         try {
             if( bookingRepository.findByUidAndPid(pid, uid).isPresent() ) {
+                System.out.println("Booking found!");
                 bookingRepository.deleteByUidAndPid(pid, uid);
                 return "Booking removed successfully!";
             } else {

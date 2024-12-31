@@ -12,7 +12,7 @@ public class BookingId implements Serializable {
     public BookingId() {
     }
 
-    public BookingId(String uid, String pid) {
+    public BookingId(String pid, String uid) {
         this.uid = uid;
         this.pid = pid;
     }

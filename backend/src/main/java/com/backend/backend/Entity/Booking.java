@@ -27,8 +27,8 @@ public class Booking {
     public Booking() {
     }
 
-    public Booking(String uid, String pid, Date bookingDate, int no_of_persons) {
-        this.id = new BookingId(uid, pid); // Set the composite ID
+    public Booking(String pid, String uid, Date bookingDate, int no_of_persons) {
+        this.id = new BookingId(pid, uid); // Set the composite ID
         this.bookingDate = bookingDate;
         this.no_of_persons = no_of_persons;
     }

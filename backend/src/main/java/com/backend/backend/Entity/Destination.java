@@ -12,7 +12,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 public class Destination {
 
-    private String pid;
+    private String id;
 
     private String title;
 
@@ -118,11 +118,11 @@ public class Destination {
         this.title = title;
     }
 
-    public String getPid() {
-        return pid;
+    public String getid() {
+        return id;
     }
 
-    public void setPid(String pid) {
-        this.pid = pid;
+    public void setid(String id) {
+        this.id = id;
     }
 }

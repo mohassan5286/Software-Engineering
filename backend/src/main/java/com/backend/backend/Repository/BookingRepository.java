@@ -23,7 +23,7 @@ public interface BookingRepository extends MongoRepository<Booking, BookingId> {
     List<Booking> findByPid(String pid);
 
     // Custom query to delete a booking by product ID and user ID
-    @Query("{'id.pid': ?0, 'id.uid': ?1}")
+    @Query(value = "{'id.pid': ?0, 'id.uid': ?1}", delete = true)
     void deleteByUidAndPid(String pid, String uid);
 
 }
