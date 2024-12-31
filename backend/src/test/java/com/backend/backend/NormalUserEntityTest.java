@@ -1,6 +1,6 @@
 package com.backend.backend;
 
-import com.backend.backend.Entity.NormalUser;
+import com.backend.backend.Entity.User;
 import com.backend.backend.Entity.Booking;
 import org.junit.jupiter.api.Test;
 
@@ -9,15 +9,15 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class NormalUserEntityTest {
+class UserEntityTest {
 
     @Test
     void testConstructorAndDefaultValues() {
         // Create an empty booking history list
         List<Booking> emptyBookingHistory = new ArrayList<>();
 
-        // Instantiate a NormalUser using the all-args constructor
-        NormalUser user = new NormalUser("Alice", "alice@example.com", "UID123", emptyBookingHistory);
+        // Instantiate a User using the all-args constructor
+        User user = new User("Alice", "alice@example.com", "UID123", emptyBookingHistory);
 
         // Test the values set by the constructor
         assertEquals("Alice", user.getName());
@@ -35,8 +35,8 @@ class NormalUserEntityTest {
         bookingHistory.add(booking1);
         bookingHistory.add(booking2);
 
-        // Create a NormalUser with a booking history
-        NormalUser user = new NormalUser("Bob", "bob@example.com", "UID456", bookingHistory);
+        // Create a User with a booking history
+        User user = new User("Bob", "bob@example.com", "UID456", bookingHistory);
 
         // Test the getter for booking history
         assertEquals(bookingHistory, user.getBookingHistory());
@@ -47,9 +47,9 @@ class NormalUserEntityTest {
 
     @Test
     void testAddBooking() {
-        // Create a NormalUser with an empty booking history
+        // Create a User with an empty booking history
         List<Booking> bookingHistory = new ArrayList<>();
-        NormalUser user = new NormalUser("Charlie", "charlie@example.com", "UID789", bookingHistory);
+        User user = new User("Charlie", "charlie@example.com", "UID789", bookingHistory);
 
         // Create a booking and add it to the user's booking history
         Booking newBooking = new Booking(); // Assuming Booking has a no-args constructor

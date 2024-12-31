@@ -1,10 +1,12 @@
 package com.backend.backend.Service;
 
 import com.backend.backend.Entity.Booking;
-import com.backend.backend.Entity.NormalUser;
+import com.backend.backend.Entity.User;
+import com.backend.backend.Entity.User;
 import com.backend.backend.Repository.BookingRepository;
 import com.backend.backend.Repository.DestinationRepository;
-import com.backend.backend.Repository.NormalUserRepository;
+import com.backend.backend.Repository.UserRepository;
+import com.backend.backend.Repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,14 +20,14 @@ public class BookingService {
     @Autowired
     private BookingRepository bookingRepository;
     @Autowired
-    private NormalUserRepository userRepository;
+    private UserRepository userRepository;
 @Autowired
     private DestinationRepository destinationRepository;
 
     public String addBooking(Booking booking) {
 
         try {
-            NormalUser user = userRepository.findById(booking.getUid()).orElseThrow(() -> new NoSuchElementException("User not found!"));
+            User user = userRepository.findById(booking.getUid()).orElseThrow(() -> new NoSuchElementException("User not found!"));
 //            destinationRepository.findById(booking.getPid()).orElseThrow(() -> new NoSuchElementException("Destination not found!"));
             System.out.println(booking);
             bookingRepository.insert(booking);

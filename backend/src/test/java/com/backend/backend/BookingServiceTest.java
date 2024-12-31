@@ -2,10 +2,10 @@ package com.backend.backend;
 
 import com.backend.backend.Entity.Booking;
 import com.backend.backend.Entity.Destination;
-import com.backend.backend.Entity.NormalUser;
+import com.backend.backend.Entity.User;
 import com.backend.backend.Repository.BookingRepository;
 import com.backend.backend.Repository.DestinationRepository;
-import com.backend.backend.Repository.NormalUserRepository;
+import com.backend.backend.Repository.UserRepository;
 import com.backend.backend.Service.BookingService;
 
 import org.junit.Test;
@@ -33,13 +33,13 @@ public class BookingServiceTest {
     private BookingRepository bookingRepository;
 
     @Mock
-    private NormalUserRepository normalUserRepository;
+    private UserRepository UserRepository;
 
     @Mock
     private DestinationRepository destinationRepository;
 
     @Mock
-    NormalUser normalUser;
+    User User;
 
     @InjectMocks
     private BookingService bookingService;
@@ -47,7 +47,7 @@ public class BookingServiceTest {
     @BeforeEach
     public void setUp() {
 
-        normalUser = new NormalUser(
+        User = new User(
                 "John Doe", "johndoe@example.com", "U456",  new ArrayList<>()
         );
 
@@ -66,9 +66,9 @@ public class BookingServiceTest {
         booking.setNo_of_persons(2);
         ;
 
-        Mockito.when(normalUser.getBookingHistory()).thenReturn(new ArrayList<>());
-        Mockito.when(normalUserRepository.findById(Mockito.any(String.class))).thenReturn(Optional.of(normalUser));
-        Mockito.when(normalUserRepository.save(normalUser)).thenReturn(normalUser);
+        Mockito.when(User.getBookingHistory()).thenReturn(new ArrayList<>());
+        Mockito.when(UserRepository.findById(Mockito.any(String.class))).thenReturn(Optional.of(User));
+        Mockito.when(UserRepository.save(User)).thenReturn(User);
         Mockito.when(destinationRepository.findById(Mockito.any(String.class))).thenReturn(Optional.of(new Destination()));
 
         // Act
@@ -90,7 +90,7 @@ public class BookingServiceTest {
         booking.setStatus("Confirmed");
         booking.setNo_of_persons(2);
 
-        Mockito.when(normalUserRepository.findById(Mockito.any(String.class))).thenThrow(new NoSuchElementException("User not found!"));
+        Mockito.when(UserRepository.findById(Mockito.any(String.class))).thenThrow(new NoSuchElementException("User not found!"));
 
         // Act
         String result = bookingService.addBooking(booking);
@@ -110,7 +110,7 @@ public class BookingServiceTest {
         booking.setStatus("Confirmed");
         booking.setNo_of_persons(2);
 
-        Mockito.when(normalUserRepository.findById(Mockito.any(String.class))).thenReturn(Optional.of(normalUser));
+        Mockito.when(UserRepository.findById(Mockito.any(String.class))).thenReturn(Optional.of(User));
         Mockito.when(destinationRepository.findById(Mockito.any(String.class))).thenThrow(new NoSuchElementException("Destination not found!"));
 
 
@@ -132,7 +132,7 @@ public class BookingServiceTest {
         booking.setStatus("Confirmed");
         booking.setNo_of_persons(2);
 
-        Mockito.when(normalUserRepository.findById(Mockito.any(String.class))).thenThrow(new DuplicateFormatFlagsException(""));
+        Mockito.when(UserRepository.findById(Mockito.any(String.class))).thenThrow(new DuplicateFormatFlagsException(""));
 
 
         // Act
