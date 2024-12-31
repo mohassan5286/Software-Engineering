@@ -94,6 +94,7 @@ function App() {
           path="/"
           element={<Login setUserId={handleLogin} setIsAdmin={setIsAdmin} />}
         />
+        
         <Route path='/booking-page' element={<BookingPage />} />
         <Route path="/wishlist" element={<Wishlist setUserId={setUserId}/>} />
         <Route
