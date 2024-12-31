@@ -62,12 +62,6 @@ function App() {
     <>
       {shouldRenderHeader && <Header />}
       <Routes>
-      <Route path="/search" element={<SearchResults />} />
-        <Route path="/home" element={<Home setPid={setPid} setInformation={setInformation} />} />
-        <Route path="/login" element={<Login setUserId={setUserId} />} />
-        <Route path="/" element={<Login setUserId={setUserId} />} />
-        <Route path='/booking-page' element={<BookingPage />} />
-        <Route path={`/destination-page/:${pid}`} element={<DestinationPageInformation information={information} />} />
         <Route
           path="/search"
           element={
@@ -92,6 +86,7 @@ function App() {
           path="/"
           element={<Login setUserId={handleLogin} />}
         />
+        <Route path='/booking-page' element={<BookingPage />} />
         <Route
           path="/destination-page/:pid"
           element={

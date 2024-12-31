@@ -6,9 +6,11 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin
+import java.util.List;
+
 @RestController
 @RequestMapping("/booking")
+@CrossOrigin
 //@AllArgsConstructor
 public class BookingController {
 
