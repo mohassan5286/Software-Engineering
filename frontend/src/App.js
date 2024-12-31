@@ -98,9 +98,26 @@ function App() {
         <Route path="/*" element={<Nopage />} />
       </Routes>
       {user_id && (
-        <button onClick={handleLogout} style={{ position: 'fixed', bottom: 10, right: 10 }}>
-          Logout
-        </button>
+        <button 
+        onClick={handleLogout} 
+        style={{
+          position: 'fixed', 
+          bottom: '20px', 
+          right: '20px', 
+          backgroundColor: '#007BFF', 
+          color: 'white', 
+          border: 'none', 
+          borderRadius: '8px', 
+          padding: '10px 15px', 
+          cursor: 'pointer', 
+          boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',
+          fontSize: '16px'
+        }}
+        onMouseOver={(e) => e.target.style.backgroundColor = '#0056b3'}
+        onMouseOut={(e) => e.target.style.backgroundColor = '#007BFF'}
+      >
+        Logout
+      </button>
       )}
     </>
   );
