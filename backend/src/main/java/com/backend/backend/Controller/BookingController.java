@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/booking")
-@CrossOrigin(value = "http://localhost:3000/")
+@CrossOrigin
 //@AllArgsConstructor
 public class BookingController {
 

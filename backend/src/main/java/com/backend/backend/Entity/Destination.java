@@ -12,6 +12,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 public class Destination {
 
+    @Id
     private String pid;
 
     private String title;
