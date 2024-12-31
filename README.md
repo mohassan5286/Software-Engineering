@@ -29,6 +29,7 @@
   <a href="#dependencies">Dependencies</a> •
   <a href="#app-design">App Design</a> •
   <a href="#future-features">Future Features</a> •
+  <a href="#contact">Contact</a> •
   <a href="#license">License</a>
 </p>
 
