@@ -5,6 +5,7 @@ import com.backend.backend.Repository.DestinationRepository;
 import com.backend.backend.Service.DestinationService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -64,5 +65,11 @@ public DestinationController(DestinationService destinationService) {
             @RequestParam(required = false) Double maxPrice) {
 
         return destinationService.filterDestinations(location, tourism_type, maxPrice);
+    }
+
+    @PostMapping("/add")
+    public ResponseEntity<Destination> addDestination(@RequestBody Destination destination) {
+        Destination savedDestination = destinationService.saveDestination(destination);
+        return ResponseEntity.ok(savedDestination);
     }
 }
