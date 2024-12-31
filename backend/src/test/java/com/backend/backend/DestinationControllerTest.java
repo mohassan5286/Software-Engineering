@@ -3,11 +3,14 @@ package com.backend.backend;
 import com.backend.backend.Controller.DestinationController;
 import com.backend.backend.Entity.Destination;
 import com.backend.backend.Service.DestinationService;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
@@ -20,6 +23,7 @@ import java.util.List;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.hamcrest.Matchers.hasSize;
@@ -34,6 +38,8 @@ public class DestinationControllerTest {
     private DestinationController destinationController;
 
     private MockMvc mockMvc;
+
+    private ObjectMapper objectMapper = new ObjectMapper();
     private List<Destination> destinations;
 
     @BeforeEach
@@ -162,5 +168,27 @@ public class DestinationControllerTest {
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(0)));  // No results expected
+    }
+
+    @Test
+    public void testAddDestination() throws Exception {
+        Destination destination = new Destination("Santorini Caldera", "Santorini, Greece", "Volcanic Wine Festival",
+                "Beautiful caldera destination with volcanic views", "photoUrl", 300.0, 4.9, 320, "Romantic");
+        destination.setPid("12");
+
+        when(destinationService.saveDestination(Mockito.any(Destination.class))).thenReturn(destination);
+
+        String jsonBody = objectMapper.writeValueAsString(destination);
+
+        String response = mockMvc.perform(post("/destination/add")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(jsonBody))
+                .andExpect(status().isOk())
+                .andReturn()
+                .getResponse()
+                .getContentAsString();
+
+        Assertions.assertTrue(response.contains("\"pid\":\"12\""));
+        Assertions.assertTrue(response.contains("\"title\":\"Santorini Caldera\""));
     }
 }
