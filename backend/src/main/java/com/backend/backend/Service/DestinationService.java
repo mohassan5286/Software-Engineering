@@ -66,4 +66,8 @@ public class DestinationService {
             return destinationRepository.findAll();
         }
     }
+
+    public Destination saveDestination(Destination destination) {
+        return destinationRepository.save(destination);
+    }
 }
