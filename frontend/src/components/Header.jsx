@@ -15,7 +15,7 @@ function Header() {
   const [isFilterVisible, setIsFilterVisible] = useState(true);
 
   const NavigateToHome = () => {
-    navigate('/'); 
+    navigate('/Home'); 
   };
 
   const NavigateToLogin = () => {
