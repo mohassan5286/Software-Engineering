@@ -26,6 +26,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
@@ -172,5 +173,81 @@ public class BookingControllerTest {
         assertEquals(res, response);
 
     }
+
+    //    Milestone 3
+
+    @Test
+    public void testGetAllBookingsHappy1() throws Exception {
+        // Arrange
+        Booking booking1 = new Booking(
+                "674f56cca02d3de66bcaebcc",
+                "U456",
+                new Date(),
+                "Pending",
+                2
+        );
+        Booking booking2 = new Booking(
+                "123a456b789c0de123fghijk",
+                "U457",
+                new Date(),
+                "Confirmed",
+                3
+        );
+
+        List<Booking> bookings = Arrays.asList(booking1, booking2);
+
+        String bookingsJson = objectMapper.writeValueAsString(bookings);
+
+        Mockito.when(bookingService.getAllBookings()).thenReturn(bookings);
+
+        // Act
+        String response = mockMvc.perform(MockMvcRequestBuilders.get("/booking/all")
+                        .accept(MediaType.APPLICATION_JSON))
+                .andReturn()
+                .getResponse()
+                .getContentAsString();
+
+        assertEquals(bookingsJson, response);
+    }
+
+
+    @Test
+    public void testRemoveBookingHappy1() throws Exception {
+        // Arrange
+        String bookingId = "674f56cca02d3de66bcaebcc";
+        String res = "Booking removed successfully!";  // Expected response message
+
+        Mockito.when(bookingService.removeBooking(Mockito.anyString())).thenReturn(res);
+
+        // Act
+        String response = mockMvc.perform(MockMvcRequestBuilders.delete("/booking/remove/{id}", bookingId)
+                        .accept(MediaType.APPLICATION_JSON))
+                .andReturn()
+                .getResponse()
+                .getContentAsString();
+
+        // Assert
+        assertEquals(res, response);
+    }
+
+    @Test
+    public void testRemoveBookingNotFound() throws Exception {
+        // Arrange
+        String bookingId = "nonexistentBookingId";  // An ID that does not exist
+        String res = "Booking not found";  // Expected error message
+
+        Mockito.when(bookingService.removeBooking(Mockito.anyString())).thenThrow(new NoSuchElementException("Booking not found"));
+
+        // Act
+        String response = mockMvc.perform(MockMvcRequestBuilders.delete("/booking/remove/{id}", bookingId)
+                        .accept(MediaType.APPLICATION_JSON))
+                .andReturn()
+                .getResponse()
+                .getContentAsString();
+
+        // Assert
+        assertEquals(res, response);
+    }
+
 
 }
