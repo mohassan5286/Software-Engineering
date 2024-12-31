@@ -3,7 +3,7 @@ import "./Login.css";
 import "boxicons/css/boxicons.min.css";
 import { useNavigate } from 'react-router-dom';
 
-const Login = ({ setUserId }) => {
+const Login = ({ setUserId, setIsAdmin }) => {
   const navigate = useNavigate();
   const [active, setActive] = useState(false);
   const [username, setUsername] = useState("");
@@ -12,6 +12,7 @@ const Login = ({ setUserId }) => {
   const [loginError, setLoginError] = useState(false);
   const [signupError, setSignupError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isAdmin, setIsAdminState] = useState(true);
 
   const toggleActive = () => {
     setActive(!active);
@@ -19,8 +20,20 @@ const Login = ({ setUserId }) => {
     setSignupError(false);
   };
 
+  const handleCheckboxChange = () => {
+    setIsAdminState(!isAdmin);
+  };
+
   const validateUser = async (email, password) => {
-    const url = `http://localhost:8081/api/auth/Login/${email}/${password}`;
+    let url = "" ;
+
+    if (isAdmin) {
+      url = `http://localhost:8081/api/auth/Login/${email}/${password}` ;
+    }
+
+    else {
+       url = `http://localhost:8081/api/auth/Login/Admin/${email}/${password}`;
+    }
   
     try {
       setIsLoading(true);
@@ -50,6 +63,7 @@ const Login = ({ setUserId }) => {
     if (userId) {
       setLoginError(false);
       setUserId(userId);
+      setIsAdmin(!isAdmin);
       navigate(`/home`);
     } else {
       setLoginError(true);
@@ -110,7 +124,7 @@ const Login = ({ setUserId }) => {
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                 />
-                <label>Username</label>
+                <label>Email</label>
                 <i className="bx bxs-user"></i>
                 </div>
                 <div className="input-box animation" style={{ "--i": 2, "--j": 23 }}>
@@ -120,9 +134,24 @@ const Login = ({ setUserId }) => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
+
                 <label>Password</label>
                 <i className="bx bxs-lock-alt"></i>
                 </div>
+
+                <label
+                  className="checkbox-label animation"
+                  style={{ "--i": 3, "--j": 24 }}
+                >
+                <input
+                  type="checkbox"
+                  checked={!isAdmin}
+                  onChange={handleCheckboxChange}
+                  className="checkbox-input"
+                />
+                  <span className="checkbox-text">Sign me in as Admin</span>
+                </label>
+                
                 <button className="btn animation" style={{ "--i": 3, "--j": 24 }}>
                 Login
                 </button>
