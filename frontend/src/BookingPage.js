@@ -27,7 +27,7 @@ const BookingPage = () => {
 
         let temp = {};
         data.forEach((destination) => {
-          temp[destination.id] = destination.title;
+          temp[destination.pid] = destination.title;
         });
 
         setDestinations(temp);
