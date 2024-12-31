@@ -25,6 +25,7 @@ public class Booking {
     private int no_of_persons;
 
     public Booking() {
+        id = new BookingId();
     }
 
     public Booking(String pid, String uid, Date bookingDate, int no_of_persons) {

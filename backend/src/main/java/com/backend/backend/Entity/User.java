@@ -2,6 +2,7 @@ package com.backend.backend.Entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -12,6 +13,7 @@ import java.util.List;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 @Document(collection = "users")
 public class User {
 
@@ -23,6 +25,8 @@ public class User {
     private String verificationToken;  // New field for storing the verification token
     private boolean enabled = false;  // Field to store whether the account is activated
     private List<Booking> bookingHistory;
+
+
 
     public String getId() {
         return id;

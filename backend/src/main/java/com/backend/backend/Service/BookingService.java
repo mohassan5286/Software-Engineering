@@ -28,7 +28,7 @@ public class BookingService {
 
         try {
             User user = userRepository.findById(booking.getId().getUid()).orElseThrow(() -> new NoSuchElementException("User not found!"));
-//            destinationRepository.findById(booking.getPid()).orElseThrow(() -> new NoSuchElementException("Destination not found!"));
+            destinationRepository.findById(booking.getId().getPid()).orElseThrow(() -> new NoSuchElementException("Destination not found!"));
             System.out.println(booking);
             if (bookingRepository.findByUidAndPid(booking.getId().getPid(), booking.getId().getUid()).isPresent()) {
                 bookingRepository.deleteByUidAndPid(booking.getId().getPid(), booking.getId().getUid());

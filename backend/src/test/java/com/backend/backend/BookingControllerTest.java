@@ -173,7 +173,7 @@ public class BookingControllerTest {
     //    Milestone 3
 
     @Test
-    public void testGetAllBookingsHappy1() throws Exception {
+    public void testGetAllBookingsByUidHappy1() throws Exception {
         // Arrange
         Booking booking1 = new Booking(
                 "674f56cca02d3de66bcaebcc",
@@ -188,35 +188,40 @@ public class BookingControllerTest {
                 3
         );
 
-        List<Booking> bookings = Arrays.asList(booking1, booking2);
+        List<Booking> allBookings = Arrays.asList(booking1, booking2);
 
-        String bookingsJson = objectMapper.writeValueAsString(bookings);
+        List<Booking> filteredBookings = allBookings.stream()
+                .filter(booking -> booking.getId().getUid().equals("U456"))
+                .toList();
 
-        Mockito.when(bookingService.getAllBookingsByUid(Mockito.anyString())).thenReturn(
-                bookings.stream().filter(booking -> booking.getId().getUid().equals("U456")).toList()
-        );
+        String filteredBookingsJson = objectMapper.writeValueAsString(filteredBookings);
+
+        Mockito.when(bookingService.getAllBookingsByUid(Mockito.anyString())).thenReturn(filteredBookings);
 
         // Act
-        String response = mockMvc.perform(MockMvcRequestBuilders.get("/booking/all")
+        String response = mockMvc.perform(MockMvcRequestBuilders.get("/booking/all/"+ "U456")
                         .accept(MediaType.APPLICATION_JSON))
                 .andReturn()
                 .getResponse()
                 .getContentAsString();
 
-        assertEquals(bookingsJson, response);
+        // Assert
+        assertEquals(filteredBookingsJson, response);
     }
+
 
 
     @Test
     public void testRemoveBookingHappy1() throws Exception {
         // Arrange
-        String bookingId = "674f56cca02d3de66bcaebcc";
-        String res = "Booking removed successfully!";  // Expected response message
+        String pid = "674f56cca02d3de66bcaebcc";
+        String uid = "U456";
+        String res = "Booking removed successfully!"; // Expected response message
 
-        Mockito.when(bookingService.removeBooking(Mockito.anyString(), Mockito.anyString())).thenReturn(res);
+        Mockito.when(bookingService.removeBooking(Mockito.eq(pid), Mockito.eq(uid))).thenReturn(res);
 
         // Act
-        String response = mockMvc.perform(MockMvcRequestBuilders.delete("/booking/remove/{id}", bookingId)
+        String response = mockMvc.perform(MockMvcRequestBuilders.delete("/booking/remove/" + pid + "/" + uid)
                         .accept(MediaType.APPLICATION_JSON))
                 .andReturn()
                 .getResponse()
@@ -225,25 +230,29 @@ public class BookingControllerTest {
         // Assert
         assertEquals(res, response);
     }
+
 
     @Test
     public void testRemoveBookingNotFound() throws Exception {
         // Arrange
-        String bookingId = "nonexistentBookingId";  // An ID that does not exist
-        String res = "Booking not found";  // Expected error message
+        String pid = "nonexistentBookingId"; // A booking ID that does not exist
+        String uid = "U999";                // A user ID
+        String expectedMessage = "Error: Booking not found"; // Expected error message
 
-        Mockito.when(bookingService.removeBooking(Mockito.anyString(), Mockito.anyString())).thenThrow(new NoSuchElementException("Booking not found"));
+        Mockito.when(bookingService.removeBooking(Mockito.anyString(), Mockito.anyString()))
+                .thenReturn("Error: Booking not found");
 
         // Act
-        String response = mockMvc.perform(MockMvcRequestBuilders.delete("/booking/remove/{id}", bookingId)
+        String response = mockMvc.perform(MockMvcRequestBuilders.delete("/booking/remove/" + pid + "/" + uid)
                         .accept(MediaType.APPLICATION_JSON))
                 .andReturn()
                 .getResponse()
                 .getContentAsString();
 
         // Assert
-        assertEquals(res, response);
+        assertEquals(expectedMessage, response);
     }
+
 
 
 }

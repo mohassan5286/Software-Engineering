@@ -50,7 +50,7 @@ public class DestinationControllerTest {
     public void testFetchDestinationById() throws Exception {
         Destination destination = new Destination("Beach Paradise", "Hawaii", "Event1",
                 "Beautiful beach destination", "photoUrl", 200.0, 4.8, 100, "Relaxation");
-        destination.setPid("1");
+        destination.setid("1");
 
         when(destinationService.getDestinationById("1")).thenReturn(destination);
 
@@ -60,7 +60,7 @@ public class DestinationControllerTest {
                 .getResponse()
                 .getContentAsString();
 
-        assertTrue(response.contains("\"pid\":\"1\""));
+        assertTrue(response.contains("\"id\":\"1\""));
         assertTrue(response.contains("\"title\":\"Beach Paradise\""));
     }
 
