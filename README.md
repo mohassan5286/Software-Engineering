@@ -118,6 +118,6 @@ $ java -jar backend.jar
 
 ## License
 
-MIT License
+[MIT License](LICENSE)
 
 ---
