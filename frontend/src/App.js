@@ -8,6 +8,7 @@ import Home from './pages/Home.jsx';
 import Login from './pages/Login.jsx';
 import Nopage from './pages/Nopage.jsx';
 import DestinationPageInformation from './DestinationPageInformation.js';
+import BookingPage from './BookingPage.js';
 
 function App() {
   const [user_id, setUserId] = useState(localStorage.getItem('user_id') || '');
@@ -33,6 +34,7 @@ function App() {
         <Route path="/home" element={<Home setPid={setPid} setInformation={setInformation} />} />
         <Route path="/login" element={<Login setUserId={setUserId} />} />
         <Route path="/" element={<Login setUserId={setUserId} />} />
+        <Route path='/booking-page' element={<BookingPage />} />
         <Route path={`/destination-page/:${pid}`} element={<DestinationPageInformation information={information} />} />
         <Route path="/*" element={<Nopage />} />
       </Routes>
