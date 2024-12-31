@@ -14,7 +14,7 @@ const Wishlist = () => {
 
   const fetchWishlist = async () => {
     try {
-        // userId = 1 ;
+    
       const response = await axios.get(`http://localhost:8081/api/wishlist/user/${userId}`);
       const wishlistWithDetails = await Promise.all(
         response.data.map(async (item) => {
@@ -35,7 +35,7 @@ const Wishlist = () => {
 
   const removeFromWishlist = async (destinationId) => {
     try {
-        // userId = 1 ;
+    
       await axios.delete(`http://localhost:8081/api/wishlist/${userId}/destination/${destinationId}`);
       setWishlistItems(items => items.filter(item => item.destinationId !== destinationId));
     } catch (error) {
