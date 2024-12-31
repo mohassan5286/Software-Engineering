@@ -125,7 +125,7 @@ export default function Home({ setPid, setInformation, isAdmin }) {
         price: formData.price,
         rating: 0,
         no_of_reviews: 0,
-        tourismType: formData.tourismType,
+        tourism_type: formData.tourismType,
       };
 
       console.log("Destination data:", destinationData);
