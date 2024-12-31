@@ -29,14 +29,13 @@ public class BackendApplication {
 	CommandLineRunner runner(UserRepository UserRepository, BookingRepository bookingRepository) {
 		return args -> {
 //
-			Booking booking = new Booking(
-					"674f56cca02d3de66bcaebd4",
-					"U123",
-					new Date(),
-					"ok",
-					2
-			);
-////
+//			Booking booking = new Booking(
+//					"674f56cca02d3de66bcaebcc",
+//					"6773e4cbc507775e318a753a",
+//					new Date(),
+//					2
+//			);
+//
 //			bookingRepository.insert(booking);
 //
 //			User User = new User(

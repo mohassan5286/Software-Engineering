@@ -61,7 +61,6 @@ public class BookingControllerTest {
                 "674f56cca02d3de66bcaebcc",
                 "U456",
                 new Date(),
-                "Pending",
                 2
         );
 
@@ -91,7 +90,6 @@ public class BookingControllerTest {
                 "674f56cca02d3de66bcaebcc",
                 "U456",
                 new Date(),
-                "Pending",
                 2
         );
 
@@ -121,7 +119,6 @@ public class BookingControllerTest {
                 "674f56cca02d3de66bcaebcc",
                 "U456",
                 new Date(),
-                "Pending",
                 2
         );
 
@@ -151,7 +148,6 @@ public class BookingControllerTest {
                 "674f56cca02d3de66bcaebcc",
                 "U456",
                 new Date(),
-                "Pending",
                 2
         );
 
@@ -183,14 +179,12 @@ public class BookingControllerTest {
                 "674f56cca02d3de66bcaebcc",
                 "U456",
                 new Date(),
-                "Pending",
                 2
         );
         Booking booking2 = new Booking(
                 "123a456b789c0de123fghijk",
                 "U457",
                 new Date(),
-                "Confirmed",
                 3
         );
 

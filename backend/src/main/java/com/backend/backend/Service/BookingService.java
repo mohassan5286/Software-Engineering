@@ -27,7 +27,7 @@ public class BookingService {
     public String addBooking(Booking booking) {
 
         try {
-            User user = userRepository.findById(booking.getUid()).orElseThrow(() -> new NoSuchElementException("User not found!"));
+            User user = userRepository.findById(booking.getId().getUid()).orElseThrow(() -> new NoSuchElementException("User not found!"));
 //            destinationRepository.findById(booking.getPid()).orElseThrow(() -> new NoSuchElementException("Destination not found!"));
             System.out.println(booking);
             bookingRepository.insert(booking);
@@ -51,16 +51,16 @@ public class BookingService {
 
     public String removeBooking(String id) {
 
-        try {
-            if( bookingRepository.existsById(id) ) {
-                bookingRepository.deleteById(id);
+//        try {
+//            if( bookingRepository.existsById() ) {
+//                bookingRepository.deleteById(id);
                 return "Booking removed successfully!";
-            } else {
-                throw new NoSuchElementException("Booking not found!");
-            }
-        } catch (Exception e) {
-            return "Error: " + e.getMessage();
-        }
+//            } else {
+//                throw new NoSuchElementException("Booking not found!");
+//            }
+//        } catch (Exception e) {
+//            return "Error: " + e.getMessage();
+//        }
 
     }
 }
