@@ -91,7 +91,7 @@ const DestinationPageInformation = ({ information }) => {
           </button>
         </div>
       </div>
-      <Rating userId={localStorage.getItem("user_id")} pid={localStorage.getItem("pid")}></Rating>
+      <Rating userId={localStorage.getItem("user_id")} pid={information.pid}></Rating>
     </div>
   );
 };
