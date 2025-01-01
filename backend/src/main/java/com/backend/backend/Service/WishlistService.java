@@ -11,6 +11,7 @@ import java.util.List;
 @Service
 public class WishlistService {
 
+    public static final String ITEM_ALREADY_EXISTS_IN_WISHLIST = "Item already exists in wishlist";
     private WishlistRepository wishlistRepository;
 
     @Autowired
@@ -23,13 +24,17 @@ public class WishlistService {
     }
 
     public Wishlist addToWishlist(Wishlist wishlist) {
-        if (wishlistRepository.existsByUserIdAndDestinationId(
-                wishlist.getUserId(),
-                wishlist.getDestinationId())) {
+        if (doesItemExist(wishlist)) {
 //            System.out.println("sdsdsdkjsdkj dssdds ");
-            throw new IllegalStateException("Item already exists in wishlist");
+            throw new IllegalStateException(ITEM_ALREADY_EXISTS_IN_WISHLIST);
         }
         return wishlistRepository.save(wishlist);
+    }
+
+    private boolean doesItemExist(Wishlist wishlist) {
+        return wishlistRepository.existsByUserIdAndDestinationId(
+                wishlist.getUserId(),
+                wishlist.getDestinationId());
     }
 
     public void removeFromWishlist(String userId, String destinationId) {

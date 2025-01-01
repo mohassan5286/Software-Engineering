@@ -37,13 +37,13 @@ public class RatingService {
     public double getAverageRating(String Pid){
         try {
             System.out.println(Pid);
-            List<Rating>ratings = ratingRepo.findByPid(Pid);
+            List<Rating> ratings = ratingRepo.findByPid(Pid);
             Destination destination = destinationRepo.findDestinationById(Pid);
             double averageRating = 0;
             for (Rating rating : ratings) {
-                averageRating+=rating.getRatingScore();
+                averageRating += rating.getRatingScore();
             }
-            averageRating=averageRating/((double)ratings.size());
+            averageRating = averageRating / ((double) ratings.size());
             destination.setRating(averageRating);
             destination.setNo_of_reviews(ratings.size());
 //            System.out.println(destination);

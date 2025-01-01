@@ -55,13 +55,12 @@ public class BookingService {
     public String removeBooking(String pid, String uid) {
 
         try {
-            if( bookingRepository.findByUidAndPid(pid, uid).isPresent() ) {
-                System.out.println("Booking found!");
-                bookingRepository.deleteByUidAndPid(pid, uid);
-                return "Booking removed successfully!";
-            } else {
-                throw new NoSuchElementException("Booking not found!");
-            }
+            if (bookingRepository.findByUidAndPid(pid, uid).isEmpty()) throw new NoSuchElementException("Booking not found!");
+
+            System.out.println("Booking found!");
+            bookingRepository.deleteByUidAndPid(pid, uid);
+            return "Booking removed successfully!";
+
         } catch (Exception e) {
             return "Error: " + e.getMessage();
         }
