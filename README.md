@@ -28,6 +28,7 @@
   <a href="#dependencies">Dependencies</a> •
   <a href="#app-design">App Design</a> •
   <a href="#future-features">Future Features</a> •
+  <a href="#documentation">Documentation</a> •
   <a href="#contact">Contact</a> •
   <a href="#license">License</a> •
   <a href="#acknowledgements">Acknowledgements</a>
@@ -122,6 +123,12 @@ $ java -jar backend.jar
 8. **Push Notifications**: Notify users about deals, updates, and personalized recommendations.
 9. **Travel Insurance Integration**: Offer optional travel insurance during the booking process.
 10. **Offline Access**: Save destination details and itineraries for offline use.
+
+---
+
+## Documentation
+
+Design Detials can be found in the [docs](docs\designPhase.pdf) folder.
 
 ---
 
