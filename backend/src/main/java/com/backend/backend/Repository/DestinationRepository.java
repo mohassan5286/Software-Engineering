@@ -13,7 +13,7 @@ public interface DestinationRepository extends MongoRepository<Destination, Stri
     @Query("{}")
     List<Destination> findAllWithSpecificFields();
 
-    @Query(value = "{ 'tourism_type': ?0 }", fields = "{'title': 1, 'photo_Url': 1, 'price': 1, 'location': 1, 'rating': 1, 'description': 1}")
+    @Query(value = "{ 'tourismType': ?0 }", fields = "{'title': 1, 'photo_Url': 1, 'price': 1, 'location': 1, 'rating': 1, 'description': 1}")
     List<Destination> findByTourism_typeWithSpecificFields(String tourism_type);
     // 1. Find by title containing (case-insensitive)
     @Query("{ 'title': { $regex: ?0, $options: 'i' } }")

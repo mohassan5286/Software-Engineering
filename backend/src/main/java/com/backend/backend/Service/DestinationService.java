@@ -30,7 +30,7 @@ public class DestinationService {
     }
 
     public List<Destination> getDestinationAll() {
-        return destinationRepository.findAll();
+        return destinationRepository.findAllWithSpecificFields();
     }
 
     // Query 2: Get all documents with selected fields

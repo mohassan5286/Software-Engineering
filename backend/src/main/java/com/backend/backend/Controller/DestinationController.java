@@ -31,7 +31,8 @@ public class DestinationController {
 
     @GetMapping("/get/all")
     public List<Destination> fetchDestinationAll() {
-        System.out.println(destinationService.getDestinationAll());
+//        System.out.println("ggggggggggggggg");
+        System.out.println(destinationService.getDestinationAll().get(0).getTourism_type());
         return destinationService.getDestinationAll();
     }
 

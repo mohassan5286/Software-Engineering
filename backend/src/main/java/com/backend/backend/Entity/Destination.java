@@ -33,7 +33,7 @@ public class Destination {
     private String event;
     public Destination(){}
 
-    public Destination(String title, String location, String event, String description, String photoUrl, double price, double rating, int noOfReviews, String tourism_type) {
+    public Destination(String title, String location, String event, String description, String photoUrl, double price, double rating, int noOfReviews, String tourismType) {
         this.title = title;
         this.location = location;
         this.event = event;
@@ -42,7 +42,7 @@ public class Destination {
         this.price = price;
         this.rating = rating;
         this.no_of_reviews = noOfReviews;
-        this.tourism_type = tourism_type;
+        this.tourism_type = tourismType;
     }
 
 
@@ -58,8 +58,8 @@ public class Destination {
         return tourism_type;
     }
 
-    public void setTourism_type(String tourism_type) {
-        this.tourism_type = tourism_type;
+    public void setTourism_type(String tourismType) {
+        this.tourism_type = tourismType;
     }
 
     public String getEvent() {

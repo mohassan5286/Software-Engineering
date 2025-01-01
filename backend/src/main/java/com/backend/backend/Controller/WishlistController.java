@@ -30,6 +30,7 @@ public class WishlistController {
 
     @PostMapping
     public ResponseEntity<Wishlist> addToWishlist(@RequestBody Wishlist wishlist) {
+        System.out.println("we are here ");
         try {
             Wishlist savedWishlist = wishlistService.addToWishlist(wishlist);
             return ResponseEntity.ok(savedWishlist);

@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import ProductCard from "../components/ProductCard"; // Adjust the import path as necessary
 
 const Wishlist = () => {
   const [wishlistItems, setWishlistItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
-  const userId = localStorage.getItem('user_id');
 
   useEffect(() => {
     fetchWishlist();
@@ -14,32 +14,40 @@ const Wishlist = () => {
 
   const fetchWishlist = async () => {
     try {
-    
-      const response = await axios.get(`http://localhost:8081/api/wishlist/user/${userId}`);
+      const userId = 40; // This should be dynamically set, possibly from user state or context
+      const response = await axios.get(
+        `http://localhost:8081/api/wishlist/user/${userId}`
+      );
       const wishlistWithDetails = await Promise.all(
         response.data.map(async (item) => {
-          const destResponse = await axios.get(`http://localhost:8081/destination/get/${item.destinationId}`);
+          const destResponse = await axios.get(
+            `http://localhost:8081/destination/get/${item.destinationId}`
+          );
           return {
             ...item,
-            destination: destResponse.data
+            destination: destResponse.data,
           };
         })
       );
       setWishlistItems(wishlistWithDetails);
       setLoading(false);
     } catch (error) {
-      console.error('Error fetching wishlist:', error);
+      console.error("Error fetching wishlist:", error);
       setLoading(false);
     }
   };
 
   const removeFromWishlist = async (destinationId) => {
     try {
-    
-      await axios.delete(`http://localhost:8081/api/wishlist/${userId}/destination/${destinationId}`);
-      setWishlistItems(items => items.filter(item => item.destinationId !== destinationId));
+      const userId = 40; // This should also be dynamically set
+      await axios.delete(
+        `http://localhost:8081/api/wishlist/${userId}/destination/${destinationId}`
+      );
+      setWishlistItems((items) =>
+        items.filter((item) => item.destinationId !== destinationId)
+      );
     } catch (error) {
-      console.error('Error removing from wishlist:', error);
+      console.error("Error removing from wishlist:", error);
     }
   };
 
@@ -59,32 +67,17 @@ const Wishlist = () => {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {wishlistItems.map((item) => (
-            <div key={item.id} className="border rounded-lg shadow-lg overflow-hidden">
-              <img 
-                src={item.destination.photo_Url} 
-                alt={item.destination.title}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-4">
-                <h2 className="text-xl font-semibold mb-2">{item.destination.title}</h2>
-                <p className="text-gray-600 mb-2">{item.destination.location}</p>
-                <p className="text-lg font-bold mb-4">${item.destination.price}</p>
-                <div className="flex justify-between">
-                  <button
-                    onClick={() => viewDetails(item.destination.pid)}
-                    className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-                  >
-                    View Details
-                  </button>
-                  <button
-                    onClick={() => removeFromWishlist(item.destinationId)}
-                    className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
-                  >
-                    Remove
-                  </button>
-                </div>
-              </div>
-            </div>
+            <ProductCard
+              key={item.id}
+              pid={item.destination.id}
+              location={item.destination.location}
+              photoUrl={item.destination.photo_Url}
+              price={item.destination.price}
+              title={item.destination.title}
+              // Assuming ProductCard does not handle removing from wishlist, so we pass a custom prop for that
+              onRemove={() => removeFromWishlist(item.destinationId)}
+              onViewDetails={() => viewDetails(item.destination.id)}
+            />
           ))}
         </div>
       )}

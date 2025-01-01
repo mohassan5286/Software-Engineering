@@ -5,10 +5,12 @@ import "./Home.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import axios from "axios";
 
 export default function Home({ setPid, setInformation, isAdmin }) {
   const [destinations, setDestinations] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [formData, setFormData] = useState({
     title: "",
@@ -17,42 +19,87 @@ export default function Home({ setPid, setInformation, isAdmin }) {
     description: "",
     photoUrl: "",
     price: "",
-    tourismType: "", 
+    tourismType: "",
   });
   const [formErrors, setFormErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [selectedTourismType, setSelectedTourismType] = useState(""); 
+  const [selectedTourismType, setSelectedTourismType] = useState("");
 
   useEffect(() => {
     const fetchDestinations = async () => {
       try {
-        const response = await fetch("http://localhost:8081/destination/get/all");
-        const data = await response.json();
-        setDestinations(data);
+        const response = await axios.get(
+          "http://localhost:8081/destination/get/all"
+        );
+        console.log("Fetched destinations:", response.data);
+        setDestinations(response.data);
+        setError(null);
       } catch (error) {
         console.error("Error fetching destinations:", error);
+        setError("Failed to load destinations");
+      } finally {
+        setIsLoading(false);
       }
     };
 
-    const timeout = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-
     fetchDestinations();
-
-    return () => clearTimeout(timeout);
   }, []);
 
-  const filterDestinations = (type) =>
-    destinations.filter((destination) => destination.tourism_type === type);
+  const filterDestinations = (type) => {
+    console.log("Filtering for type:", type);
+    console.log("All destinations:", destinations);
+    const filtered =
+      destinations && Array.isArray(destinations)
+        ? destinations.filter((destination) => {
+            console.log("Comparing:", destination.tourism_type, "with", type);
+            return destination.tourism_type === type;
+          })
+        : [];
+    console.log("Filtered results:", filtered);
+    return filtered;
+  };
 
   const tourismCategories = [
-    { title: "Religious Tourism 🕌", type: "Religious", data: filterDestinations("Religious") },
-    { title: "Medical Tourism 🩺", type: "Medical", data: filterDestinations("Medical") },
-    { title: "Cultural Tourism 🗽", type: "Cultural", data: filterDestinations("Cultural") },
-    { title: "Nature Tourism 🌋", type: "Nature", data: filterDestinations("Nature") },
-    { title: "Coastal Tourism 🌊", type: "Coastal", data: filterDestinations("Coastal") },
-    { title: "Sports Tourism ⚽", type: "Sports", data: filterDestinations("Sports") },
+    {
+      title: "Historical Tourism 🏛️",
+      type: "Historical",
+      data: filterDestinations("Historical"),
+    },
+    {
+      title: "Religious Tourism 🕌",
+      type: "Religious",
+      data: filterDestinations("Religious"),
+    },
+    {
+      title: "Medical Tourism 🩺",
+      type: "Medical",
+      data: filterDestinations("Medical"),
+    },
+    {
+      title: "Cultural Tourism 🗽",
+      type: "Cultural",
+      data: filterDestinations("Cultural"),
+    },
+    {
+      title: "Nature Tourism 🌋",
+      type: "Nature",
+      data: filterDestinations("Nature"),
+    },
+    {
+      title: "Coastal Tourism 🌊",
+      type: "Coastal",
+      data: filterDestinations("Coastal"),
+    },
+    {
+      title: "Sports Tourism ⚽",
+      type: "Sports",
+      data: filterDestinations("Sports"),
+    },
+    {
+      title: "Adventure Tourism 🏔️",
+      type: "Adventure",
+      data: filterDestinations("Adventure"),
+    },
   ];
 
   const sliderSettings = {
@@ -73,33 +120,37 @@ export default function Home({ setPid, setInformation, isAdmin }) {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+    // Clear error for this field when user starts typing
+    if (formErrors[name]) {
+      setFormErrors({ ...formErrors, [name]: null });
+    }
   };
 
   const handleCategorySelection = (type) => {
-    setSelectedTourismType(type); 
-    setFormData({ ...formData, tourismType: type }); 
+    setSelectedTourismType(type);
+    setFormData({ ...formData, tourismType: type });
     setIsFormVisible(true);
   };
 
   const validateForm = () => {
     const errors = {};
 
-    if (!formData.title || typeof formData.title !== "string") {
-      errors.title = "Title must be a string.";
+    if (!formData.title?.trim()) {
+      errors.title = "Title is required.";
     }
-    if (!formData.location || typeof formData.location !== "string") {
-      errors.location = "Location must be a string.";
+    if (!formData.location?.trim()) {
+      errors.location = "Location is required.";
     }
-    if (!formData.event || typeof formData.event !== "string") {
-      errors.event = "Event must be a string.";
+    if (!formData.event?.trim()) {
+      errors.event = "Event is required.";
     }
-    if (!formData.description || typeof formData.description !== "string") {
-      errors.description = "Description must be a string.";
+    if (!formData.description?.trim()) {
+      errors.description = "Description is required.";
     }
 
     const photoUrlRegex = /(https?:\/\/.*\.(?:png|jpg|jpeg|gif|webp|bmp))/i;
     if (!photoUrlRegex.test(formData.photoUrl)) {
-      errors.photoUrl = "Photo URL must be a valid image URL.";
+      errors.photoUrl = "Please enter a valid image URL.";
     }
 
     if (isNaN(formData.price) || parseFloat(formData.price) <= 0) {
@@ -110,7 +161,7 @@ export default function Home({ setPid, setInformation, isAdmin }) {
     return Object.keys(errors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (validateForm()) {
@@ -122,35 +173,44 @@ export default function Home({ setPid, setInformation, isAdmin }) {
         event: formData.event,
         description: formData.description,
         photo_Url: formData.photoUrl,
-        price: formData.price,
+        price: parseFloat(formData.price),
         rating: 0,
         no_of_reviews: 0,
         tourism_type: formData.tourismType,
       };
 
-      console.log("Destination data:", destinationData);
+      try {
+        const response = await axios.post(
+          "http://localhost:8081/destination/add",
+          destinationData
+        );
+        console.log("Success:", response.data);
 
-      fetch("http://localhost:8081/destination/add", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(destinationData),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          console.log("Success:", data);
-          setIsSubmitting(false);
-          setIsLoading(false);
-          setIsFormVisible(false);
-          alert("Destination added successfully!");
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-          alert("Failed to add destination.");
-          setIsSubmitting(false);
-          setIsLoading(false);
+        // Refresh destinations after adding new one
+        const updatedDestinations = await axios.get(
+          "http://localhost:8081/destination/get/all"
+        );
+        setDestinations(updatedDestinations.data);
+
+        // Reset form
+        setFormData({
+          title: "",
+          location: "",
+          event: "",
+          description: "",
+          photoUrl: "",
+          price: "",
+          tourismType: "",
         });
-    } else {
-      console.log("Form has errors.");
+        setIsFormVisible(false);
+        alert("Destination added successfully!");
+      } catch (error) {
+        console.error("Error:", error);
+        alert("Failed to add destination. Please try again.");
+      } finally {
+        setIsSubmitting(false);
+        setIsLoading(false);
+      }
     }
   };
 
@@ -158,9 +218,13 @@ export default function Home({ setPid, setInformation, isAdmin }) {
     return (
       <div className="loading-overlay">
         <div className="loading-spinner"></div>
-        <p>Loading...</p>
+        <p>Loading destinations...</p>
       </div>
     );
+  }
+
+  if (error) {
+    return <div className="error-message">Error: {error}</div>;
   }
 
   return (
@@ -175,7 +239,8 @@ export default function Home({ setPid, setInformation, isAdmin }) {
             >
               &times;
             </button>
-            <h2>Add New Destination</h2>
+            <h2>Add New {selectedTourismType} Destination</h2>
+
             <label>
               Title:
               <input
@@ -184,9 +249,11 @@ export default function Home({ setPid, setInformation, isAdmin }) {
                 value={formData.title}
                 onChange={handleInputChange}
                 required
+                className={formErrors.title ? "error-input" : ""}
               />
               {formErrors.title && <p className="error">{formErrors.title}</p>}
             </label>
+
             <label>
               Location:
               <input
@@ -195,9 +262,13 @@ export default function Home({ setPid, setInformation, isAdmin }) {
                 value={formData.location}
                 onChange={handleInputChange}
                 required
+                className={formErrors.location ? "error-input" : ""}
               />
-              {formErrors.location && <p className="error">{formErrors.location}</p>}
+              {formErrors.location && (
+                <p className="error">{formErrors.location}</p>
+              )}
             </label>
+
             <label>
               Event:
               <input
@@ -206,9 +277,11 @@ export default function Home({ setPid, setInformation, isAdmin }) {
                 value={formData.event}
                 onChange={handleInputChange}
                 required
+                className={formErrors.event ? "error-input" : ""}
               />
               {formErrors.event && <p className="error">{formErrors.event}</p>}
             </label>
+
             <label>
               Description:
               <textarea
@@ -216,9 +289,13 @@ export default function Home({ setPid, setInformation, isAdmin }) {
                 value={formData.description}
                 onChange={handleInputChange}
                 required
+                className={formErrors.description ? "error-input" : ""}
               ></textarea>
-              {formErrors.description && <p className="error">{formErrors.description}</p>}
+              {formErrors.description && (
+                <p className="error">{formErrors.description}</p>
+              )}
             </label>
+
             <label>
               Photo URL:
               <input
@@ -227,9 +304,13 @@ export default function Home({ setPid, setInformation, isAdmin }) {
                 value={formData.photoUrl}
                 onChange={handleInputChange}
                 required
+                className={formErrors.photoUrl ? "error-input" : ""}
               />
-              {formErrors.photoUrl && <p className="error">{formErrors.photoUrl}</p>}
+              {formErrors.photoUrl && (
+                <p className="error">{formErrors.photoUrl}</p>
+              )}
             </label>
+
             <label>
               Price:
               <input
@@ -240,11 +321,17 @@ export default function Home({ setPid, setInformation, isAdmin }) {
                 min="0"
                 step="0.01"
                 required
+                className={formErrors.price ? "error-input" : ""}
               />
               {formErrors.price && <p className="error">{formErrors.price}</p>}
             </label>
-            <button type="submit" disabled={isSubmitting}>
-              {isSubmitting ? "Submitting..." : "Add"}
+
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="submit-button"
+            >
+              {isSubmitting ? "Adding destination..." : "Add Destination"}
             </button>
           </form>
         </div>
@@ -253,31 +340,43 @@ export default function Home({ setPid, setInformation, isAdmin }) {
       {tourismCategories.map((category, index) => (
         <div className="mb-8" key={index} style={{ marginTop: "20px" }}>
           <div className="category-header">
-            <h2 className="text-2xl font-bold mb-4" style={{ marginLeft: '10px' }}>{category.title}</h2>
+            <h2
+              className="text-2xl font-bold mb-4"
+              style={{ marginLeft: "10px" }}
+            >
+              {category.title}
+            </h2>
             {isAdmin && (
               <button
                 className="add-button"
                 onClick={() => handleCategorySelection(category.type)}
+                title={`Add new ${category.type} destination`}
               >
                 +
               </button>
             )}
           </div>
-          <Slider {...sliderSettings}>
-            {category.data.map((product) => (
-              <ProductCard
-                key={product.pid}
-                pid={product.pid}
-                location={product.location}
-                photo_Url={product.photo_Url}
-                price={product.price}
-                rating={product.rating}
-                title={product.title}
-                setPid={setPid}
-                setInformation={setInformation}
-              />
-            ))}
-          </Slider>
+          {category.data.length > 0 ? (
+            <Slider {...sliderSettings}>
+              {category.data.map((destination) => (
+                <ProductCard
+                  key={destination.pid}
+                  pid={destination.pid}
+                  location={destination.location}
+                  photo_Url={destination.photo_Url}
+                  price={destination.price}
+                  rating={destination.rating}
+                  title={destination.title}
+                  setPid={setPid}
+                  setInformation={setInformation}
+                />
+              ))}
+            </Slider>
+          ) : (
+            <p className="text-gray-500 text-center py-4">
+              No {category.type.toLowerCase()} destinations available yet
+            </p>
+          )}
         </div>
       ))}
     </div>
