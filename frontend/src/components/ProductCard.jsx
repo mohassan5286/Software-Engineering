@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import useDestinationPageInformation from '../GetDestinationPageInformation.js';
 import FavoriteButton from './FavoriteButton';
 
+
 const ProductCard = ({
   pid,
   location,
@@ -85,6 +86,8 @@ const ProductCard = ({
       >
         View More Details
       </button>
+
+      
     </div>
   );
 };

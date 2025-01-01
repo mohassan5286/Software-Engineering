@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document
 //@Data
@@ -124,5 +125,21 @@ public class Destination {
 
     public void setPid(String pid) {
         this.pid = pid;
+    }
+
+    @Override
+    public String toString() {
+        return "Destination{" +
+                "pid='" + pid + '\'' +
+                ", title='" + title + '\'' +
+                ", location='" + location + '\'' +
+                ", description='" + description + '\'' +
+                ", photo_Url='" + photo_Url + '\'' +
+                ", price=" + price +
+                ", rating=" + rating +
+                ", no_of_reviews=" + no_of_reviews +
+                ", tourism_type='" + tourism_type + '\'' +
+                ", event='" + event + '\'' +
+                '}';
     }
 }

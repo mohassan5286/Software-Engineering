@@ -1,12 +1,14 @@
 
 package com.backend.backend;
 
+import com.backend.backend.Entity.Admin;
 import com.backend.backend.Entity.Booking;
 import com.backend.backend.Entity.Destination;
-import com.backend.backend.Entity.NormalUser;
+import com.backend.backend.Entity.User;
+import com.backend.backend.Repository.AdminRepository;
 import com.backend.backend.Repository.BookingRepository;
 import com.backend.backend.Repository.DestinationRepository;
-import com.backend.backend.Repository.NormalUserRepository;
+import com.backend.backend.Repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -24,29 +26,35 @@ public class BackendApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(BackendApplication.class, args);
 	}
+
+	@Bean
+	CommandLineRunner runner(UserRepository UserRepository, BookingRepository bookingRepository, AdminRepository adminRepository) {
+		return args -> {
+//			Admin admin2 = new Admin();
+//			admin2.setId("2");
+//			admin2.setUsername("adminUser2");
+//			admin2.setPassword("securePassword2");
+//			admin2.setEmail("admin2@example.com");
 //
-//	@Bean
-//	CommandLineRunner runner(NormalUserRepository normalUserRepository, BookingRepository bookingRepository) {
-//		return args -> {
-////
+//			// Insert data into MongoDB
+//			adminRepository.save(admin2);
 //			Booking booking = new Booking(
-//					"674f56cca02d3de66bcaebd4",
-//					"U123",
+//					"674f56cca02d3de66bcaebcc",
+//					"6773e4cbc507775e318a753a",
 //					new Date(),
-//					"ok",
 //					2
 //			);
-////
+//
 //			bookingRepository.insert(booking);
 //
-//			NormalUser normalUser = new NormalUser(
+//			User User = new User(
 //					"name",
 //					"ok",
 //					"U123",
 //					new ArrayList<>()
 //			);
 //
-//			normalUserRepository.insert(normalUser);
-//		};
-//	}
+//			UserRepository.insert(User);
+		};
+	}
 }

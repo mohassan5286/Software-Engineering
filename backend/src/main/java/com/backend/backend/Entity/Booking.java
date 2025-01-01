@@ -14,45 +14,33 @@ import java.util.Date;
 //
 //@Setter
 //@Getter
-@Document(collation = "booking")
 //@AllArgsConstructor
 //@NoArgsConstructor
-@CompoundIndex(def = "{'pid': 1, 'uid': 1}", unique = true)
+@Document(collection = "booking")
 public class Booking {
-//    @Id
-    String pid;
-//    @Indexed(unique = true)
-//    @Indexed(unique = true)
-    String uid;
-    Date bookingDate;
-    String status;
-    int no_of_persons;
+
+    @Id
+    private BookingId id;  // Use the composite key (uid + pid)
+    private Date bookingDate;
+    private int no_of_persons;
 
     public Booking() {
+        id = new BookingId();
     }
 
-    public Booking(String pid, String uid, Date bookingDate, String status, int no_of_persons) {
-        this.pid = pid;
-        this.uid = uid;
+    public Booking(String pid, String uid, Date bookingDate, int no_of_persons) {
+        this.id = new BookingId(pid, uid); // Set the composite ID
         this.bookingDate = bookingDate;
-        this.status = status;
         this.no_of_persons = no_of_persons;
     }
 
-    public String getPid() {
-        return pid;
+    // Getters and setters
+    public BookingId getId() {
+        return id;
     }
 
-    public void setPid(String pid) {
-        this.pid = pid;
-    }
-
-    public String getUid() {
-        return uid;
-    }
-
-    public void setUid(String uid) {
-        this.uid = uid;
+    public void setId(BookingId id) {
+        this.id = id;
     }
 
     public Date getBookingDate() {
@@ -63,14 +51,6 @@ public class Booking {
         this.bookingDate = bookingDate;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
     public int getNo_of_persons() {
         return no_of_persons;
     }
@@ -79,4 +59,3 @@ public class Booking {
         this.no_of_persons = no_of_persons;
     }
 }
-

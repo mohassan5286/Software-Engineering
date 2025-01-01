@@ -2,13 +2,18 @@ package com.backend.backend.Entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 @Setter
-@AllArgsConstructor
+//@AllArgsConstructor
+//@NoArgsConstructor
 @Document(collection = "users")
 public class User {
 
@@ -19,13 +24,24 @@ public class User {
     private String email;
     private String verificationToken;  // New field for storing the verification token
     private boolean enabled = false;  // Field to store whether the account is activated
-    public String getId() {
-        return id;
+    private List<Booking> bookingHistory;
+
+    public User() {
+
     }
 
-    // Setter for id
-    public void setId(String id) {
+    public User(String id, String username, String password, String email, String verificationToken, boolean enabled, List<Booking> bookingHistory) {
         this.id = id;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.verificationToken = verificationToken;
+        this.enabled = enabled;
+        this.bookingHistory = bookingHistory;
+    }
+
+    public String getId() {
+        return id;
     }
 
     // Getter for username
@@ -43,10 +59,6 @@ public class User {
         return password;
     }
 
-    // Setter for password
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     // Getter for email
     public String getEmail() {
@@ -75,4 +87,8 @@ public class User {
         this.enabled = enabled;
     }
 
+
+    public List<Booking> getBookingHistory() {
+        return bookingHistory;
+    }
 }

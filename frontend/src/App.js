@@ -8,6 +8,7 @@ import Login from './pages/Login.jsx';
 import Nopage from './pages/Nopage.jsx';
 import Wishlist from './pages/Wishlist.jsx';
 import DestinationPageInformation from './DestinationPageInformation.js';
+import BookingPage from './BookingPage.js';
 
 function App() {
   const [user_id, setUserId] = useState(sessionStorage.getItem('user_id') || '');
@@ -87,12 +88,14 @@ function App() {
         />
         <Route
           path="/login"
-          element={<Login setUserId={handleLogin} />}
+          element={<Login setUserId={handleLogin} setIsAdmin={setIsAdmin} />}
         />
         <Route
           path="/"
-          element={<Login setUserId={handleLogin} />}
+          element={<Login setUserId={handleLogin} setIsAdmin={setIsAdmin} />}
         />
+        
+        <Route path='/booking-page' element={<BookingPage />} />
         <Route path="/wishlist" element={<Wishlist setUserId={setUserId}/>} />
         <Route
           path="/destination-page/:pid"
