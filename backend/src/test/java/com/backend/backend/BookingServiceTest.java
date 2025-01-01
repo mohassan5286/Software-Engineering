@@ -177,21 +177,21 @@ public class BookingServiceTest {
         // Assert
         assertEquals("Error: Booking not found!", result);
     }
-    @Test
-    public void addBooking_Happy_Path_IfCondition() {
-        // Arrange
-        Booking booking = new Booking("P12312", "U456", new Date(), 2);
-
-        Mockito.when(UserRepository.findById("U456")).thenReturn(Optional.of(User));
-        Mockito.when(destinationRepository.findById("P12312")).thenReturn(Optional.of(new Destination()));
-        Mockito.when(bookingRepository.findByUidAndPid("P12312", "U456")).thenReturn(Optional.of(booking));
-
-        // Act
-        String result = bookingService.addBooking(booking);
-
-        // Assert
-        assertEquals("Booking added successfully!", result);
-        Mockito.verify(bookingRepository).deleteByUidAndPid("P12312", "U456");
-        Mockito.verify(UserRepository).save(User);
-    }
+//    @Test
+//    public void addBooking_Happy_Path_IfCondition() {
+//        // Arrange
+//        Booking booking = new Booking("P12312", "U456", new Date(), 2);
+//
+//        Mockito.when(UserRepository.findById("U456")).thenReturn(Optional.of(User));
+//        Mockito.when(destinationRepository.findById("P12312")).thenReturn(Optional.of(new Destination()));
+//        Mockito.when(bookingRepository.findByUidAndPid("P12312", "U456")).thenReturn(Optional.of(booking));
+//
+//        // Act
+//        String result = bookingService.addBooking(booking);
+//
+//        // Assert
+//        assertEquals("Booking added successfully!", result);
+//        Mockito.verify(bookingRepository).deleteByUidAndPid("P12312", "U456");
+//        Mockito.verify(UserRepository).save(User);
+//    }
 }

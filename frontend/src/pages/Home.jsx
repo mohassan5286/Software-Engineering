@@ -28,6 +28,7 @@ export default function Home({ setPid, setInformation, isAdmin }) {
       try {
         const response = await fetch("http://localhost:8081/destination/get/all");
         const data = await response.json();
+        console.log(data);
         setDestinations(data);
       } catch (error) {
         console.error("Error fetching destinations:", error);

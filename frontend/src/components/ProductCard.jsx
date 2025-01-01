@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-
 import useDestinationPageInformation from '../GetDestinationPageInformation.js';
+import FavoriteButton from './FavoriteButton';
+
 
 const ProductCard = ({
   pid,
@@ -13,8 +14,6 @@ const ProductCard = ({
   setInformation,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
-
-  // Use the custom hook to get the function for fetching destination information
   const { getDestinationPageInformation } = useDestinationPageInformation();
 
   const handleSeeMore = () => {
@@ -31,6 +30,7 @@ const ProductCard = ({
     textAlign: 'center',
     background: 'white',
     boxShadow: '0 4px 8px rgba(0, 0, 0, 1)',
+    position: 'relative',
   };
 
   const imgStyles = {
@@ -62,6 +62,9 @@ const ProductCard = ({
 
   return (
     <div style={cardStyles}>
+      <div style={{ position: 'absolute', top: '8px', right: '8px' }}>
+        <FavoriteButton destinationId={pid} />
+      </div>
       <h2>{title}</h2>
       <img src={photo_Url} alt={title} style={imgStyles} />
       <div style={textContainerStyles}>
@@ -83,8 +86,9 @@ const ProductCard = ({
       >
         View More Details
       </button>
+
+      
     </div>
-    
   );
 };
 

@@ -30,10 +30,10 @@ public class BookingService {
             User user = userRepository.findById(booking.getId().getUid()).orElseThrow(() -> new NoSuchElementException("User not found!"));
             destinationRepository.findById(booking.getId().getPid()).orElseThrow(() -> new NoSuchElementException("Destination not found!"));
             System.out.println(booking);
-            if (bookingRepository.findByUidAndPid(booking.getId().getPid(), booking.getId().getUid()).isPresent()) {
-                bookingRepository.deleteByUidAndPid(booking.getId().getPid(), booking.getId().getUid());
-                user.getBookingHistory().removeIf(b -> b.getId().getPid().equals(booking.getId().getPid()));
-            }
+//            if (bookingRepository.findByUidAndPid(booking.getId().getPid(), booking.getId().getUid()).isPresent()) {
+//                bookingRepository.deleteByUidAndPid(booking.getId().getPid(), booking.getId().getUid());
+//                user.getBookingHistory().removeIf(b -> b.getId().getPid().equals(booking.getId().getPid()));
+//            }
             bookingRepository.insert(booking);
             user.getBookingHistory().add(booking);
             userRepository.save(user);
@@ -55,13 +55,12 @@ public class BookingService {
     public String removeBooking(String pid, String uid) {
 
         try {
-            if( bookingRepository.findByUidAndPid(pid, uid).isPresent() ) {
-                System.out.println("Booking found!");
-                bookingRepository.deleteByUidAndPid(pid, uid);
-                return "Booking removed successfully!";
-            } else {
-                throw new NoSuchElementException("Booking not found!");
-            }
+            if (bookingRepository.findByUidAndPid(pid, uid).isEmpty()) throw new NoSuchElementException("Booking not found!");
+
+            System.out.println("Booking found!");
+            bookingRepository.deleteByUidAndPid(pid, uid);
+            return "Booking removed successfully!";
+
         } catch (Exception e) {
             return "Error: " + e.getMessage();
         }

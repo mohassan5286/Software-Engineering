@@ -121,10 +121,8 @@ function Header() {
         <nav className="site-navigation">
           <ul className="header-links">
             <li><a onClick={NavigateToHome} style={{ cursor: 'pointer' }}><i className="fa-solid fa-house"></i><span className="link-text">Home</span></a></li>
-            <li><a href="#"><i className="fa-solid fa-star"></i><span className="link-text">WishList</span></a></li>
+            <li><a href="/wishlist"><i className="fa-solid fa-star"></i><span className="link-text">WishList</span></a></li>
             <li><a onClick={NavigateToBookingPage} href="#"><i className="fa-solid fa-plane"></i><span className="link-text">Bookings</span></a></li>
-            <li><a href="#"><i className="fa-solid fa-handshake"></i><span className="link-text">Sell</span></a></li>
-            <li><a href="#"><i className="fa-solid fa-cart-shopping"></i><span className="link-text">Cart</span></a></li>
             <li><a onClick={NavigateToLogin}><i className="fa-solid fa-user"></i><span className="link-text">Log in</span></a></li>
           </ul>
         </nav>

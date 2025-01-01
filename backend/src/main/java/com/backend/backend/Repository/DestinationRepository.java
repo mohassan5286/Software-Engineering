@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.repository.Query;
 import java.util.List;
 
 public interface DestinationRepository extends MongoRepository<Destination, String> {
-    @Query("{ '_id': ?0 }")
+    @Query("{ 'pid': ?0 }")
     Destination findDestinationById(String id);
 
     @Query("{}")

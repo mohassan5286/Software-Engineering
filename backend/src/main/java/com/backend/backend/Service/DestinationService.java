@@ -47,19 +47,19 @@ public class DestinationService {
     }
 
 
-    public List<Destination> filterDestinations(String location, String tourism_type, Double maxPrice) {
-        if (location != null && tourism_type != null && maxPrice != null) {
-            return destinationRepository.findByLocationAndTourism_typeAndPriceLessThanEqual(location, tourism_type, maxPrice);
-        } else if (location != null && tourism_type != null) {
-            return destinationRepository.findByLocationAndTourism_type(location, tourism_type);
+    public List<Destination> filterDestinations(String location, String tourismType, Double maxPrice) {
+        if (location != null && tourismType != null && maxPrice != null) {
+            return destinationRepository.findByLocationAndTourism_typeAndPriceLessThanEqual(location, tourismType, maxPrice);
+        } else if (location != null && tourismType != null) {
+            return destinationRepository.findByLocationAndTourism_type(location, tourismType);
         } else if (location != null && maxPrice != null) {
             return destinationRepository.findByLocationAndPriceLessThanEqual(location, maxPrice);
-        } else if (tourism_type != null && maxPrice != null) {
-            return destinationRepository.findByTourism_typeAndPriceLessThanEqual(tourism_type, maxPrice);
+        } else if (tourismType != null && maxPrice != null) {
+            return destinationRepository.findByTourism_typeAndPriceLessThanEqual(tourismType, maxPrice);
         } else if (location != null) {
             return destinationRepository.findByLocation(location);
-        } else if (tourism_type != null) {
-            return destinationRepository.findByTourism_type(tourism_type);
+        } else if (tourismType != null) {
+            return destinationRepository.findByTourism_type(tourismType);
         } else if (maxPrice != null) {
             return destinationRepository.findByPriceLessThanEqual(maxPrice);
         } else {

@@ -6,6 +6,7 @@ import Header from './components/Header.jsx';
 import Home from './pages/Home.jsx';
 import Login from './pages/Login.jsx';
 import Nopage from './pages/Nopage.jsx';
+import Wishlist from './pages/Wishlist.jsx';
 import DestinationPageInformation from './DestinationPageInformation.js';
 import BookingPage from './BookingPage.js';
 
@@ -24,6 +25,7 @@ function App() {
   );
 
   const location = useLocation();
+  // const shouldRenderHeader = location.pathname !== '/' && location.pathname !== '/login';
   const noHeaderRoutes = ['/', '/login'];
   const shouldRenderHeader = !noHeaderRoutes.includes(location.pathname);
 
@@ -62,6 +64,12 @@ function App() {
     <>
       {shouldRenderHeader && <Header />}
       <Routes>
+        {/* <Route path="/search" element={<SearchResults />} />
+        <Route path="/home" element={<Home setPid={setPid} setInformation={setInformation} />} />
+        <Route path="/login" element={<Login setUserId={setUserId} />} />
+        <Route path="/" element={<Login setUserId={setUserId} />} />
+        <Route path="/wishlist" element={<Wishlist setUserId={setUserId}/>} />
+        <Route path={`/destination-page/:${pid}`} element={<DestinationPageInformation information={information} />} /> */}
         <Route
           path="/search"
           element={
@@ -86,7 +94,9 @@ function App() {
           path="/"
           element={<Login setUserId={handleLogin} setIsAdmin={setIsAdmin} />}
         />
+        
         <Route path='/booking-page' element={<BookingPage />} />
+        <Route path="/wishlist" element={<Wishlist setUserId={setUserId}/>} />
         <Route
           path="/destination-page/:pid"
           element={

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import Rating from './components/Rating';
 
 const DestinationPageInformation = ({ information }) => {
   const [numberOfPersons, setNumberOfPersons] = useState(1);
@@ -90,6 +91,7 @@ const DestinationPageInformation = ({ information }) => {
           </button>
         </div>
       </div>
+      <Rating userId={localStorage.getItem("user_id")} pid={information.pid}></Rating>
     </div>
   );
 };

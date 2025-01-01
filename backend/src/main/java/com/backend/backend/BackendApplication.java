@@ -1,9 +1,11 @@
 
 package com.backend.backend;
 
+import com.backend.backend.Entity.Admin;
 import com.backend.backend.Entity.Booking;
 import com.backend.backend.Entity.Destination;
 import com.backend.backend.Entity.User;
+import com.backend.backend.Repository.AdminRepository;
 import com.backend.backend.Repository.BookingRepository;
 import com.backend.backend.Repository.DestinationRepository;
 import com.backend.backend.Repository.UserRepository;
@@ -26,9 +28,16 @@ public class BackendApplication {
 	}
 
 	@Bean
-	CommandLineRunner runner(UserRepository UserRepository, BookingRepository bookingRepository) {
+	CommandLineRunner runner(UserRepository UserRepository, BookingRepository bookingRepository, AdminRepository adminRepository) {
 		return args -> {
-
+//			Admin admin2 = new Admin();
+//			admin2.setId("2");
+//			admin2.setUsername("adminUser2");
+//			admin2.setPassword("securePassword2");
+//			admin2.setEmail("admin2@example.com");
+//
+//			// Insert data into MongoDB
+//			adminRepository.save(admin2);
 //			Booking booking = new Booking(
 //					"674f56cca02d3de66bcaebcc",
 //					"6773e4cbc507775e318a753a",
