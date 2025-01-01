@@ -12,8 +12,8 @@ import java.util.List;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
+//@AllArgsConstructor
+//@NoArgsConstructor
 @Document(collection = "users")
 public class User {
 
@@ -26,7 +26,19 @@ public class User {
     private boolean enabled = false;  // Field to store whether the account is activated
     private List<Booking> bookingHistory;
 
+    public User() {
 
+    }
+
+    public User(String id, String username, String password, String email, String verificationToken, boolean enabled, List<Booking> bookingHistory) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.verificationToken = verificationToken;
+        this.enabled = enabled;
+        this.bookingHistory = bookingHistory;
+    }
 
     public String getId() {
         return id;
