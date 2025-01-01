@@ -145,6 +145,7 @@ $ java -jar backend.jar
 ## Acknowledgements
 
 - This project was developed as part of the Software Engineering course at the Alexandria University in Alexandria, Egypt.
+- Special thanks to our course instructor and teaching assistant for their guidance and support.
 - Course Instructor:
   - Prof: Dr. Noha Adly 
   - Teaching Assistant: Eng. Ahmed El Naggar
