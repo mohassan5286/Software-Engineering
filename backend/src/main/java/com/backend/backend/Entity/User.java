@@ -44,11 +44,6 @@ public class User {
         return id;
     }
 
-    // Setter for id
-    public void setId(String id) {
-        this.id = id;
-    }
-
     // Getter for username
     public String getUsername() {
         return username;
@@ -64,10 +59,6 @@ public class User {
         return password;
     }
 
-    // Setter for password
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     // Getter for email
     public String getEmail() {
