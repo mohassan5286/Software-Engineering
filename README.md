@@ -29,7 +29,8 @@
   <a href="#app-design">App Design</a> •
   <a href="#future-features">Future Features</a> •
   <a href="#contact">Contact</a> •
-  <a href="#license">License</a>
+  <a href="#license">License</a> •
+  <a href="#acknowledgements">Acknowledgements</a>
 </p>
 
 <!-- ![screenshot](https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/app/img/markdownify.gif) -->
@@ -140,3 +141,10 @@ $ java -jar backend.jar
 [MIT License](LICENSE)
 
 ---
+
+## Acknowledgements
+
+- This project was developed as part of the Software Engineering course at the Alexandria University in Alexandria, Egypt.
+- Course Instructor:
+  - Prof: Dr. Noha Adly 
+  - Teaching Assistant: Eng. Ahmed El Naggar
