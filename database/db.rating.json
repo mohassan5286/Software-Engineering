@@ -1,0 +1,14 @@
+[{
+  "_id": "677419d39936642d832c7381_674f56cca02d3de66bcaebd4",
+  "userId": "677419d39936642d832c7381",
+  "pid": "674f56cca02d3de66bcaebd4",
+  "ratingScore": 5,
+  "_class": "com.backend.backend.Entity.Rating"
+},
+{
+  "_id": "677419d39936642d832c7381_674f56cca02d3de66bcaebd1",
+  "userId": "677419d39936642d832c7381",
+  "pid": "674f56cca02d3de66bcaebd1",
+  "ratingScore": 2,
+  "_class": "com.backend.backend.Entity.Rating"
+}]

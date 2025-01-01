@@ -1,0 +1,30 @@
+[{
+  "_id": {
+    "$oid": "6773e4cbc507775e318a753a"
+  },
+  "username": "meudm",
+  "password": "1234567890",
+  "email": "tyourbest4@gmail.com",
+  "enabled": true,
+  "_class": "com.backend.backend.Entity.User"
+},
+{
+  "_id": {
+    "$oid": "677419509936642d832c7380"
+  },
+  "username": "klk",
+  "password": "123456",
+  "email": "da.m.ar.ik.ohen@gmail.com",
+  "enabled": true,
+  "_class": "com.backend.backend.Entity.User"
+},
+{
+  "_id": {
+    "$oid": "677419d39936642d832c7381"
+  },
+  "username": "temp",
+  "password": "1",
+  "email": "aveltmp+r4nhq@gmail.com",
+  "enabled": true,
+  "_class": "com.backend.backend.Entity.User"
+}]

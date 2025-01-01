@@ -1,0 +1,11 @@
+[{
+  "_id": {
+    "$oid": "6775503a19ac6534e15405fc"
+  },
+  "userId": "677419d39936642d832c7381",
+  "destinationId": "674f56cca02d3de66bcaebd4",
+  "createdAt": {
+    "$date": "2025-01-01T12:24:58.458Z"
+  },
+  "_class": "com.backend.backend.Entity.Wishlist"
+}]

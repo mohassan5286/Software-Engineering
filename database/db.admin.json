@@ -1,0 +1,7 @@
+[{
+  "_id": "2",
+  "username": "adminUser2",
+  "password": "securePassword2",
+  "email": "admin2@example.com",
+  "_class": "com.backend.backend.Entity.Admin"
+}]

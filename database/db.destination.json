@@ -74,13 +74,14 @@
   },
   "title": "Mount Everest Base Camp",
   "location": "Khumbu, Nepal",
-  "event": "Himalayan Hiking Festival - Celebrating trekking culture with guided hikes, cultural performances, and environmental workshops, this event takes place annually in early October.",
   "description": "The Mount Everest Base Camp trek offers adventure and stunning Himalayan landscapes. It’s a bucket-list destination for trekkers and mountaineers.",
   "photo_Url": "https://images7.alphacoders.com/546/546508.jpg",
   "price": 500,
-  "rating": 4.9,
-  "no_of_reviews": 200,
-  "tourism_type": "Medical"
+  "rating": 2,
+  "no_of_reviews": 1,
+  "tourism_type": "Medical",
+  "event": "Himalayan Hiking Festival - Celebrating trekking culture with guided hikes, cultural performances, and environmental workshops, this event takes place annually in early October.",
+  "_class": "com.backend.backend.Entity.Destination"
 },
 {
   "_id": {
@@ -116,13 +117,14 @@
   },
   "title": "Golden Gate Bridge",
   "location": "San Francisco, USA",
-  "event": "Bridge to Bridge Run - A popular annual running event starting at the Golden Gate Bridge, held every October on the second Sunday.",
   "description": "The Golden Gate Bridge is an iconic engineering marvel in San Francisco. Visitors can walk or bike across the bridge, enjoying views of the bay and nearby landmarks.",
   "photo_Url": "https://images7.alphacoders.com/418/418009.jpg",
   "price": 50,
-  "rating": 4.7,
-  "no_of_reviews": 600,
-  "tourism_type": "Religious"
+  "rating": 5,
+  "no_of_reviews": 1,
+  "tourism_type": "Religious",
+  "event": "Bridge to Bridge Run - A popular annual running event starting at the Golden Gate Bridge, held every October on the second Sunday.",
+  "_class": "com.backend.backend.Entity.Destination"
 },
 {
   "_id": {
@@ -137,4 +139,19 @@
   "rating": 4.9,
   "no_of_reviews": 320,
   "tourism_type": "Coastal"
+},
+{
+  "_id": {
+    "$oid": "677552fb19ac6534e15405fd"
+  },
+  "title": "Eiffel Tower",
+  "location": "Paris, France",
+  "description": "An iconic landmark of France, offering stunning views of Paris.",
+  "photo_Url": "https://images.stockcake.com/public/2/3/6/23600bb3-9672-4b60-90a0-dd29fa8019e6_large/eiffel-tower-night-stockcake.jpg",
+  "price": 100,
+  "rating": 0,
+  "no_of_reviews": 0,
+  "tourism_type": "Religious",
+  "event": "Mediterranean Olive Festival - A cultural celebration of Crete's finest olives and olive oil, featuring tastings, workshops, and traditional Greek music.",
+  "_class": "com.backend.backend.Entity.Destination"
 }]
