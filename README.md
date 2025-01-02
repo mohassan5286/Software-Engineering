@@ -128,7 +128,7 @@ $ java -jar backend.jar
 
 ## Documentation
 
-Design Detials can be found in the [docs](docs\designPhase.pdf) folder.
+Design Detials can be found in the [docs](docs/designPhase.pdf) folder.
 
 ---
 
