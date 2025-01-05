@@ -1,0 +1,31 @@
+.favorite-button {
+    padding: 8px;
+    border-radius: 50%;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    color: #888;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .favorite-button.favorite {
+    background-color: #ffe5e5;
+    border-color: #ff4d4d;
+    color: #ff4d4d;
+  }
+  
+  .favorite-button:hover {
+    background-color: #e6e6e6;
+  }
+  
+  .favorite-button.favorite:hover {
+    background-color: #ffcccc;
+  }
+  
+  .icon {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+  }
+  

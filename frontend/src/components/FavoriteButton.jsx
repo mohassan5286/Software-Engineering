@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Heart, HeartOff } from 'lucide-react';
+import './FavoriteButton.css';
 
 const FavoriteButton = ({ destinationId }) => {
   const [isFavorite, setIsFavorite] = useState(false);
@@ -12,7 +13,6 @@ const FavoriteButton = ({ destinationId }) => {
 
   const checkIfFavorite = async () => {
     try {
-        // userId = 1 ;
       const response = await axios.get(
         `http://localhost:8081/api/wishlist/${userId}/check/${destinationId}`
       );
@@ -24,9 +24,7 @@ const FavoriteButton = ({ destinationId }) => {
 
   const toggleFavorite = async () => {
     try {
-        // userId = 1 ;
       if (isFavorite) {
-        
         await axios.delete(
           `http://localhost:8081/api/wishlist/${userId}/destination/${destinationId}`
         );
@@ -35,7 +33,7 @@ const FavoriteButton = ({ destinationId }) => {
         await axios.post('http://localhost:8081/api/wishlist', {
           userId: userId,
           destinationId: destinationId,
-          createdAt: new Date().toISOString()
+          createdAt: new Date().toISOString(),
         });
         setIsFavorite(true);
       }
@@ -47,11 +45,9 @@ const FavoriteButton = ({ destinationId }) => {
   return (
     <button
       onClick={toggleFavorite}
-      className={`p-2 rounded-full transition-colors ${
-        isFavorite ? 'text-red-500 hover:text-red-600' : 'text-gray-400 hover:text-gray-500'
-      }`}
+      className={`favorite-button ${isFavorite ? 'favorite' : ''}`}
     >
-      {isFavorite ? <Heart className="w-6 h-6 fill-current" /> : <HeartOff className="w-6 h-6" />}
+      {isFavorite ? <Heart className="icon" /> : <HeartOff className="icon" />}
     </button>
   );
 };
