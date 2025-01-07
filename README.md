@@ -87,12 +87,11 @@ cd scripts
 chmod +x run_project_linux.sh
 ```
 
-3. Run the script based on your operating system:
-   - For Linux:
+1. Run the script:
 
-   ```
-   ./run_project_linux.sh
-   ```
+```
+./run_project_linux.sh
+```
 ### For Windows (Batch Script)
 
 1. Navigate to the `scripts` folder.
