@@ -58,7 +58,7 @@
 
 Follow these steps to clone the repository and run the necessary scripts for your operating system.
 
-## 1. Clone the Repository
+### 1. Clone the Repository
 
 First, clone the repository to your local machine:
 
@@ -69,7 +69,7 @@ cd Software-Engineering
 
 ---
 
-## 2. Run the Script Based on Your Operating System
+### 2. Run the Script Based on Your Operating System
 
 The `scripts/` folder contains the setup scripts for different operating systems. Choose the appropriate script for your platform.
 
