@@ -54,25 +54,57 @@
 
 ## How To Use
 
-```bash
-# Clone this repository
-$ git clone https://github.com/mohassan5286/Software-Engineering
+# How to Run the Project
 
-# Go into the repository
-$ cd Software-Engineering
+Follow these steps to clone the repository and run the necessary scripts for your operating system.
 
-# Open 2 command lines
+## 1. Clone the Repository
 
-# First cli
-$ cd frontend
-$ npm install
-$ npm start
-
-# second cli
-$ cd backend
-$ java -jar backend.jar
+First, clone the repository to your local machine:
 
 ```
+git clone https://github.com/mohassan5286/Software-Engineering
+cd Software-Engineering
+```
+
+---
+
+## 2. Run the Script Based on Your Operating System
+
+The `scripts/` folder contains the setup scripts for different operating systems. Choose the appropriate script for your platform.
+
+### For Linux/macOS (Bash)
+
+1. Navigate to the `scripts` folder:
+
+```
+cd scripts
+```
+
+2. Make the scripts executable:
+
+```
+chmod +x run_project_linux.sh
+```
+
+3. Run the script based on your operating system:
+   - For Linux:
+
+   ```
+   ./run_project_linux.sh
+   ```
+### For Windows (Batch Script)
+
+1. Navigate to the `scripts` folder.
+
+2. Double-click the `run_project_windows.bat` file to execute the script.
+
+---
+
+### What These Scripts Do:
+
+- **Frontend**: Installs dependencies using `npm` and starts the frontend server.
+- **Backend**: Runs the backend application using Java with `java -jar backend.jar`.
 
 - backend runs on localhost:8081
 - frontend runs on localhost:3000
