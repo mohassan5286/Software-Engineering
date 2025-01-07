@@ -56,7 +56,7 @@
 
 Follow these steps to clone the repository and run the necessary scripts for your operating system.
 
-Note: The project requires Node.js, npm, and Java to be installed on your machine.
+Note: The project requires Node.js, npm, Mongodb and Java to be installed on your machine.
 
 ### 1. Clone the Repository
 
