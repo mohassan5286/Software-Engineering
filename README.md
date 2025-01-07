@@ -52,9 +52,7 @@
 
 ---
 
-## How To Use
-
-# How to Run the Project
+## How To Run the Project
 
 Follow these steps to clone the repository and run the necessary scripts for your operating system.
 
